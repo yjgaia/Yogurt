@@ -1,7 +1,8 @@
-YogurtShowcase.ToolbarButton = CLASS({
+YogurtShowcase.Alert = CLASS({
 
 	preset : function() {
 		'use strict';
+
 		return VIEW;
 	},
 
@@ -9,15 +10,16 @@ YogurtShowcase.ToolbarButton = CLASS({
 		'use strict';
 
 		var
-		//
-
 		// wrapper
 		wrapper,
+
+		// alert
+		alert,
 
 		// close.
 		close;
 
-		TITLE('Yogurt Toolbar Button.');
+		TITLE('Yogurt Alert.');
 
 		wrapper = Yogurt.Wrapper({
 			c : [
@@ -27,9 +29,6 @@ YogurtShowcase.ToolbarButton = CLASS({
 
 				// left
 				left : Yogurt.ToolbarButton({
-					style : {
-						flt : 'left'
-					},
 					img : IMG({
 						src : Yogurt.R('back.png')
 					}),
@@ -41,17 +40,7 @@ YogurtShowcase.ToolbarButton = CLASS({
 				}),
 
 				// title
-				title : 'Toolbar Button',
-
-				// right
-				right : Yogurt.ToolbarButton({
-					title : 'Button',
-					on : {
-						tap : function() {
-							Yogurt.Alert('test');
-						}
-					}
-				})
+				title : 'Alert'
 			}),
 
 			// content
@@ -65,9 +54,19 @@ YogurtShowcase.ToolbarButton = CLASS({
 			})]
 		}).appendTo(BODY);
 
+		alert = Yogurt.Alert('test', function() {
+			YogurtShowcase.GO('');
+			alert = undefined;
+		});
+
 		//OVERRIDE: self.close
 		self.close = close = function(params) {
+
 			wrapper.remove();
+
+			if (alert !== undefined) {
+				alert.close();
+			}
 		};
 	}
 });

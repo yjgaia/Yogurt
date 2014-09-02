@@ -2,6 +2,7 @@ Yogurt.Select = CLASS({
 
 	preset : function() {
 		'use strict';
+
 		return NODE;
 	},
 

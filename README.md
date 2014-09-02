@@ -2,4 +2,4 @@
 
 Yogurt is UPPERCASE.IO-Based Mobile UI Framework.
 
-![ScreenShot](https://raw.githubusercontent.com/UPPERCASE-Series/PYCASE/master/pie.jpg)
+![ScreenShot](https://raw.githubusercontent.com/UIO-BOX/Yogurt/master/YogurtShowcase/R/yogurt.jpg)

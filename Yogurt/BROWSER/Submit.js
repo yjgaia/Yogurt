@@ -2,6 +2,7 @@ Yogurt.Submit = CLASS({
 
 	preset : function() {
 		'use strict';
+
 		return NODE;
 	},
 

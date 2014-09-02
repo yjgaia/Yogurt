@@ -2,6 +2,7 @@ Yogurt.ToolbarButton = CLASS({
 
 	preset : function() {
 		'use strict';
+		
 		return NODE;
 	},
 

@@ -2,6 +2,7 @@ Yogurt.Button = CLASS({
 
 	preset : function() {
 		'use strict';
+
 		return NODE;
 	},
 

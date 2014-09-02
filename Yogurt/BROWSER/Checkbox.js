@@ -2,6 +2,7 @@ Yogurt.Checkbox = CLASS({
 
 	preset : function() {
 		'use strict';
+
 		return NODE;
 	},
 

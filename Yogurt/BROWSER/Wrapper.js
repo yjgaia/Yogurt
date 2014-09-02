@@ -2,6 +2,7 @@ Yogurt.Wrapper = CLASS({
 
 	preset : function() {
 		'use strict';
+
 		return NODE;
 	},
 

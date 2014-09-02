@@ -27,5 +27,10 @@ YogurtShowcase.MAIN = METHOD({
 			uris : ['Button'],
 			target : YogurtShowcase.Button
 		});
+
+		YogurtShowcase.MATCH_VIEW({
+			uris : ['Alert'],
+			target : YogurtShowcase.Alert
+		});
 	}
 });

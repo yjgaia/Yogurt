@@ -2,6 +2,7 @@ Yogurt.BottomTap = CLASS({
 
 	preset : function() {
 		'use strict';
+
 		return NODE;
 	},
 

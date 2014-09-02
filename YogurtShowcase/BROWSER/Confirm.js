@@ -1,4 +1,4 @@
-YogurtShowcase.Alert = CLASS({
+YogurtShowcase.Confirm = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -13,10 +13,13 @@ YogurtShowcase.Alert = CLASS({
 		// wrapper
 		wrapper,
 
+		// content
+		content,
+
 		// close.
 		close;
 
-		TITLE('Yogurt Alert.');
+		TITLE('Yogurt Confirm.');
 
 		wrapper = Yogurt.Wrapper({
 			c : [
@@ -37,7 +40,7 @@ YogurtShowcase.Alert = CLASS({
 				}),
 
 				// title
-				title : 'Alert'
+				title : 'Confirm'
 			}),
 
 			// content
@@ -45,13 +48,16 @@ YogurtShowcase.Alert = CLASS({
 				style : {
 					padding : 20
 				},
-				c : [P({
-					c : ['Welcome to Yogurt Showcase.']
-				})]
+				c : content = P({
+					c : 'Welcome to Yogurt Showcase.'
+				})
 			})]
 		}).appendTo(BODY);
 
-		Yogurt.Alert('Alert!');
+		Yogurt.Confirm('Confirm!', function() {
+			content.empty();
+			content.append('Yes!');
+		});
 
 		//OVERRIDE: self.close
 		self.close = close = function(params) {

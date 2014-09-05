@@ -16,6 +16,7 @@ Yogurt.Alert = CLASS({
 				textAlign : 'center',
 				border : '1px solid #333',
 				borderRadius : 5,
+				boxShadow : '0 0 5px rgba(0,0,0,0.3)',
 				onDisplayResize : function(width, height) {
 
 					if (width > 300) {

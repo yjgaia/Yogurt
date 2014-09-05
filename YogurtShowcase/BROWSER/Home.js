@@ -72,16 +72,20 @@ YogurtShowcase.Home = CLASS({
 							uri : 'Form'
 						}, {
 							title : 'List',
-							uri : 'List'
+							uri : 'List',
+							todo : true
 						}, {
 							title : 'Icon',
-							uri : 'Icon'
+							uri : 'Icon',
+							todo : true
 						}, {
 							title : 'Tap',
-							uri : 'Tap'
+							uri : 'Tap',
+							todo : true
 						}, {
 							title : 'Action Sheet',
-							uri : 'ActionSheet'
+							uri : 'ActionSheet',
+							todo : true
 						}, {
 							title : 'Alert',
 							uri : 'Alert'
@@ -93,20 +97,25 @@ YogurtShowcase.Home = CLASS({
 							uri : 'Confirm'
 						}, {
 							title : 'Picker',
-							uri : 'Picker'
+							uri : 'Picker',
+							todo : true
 						}, {
-							title : 'Menu',
-							uri : 'Menu'
+							title : 'Menu Layout',
+							uri : 'MenuLayout'
 						}], function(data, i) {
 
 							array.push(Yogurt.Button({
 								style : {
 									marginTop : i === 0 ? 0 : 15
 								},
-								title : data.title,
+								title : data.title + (data.todo === true ? ' (TODO)' : ''),
 								on : {
 									tap : function() {
-										YogurtShowcase.GO(data.uri);
+										if (data.todo === true) {
+											Yogurt.Alert('Working...');
+										} else {
+											YogurtShowcase.GO(data.uri);
+										}
 									}
 								}
 							}));

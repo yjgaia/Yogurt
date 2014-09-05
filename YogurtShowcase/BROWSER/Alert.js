@@ -51,7 +51,7 @@ YogurtShowcase.Alert = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		Yogurt.Alert('Alert!');
+		Yogurt.Alert('Alert');
 
 		//OVERRIDE: self.close
 		self.close = close = function(params) {

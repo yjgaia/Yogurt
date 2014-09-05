@@ -19,7 +19,8 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			//OPTIONAL: params.left
 			//OPTIONAL: params.title
 			//OPTIONAL: params.right
-			//OPTIONAL: params.style
+			//OPTIONAL: params.wrapperStyle
+			//OPTIONAL: params.contentStyle
 
 			var
 			// left
@@ -35,15 +36,33 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ToolbarColor,
 
 			// text color
-			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.ToolbarTextColor;
+			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.ToolbarTextColor,
 
-			inner.setDom(DIV({
+			// wrapper style
+			wrapperStyle = params === undefined ? undefined : params.wrapperStyle,
+
+			// content style
+			contentStyle = params === undefined ? undefined : params.contentStyle,
+
+			// wrapper
+			wrapper,
+
+			// content
+			content,
+
+			// add wrapper style.
+			addWrapperStyle,
+
+			// add content style.
+			addContentStyle;
+
+			wrapper = DIV({
 				style : {
 					backgroundColor : color,
 					height : height,
 					color : textColor
 				},
-				c : [DIV({
+				c : content = DIV({
 					style : {
 						position : 'fixed',
 						top : 0,
@@ -75,8 +94,31 @@ Yogurt.Toolbar = CLASS(function(cls) {
 						},
 						c : right
 					})]
-				})]
-			}));
+				})
+			});
+
+			inner.setWrapperDom(wrapper);
+			inner.setContentDom(content);
+
+			self.addWrapperStyle = addWrapperStyle = function(style) {
+				//REQUIRED: style
+
+				wrapper.addStyle(style);
+			};
+
+			if (wrapperStyle !== undefined) {
+				addWrapperStyle(wrapperStyle);
+			}
+
+			self.addContentStyle = addContentStyle = function(style) {
+				//REQUIRED: style
+
+				content.addStyle(style);
+			};
+
+			if (contentStyle !== undefined) {
+				addContentStyle(contentStyle);
+			}
 		}
 	};
 });

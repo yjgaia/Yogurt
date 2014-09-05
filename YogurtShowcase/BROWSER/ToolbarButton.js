@@ -9,8 +9,6 @@ YogurtShowcase.ToolbarButton = CLASS({
 		'use strict';
 
 		var
-		//
-
 		// wrapper
 		wrapper,
 

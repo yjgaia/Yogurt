@@ -4,53 +4,53 @@ YogurtShowcase.MAIN = METHOD({
 		'use strict';
 
 		YogurtShowcase.MATCH_VIEW({
-			uris : ['', '**'],
+			uri : ['', '**'],
 			target : YogurtShowcase.Control
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uris : [''],
+			uri : [''],
 			target : YogurtShowcase.Home
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uris : ['Toolbar'],
+			uri : ['Toolbar'],
 			target : YogurtShowcase.Toolbar
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uris : ['ToolbarButton'],
-			target : YogurtShowcase.ToolbarButton
-		});
-
-		YogurtShowcase.MATCH_VIEW({
-			uris : ['Button'],
+			uri : ['Button'],
 			target : YogurtShowcase.Button
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uris : ['Form'],
+			uri : ['Form'],
 			target : YogurtShowcase.Form
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uris : ['Alert'],
+			uri : ['Alert'],
 			target : YogurtShowcase.Alert
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uris : ['Prompt'],
+			uri : ['Prompt'],
 			target : YogurtShowcase.Prompt
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uris : ['Confirm'],
+			uri : ['Confirm'],
 			target : YogurtShowcase.Confirm
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uris : ['MenuLayout'],
+			uri : ['MenuLayout'],
 			target : YogurtShowcase.MenuLayout
+		});
+
+		YogurtShowcase.MATCH_VIEW({
+			uri : ['BottomBar'],
+			target : YogurtShowcase.BottomBar
 		});
 	}
 });

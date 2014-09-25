@@ -2,6 +2,7 @@ YogurtShowcase.Toolbar = CLASS({
 
 	preset : function() {
 		'use strict';
+
 		return VIEW;
 	},
 
@@ -15,7 +16,7 @@ YogurtShowcase.Toolbar = CLASS({
 		// close.
 		close;
 
-		TITLE('Yogurt Toolbar.');
+		TITLE('Yogurt Toolbar');
 
 		wrapper = Yogurt.Wrapper({
 			c : [
@@ -36,7 +37,17 @@ YogurtShowcase.Toolbar = CLASS({
 				}),
 
 				// title
-				title : 'Toolbar'
+				title : 'Toolbar',
+
+				// right
+				right : Yogurt.ToolbarButton({
+					title : 'Button',
+					on : {
+						tap : function() {
+							Yogurt.Alert('test');
+						}
+					}
+				})
 			}),
 
 			// content

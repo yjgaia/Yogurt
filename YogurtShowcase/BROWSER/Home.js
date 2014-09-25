@@ -62,9 +62,6 @@ YogurtShowcase.Home = CLASS({
 							title : 'Toolbar',
 							uri : 'Toolbar'
 						}, {
-							title : 'Toolbar Button',
-							uri : 'ToolbarButton'
-						}, {
 							title : 'Button',
 							uri : 'Button'
 						}, {
@@ -102,6 +99,9 @@ YogurtShowcase.Home = CLASS({
 						}, {
 							title : 'Menu Layout',
 							uri : 'MenuLayout'
+						}, {
+							title : 'Bottom Bar',
+							uri : 'BottomBar'
 						}], function(data, i) {
 
 							array.push(Yogurt.Button({

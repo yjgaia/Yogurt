@@ -135,7 +135,7 @@ YogurtShowcase.MenuLayout = CLASS({
 				})]
 			}),
 
-			c : Yogurt.Wrapper({
+			c : [Yogurt.Wrapper({
 				c : [
 
 				// content
@@ -147,7 +147,7 @@ YogurtShowcase.MenuLayout = CLASS({
 						c : ['Welcome to Yogurt Showcase.']
 					})]
 				})]
-			})
+			})]
 		}).appendTo(BODY);
 
 		//OVERRIDE: self.close

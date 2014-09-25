@@ -35,6 +35,9 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			// color
 			color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.ToolbarColor,
 
+			// background image
+			backgroundImage = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.ToolbarBackgroundImage,
+
 			// text color
 			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.ToolbarTextColor,
 
@@ -59,6 +62,7 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			wrapper = DIV({
 				style : {
 					backgroundColor : color,
+					backgroundImage : backgroundImage,
 					height : height,
 					color : textColor
 				},

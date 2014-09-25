@@ -2,6 +2,7 @@ YogurtShowcase.Form = CLASS({
 
 	preset : function() {
 		'use strict';
+
 		return VIEW;
 	},
 

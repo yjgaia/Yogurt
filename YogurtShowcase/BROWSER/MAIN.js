@@ -9,47 +9,47 @@ YogurtShowcase.MAIN = METHOD({
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : [''],
+			uri : '',
 			target : YogurtShowcase.Home
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : ['Toolbar'],
+			uri : 'Toolbar',
 			target : YogurtShowcase.Toolbar
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : ['Button'],
+			uri : 'Button',
 			target : YogurtShowcase.Button
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : ['Form'],
+			uri : 'Form',
 			target : YogurtShowcase.Form
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : ['Alert'],
+			uri : 'Alert',
 			target : YogurtShowcase.Alert
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : ['Prompt'],
+			uri : 'Prompt',
 			target : YogurtShowcase.Prompt
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : ['Confirm'],
+			uri : 'Confirm',
 			target : YogurtShowcase.Confirm
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : ['MenuLayout'],
+			uri : 'MenuLayout',
 			target : YogurtShowcase.MenuLayout
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : ['BottomBar'],
+			uri : 'BottomBar',
 			target : YogurtShowcase.BottomBar
 		});
 	}

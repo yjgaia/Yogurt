@@ -5,6 +5,9 @@ Yogurt.BottomButton = CLASS(function(cls) {
 	// width
 	width = 60,
 
+	// image height
+	imageHeight = 20,
+
 	// get width.
 	getWidth;
 
@@ -64,7 +67,7 @@ Yogurt.BottomButton = CLASS(function(cls) {
 					textDecoration : 'none',
 					touchCallout : 'none',
 					userSelect : 'none',
-					fontSize : 16,
+					fontSize : 12,
 					width : width
 				},
 				href : href,
@@ -78,12 +81,17 @@ Yogurt.BottomButton = CLASS(function(cls) {
 			}
 
 			if (img !== undefined) {
+
 				a.prepend(DIV({
 					style : {
-						marginBottom : title !== undefined ? 10 : 0
+						marginBottom : title !== undefined ? 5 : 0
 					},
 					c : img
 				}));
+
+				img.addStyle({
+					height : imageHeight
+				});
 			}
 
 			inner.setDom(a);

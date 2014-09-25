@@ -23,6 +23,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 			//REQUIRED: params.toolbar
 			//OPTIONAL: params.leftMenu
 			//OPTIONAL: params.rightMenu
+			//OPTIONAL: params.bottomBar
 
 			var
 			// toolbar
@@ -33,6 +34,9 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 
 			// right menu
 			rightMenu = params.rightMenu,
+
+			// bottom bar
+			bottomBar = params.bottomBar,
 
 			// is left menu hiding
 			isLeftMenuHiding = true,
@@ -66,6 +70,9 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 
 			// content tap event
 			contentTapEvent,
+
+			// bottom bar tap event
+			bottomBarTapEvent,
 
 			// show left menu.
 			showLeftMenu,
@@ -155,7 +162,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 							}
 						}
 					}
-				})]
+				}), bottomBar]
 			});
 
 			inner.setWrapperDom(wrapper);
@@ -207,6 +214,21 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 							})
 						});
 
+						if (bottomBar !== undefined) {
+
+							ANIMATE({
+								node : bottomBar.getContentDom(),
+								keyframes : KEYFRAMES({
+									from : {
+										left : 0
+									},
+									to : {
+										left : menuWidth
+									}
+								})
+							});
+						}
+
 						isLeftMenuHiding = false;
 
 						toolbarTapEvent = EVENT({
@@ -222,6 +244,16 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 						}, function(e) {
 							toggleLeftMenu();
 						});
+
+						if (bottomBar !== undefined) {
+
+							bottomBarTapEvent = EVENT({
+								node : bottomBar,
+								name : 'touchstart'
+							}, function(e) {
+								toggleLeftMenu();
+							});
+						}
 					}
 				}
 			};
@@ -272,10 +304,29 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 							})
 						});
 
+						if (bottomBar !== undefined) {
+
+							ANIMATE({
+								node : bottomBar.getContentDom(),
+								keyframes : KEYFRAMES({
+									from : {
+										left : menuWidth
+									},
+									to : {
+										left : 0
+									}
+								})
+							});
+						}
+
 						isLeftMenuShowing = false;
 
 						toolbarTapEvent.remove();
 						contentTapEvent.remove();
+
+						if (bottomBarTapEvent !== undefined) {
+							bottomBarTapEvent.remove();
+						}
 					}
 				}
 			};
@@ -342,6 +393,21 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 							})
 						});
 
+						if (bottomBar !== undefined) {
+
+							ANIMATE({
+								node : bottomBar.getContentDom(),
+								keyframes : KEYFRAMES({
+									from : {
+										left : 0
+									},
+									to : {
+										left : -menuWidth
+									}
+								})
+							});
+						}
+
 						isRightMenuHiding = false;
 
 						toolbarTapEvent = EVENT({
@@ -357,6 +423,16 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 						}, function(e) {
 							toggleRightMenu();
 						});
+
+						if (bottomBar !== undefined) {
+
+							bottomBarTapEvent = EVENT({
+								node : bottomBar,
+								name : 'touchstart'
+							}, function(e) {
+								toggleRightMenu();
+							});
+						}
 					}
 				}
 			};
@@ -407,10 +483,29 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 							})
 						});
 
+						if (bottomBar !== undefined) {
+
+							ANIMATE({
+								node : bottomBar.getContentDom(),
+								keyframes : KEYFRAMES({
+									from : {
+										left : -menuWidth
+									},
+									to : {
+										left : 0
+									}
+								})
+							});
+						}
+
 						isRightMenuShowing = false;
 
 						toolbarTapEvent.remove();
 						contentTapEvent.remove();
+
+						if (bottomBarTapEvent !== undefined) {
+							bottomBarTapEvent.remove();
+						}
 					}
 				}
 			};

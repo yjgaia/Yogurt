@@ -1,54 +1,69 @@
-Yogurt.BottomBar = CLASS({
+Yogurt.BottomBar = CLASS(function(cls) {
+	'use strict';
 
-	preset : function() {
-		'use strict';
+	var
+	// z index
+	zIndex = 999,
 
-		return NODE;
-	},
+	// height
+	height = 70;
 
-	init : function(inner, self, params) {
-		'use strict';
-		//REQUIRED: params
-		//REQUIRED: params.buttons
-		//OPTIONAL: params.style
+	return {
 
-		var
-		// buttons
-		buttons = params.buttons,
+		preset : function() {
+			return NODE;
+		},
 
-		// color
-		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarColor === undefined ? '#666' : BROWSER_CONFIG.Yogurt.BottomBarColor,
+		init : function(inner, self, params) {
+			//REQUIRED: params
+			//REQUIRED: params.buttons
+			//OPTIONAL: params.style
 
-		// text color
-		textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.BottomBarTextColor,
+			var
+			// buttons
+			buttons = params.buttons,
 
-		// content
-		content;
+			// color
+			color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarColor === undefined ? '#666' : BROWSER_CONFIG.Yogurt.BottomBarColor,
 
-		inner.setWrapperDom(DIV({
-			style : {
-				position : 'fixed',
-				bottom : 0,
-				backgroundColor : color,
-				width : '100%',
-				textAlign : 'center'
-			},
-			c : content = DIV({
+			// text color
+			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.BottomBarTextColor,
+
+			// wrapper
+			wrapper,
+
+			// content
+			content;
+
+			wrapper = DIV({
 				style : {
-					width : Yogurt.BottomButton.getWidth() * buttons.length,
-					margin : 'auto',
-					padding : '15px 0 10px 0',
-					color : textColor
-				}
-			})
-		}));
+					height : height
+				},
+				c : content = DIV({
+					style : {
+						position : 'fixed',
+						left : 0,
+						bottom : 0,
+						backgroundColor : color,
+						width : '100%'
+					},
+					c : DIV({
+						style : {
+							width : Yogurt.BottomButton.getWidth() * buttons.length,
+							margin : 'auto',
+							padding : '14px 0 10px 0',
+							color : textColor
+						},
+						c : EXTEND({
+							origin : buttons,
+							extend : [CLEAR_BOTH()]
+						})
+					})
+				})
+			});
 
-		inner.setContentDom(content);
-
-		EACH(buttons, function(button) {
-			self.append(button);
-		});
-
-		self.append(CLEAR_BOTH());
-	}
+			inner.setWrapperDom(wrapper);
+			inner.setContentDom(content);
+		}
+	};
 });

@@ -61,19 +61,18 @@ Yogurt.Toolbar = CLASS(function(cls) {
 
 			wrapper = DIV({
 				style : {
-					backgroundColor : color,
-					backgroundImage : backgroundImage,
-					height : height,
-					color : textColor
+					height : height
 				},
 				c : content = DIV({
 					style : {
 						position : 'fixed',
 						top : 0,
 						backgroundColor : color,
+						backgroundImage : backgroundImage,
 						height : height,
 						width : '100%',
-						zIndex : zIndex
+						zIndex : zIndex,
+						color : textColor
 					},
 					c : [left === undefined ? '' : DIV({
 						style : {

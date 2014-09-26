@@ -24,8 +24,8 @@ YogurtShowcase.Button = CLASS({
 			// toolbar
 			Yogurt.Toolbar({
 
-				// left child
-				leftChild : Yogurt.ToolbarButton({
+				// left
+				left : Yogurt.ToolbarButton({
 					img : IMG({
 						src : Yogurt.R('back.png')
 					}),

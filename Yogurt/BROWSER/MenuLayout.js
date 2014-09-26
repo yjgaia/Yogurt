@@ -3,14 +3,24 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 
 	var
 	// menu width
-	menuWidth,
+	menuWidth = 200,
 
 	// hide menu win width
-	hideMenuWinWidth;
+	hideMenuWinWidth = 800,
 
-	cls.menuWidth = menuWidth = 200;
+	// get menu width.
+	getMenuWidth,
 
-	cls.hideMenuWinWidth = hideMenuWinWidth = 800;
+	// get hide menu win width.
+	getHideMenuWinWidth;
+
+	cls.getMenuWidth = getMenuWidth = function() {
+		return menuWidth;
+	};
+
+	cls.getHideMenuWinWidth = getHideMenuWinWidth = function() {
+		return hideMenuWinWidth;
+	};
 
 	return {
 
@@ -73,6 +83,12 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 
 			// bottom bar tap event
 			bottomBarTapEvent,
+
+			// set bottom bar.
+			setBottomBar,
+
+			// remove bottom bar.
+			removeBottomBar,
 
 			// show left menu.
 			showLeftMenu,
@@ -162,11 +178,61 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 							}
 						}
 					}
-				}), bottomBar]
+				})]
+			});
+
+			toolbar.addContentStyle({
+				onDisplayResize : function(width, height) {
+
+					if (width > hideMenuWinWidth) {
+						return {
+							left : menuWidth,
+							width : BODY.getWidth() - menuWidth * 2
+						};
+					} else {
+						return {
+							left : 0,
+							width : '100%'
+						};
+					}
+				}
 			});
 
 			inner.setWrapperDom(wrapper);
 			inner.setContentDom(content);
+
+			self.setBottomBar = setBottomBar = function(_bottomBar) {
+
+				bottomBar = _bottomBar;
+
+				bottomBar.addContentStyle({
+					onDisplayResize : function(width, height) {
+
+						if (width > hideMenuWinWidth) {
+							return {
+								left : menuWidth,
+								width : BODY.getWidth() - menuWidth * 2
+							};
+						} else {
+							return {
+								left : 0,
+								width : '100%'
+							};
+						}
+					}
+				});
+
+				wrapper.append(bottomBar);
+			};
+
+			if (bottomBar !== undefined) {
+				setBottomBar(bottomBar);
+			}
+
+			self.removeBottomBar = removeBottomBar = function() {
+				bottomBar.remove();
+				bottomBar = undefined;
+			};
 
 			self.showLeftMenu = showLeftMenu = function() {
 

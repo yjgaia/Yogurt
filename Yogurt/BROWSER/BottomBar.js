@@ -17,7 +17,8 @@ Yogurt.BottomBar = CLASS(function(cls) {
 		init : function(inner, self, params) {
 			//REQUIRED: params
 			//REQUIRED: params.buttons
-			//OPTIONAL: params.style
+			//OPTIONAL: params.wrapperStyle
+			//OPTIONAL: params.contentStyle
 
 			var
 			// buttons
@@ -29,11 +30,23 @@ Yogurt.BottomBar = CLASS(function(cls) {
 			// text color
 			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.BottomBarTextColor,
 
+			// wrapper style
+			wrapperStyle = params.wrapperStyle,
+
+			// content style
+			contentStyle = params.contentStyle,
+
 			// wrapper
 			wrapper,
 
 			// content
-			content;
+			content,
+
+			// add wrapper style.
+			addWrapperStyle,
+
+			// add content style.
+			addContentStyle;
 
 			wrapper = DIV({
 				style : {
@@ -54,9 +67,19 @@ Yogurt.BottomBar = CLASS(function(cls) {
 							padding : '14px 0 10px 0',
 							color : textColor
 						},
-						c : EXTEND({
-							origin : buttons,
-							extend : [CLEAR_BOTH()]
+						c : RUN(function() {
+
+							var
+							// array
+							array = [];
+
+							EACH(buttons, function(button) {
+								array.push(button);
+							});
+
+							array.push(CLEAR_BOTH());
+
+							return array;
 						})
 					})
 				})
@@ -64,6 +87,26 @@ Yogurt.BottomBar = CLASS(function(cls) {
 
 			inner.setWrapperDom(wrapper);
 			inner.setContentDom(content);
+
+			self.addWrapperStyle = addWrapperStyle = function(style) {
+				//REQUIRED: style
+
+				wrapper.addStyle(style);
+			};
+
+			if (wrapperStyle !== undefined) {
+				addWrapperStyle(wrapperStyle);
+			}
+
+			self.addContentStyle = addContentStyle = function(style) {
+				//REQUIRED: style
+
+				content.addStyle(style);
+			};
+
+			if (contentStyle !== undefined) {
+				addContentStyle(contentStyle);
+			}
 		}
 	};
 });

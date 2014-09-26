@@ -52,5 +52,10 @@ YogurtShowcase.MAIN = METHOD({
 			uri : 'BottomBar',
 			target : YogurtShowcase.BottomBar
 		});
+
+		YogurtShowcase.MATCH_VIEW({
+			uri : 'Slider',
+			target : YogurtShowcase.Slider
+		});
 	}
 });

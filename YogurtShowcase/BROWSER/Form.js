@@ -143,14 +143,14 @@ YogurtShowcase.Form = CLASS({
 							marginTop : 10
 						},
 						placeholder : 'Who you are?'
-					})]
-				}),
+					}),
 
-				// submit button
-				Yogurt.Submit({
-					style : {
-						marginTop : 20
-					}
+					// submit button
+					Yogurt.Submit({
+						style : {
+							marginTop : 20
+						}
+					})]
 				})]
 			})]
 		}).appendTo(BODY);

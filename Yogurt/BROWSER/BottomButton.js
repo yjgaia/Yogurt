@@ -6,7 +6,7 @@ Yogurt.BottomButton = CLASS(function(cls) {
 	width = 60,
 
 	// image height
-	imageHeight = 20,
+	imageHeight = 24,
 
 	// get width.
 	getWidth;

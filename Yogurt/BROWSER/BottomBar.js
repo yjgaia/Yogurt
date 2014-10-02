@@ -3,10 +3,7 @@ Yogurt.BottomBar = CLASS(function(cls) {
 
 	var
 	// z index
-	zIndex = 999,
-
-	// height
-	height = 70;
+	zIndex = 999;
 
 	return {
 
@@ -29,6 +26,9 @@ Yogurt.BottomBar = CLASS(function(cls) {
 
 			// text color
 			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.BottomBarTextColor,
+
+			// height
+			height = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarHeight === undefined ? 70 : BROWSER_CONFIG.Yogurt.BottomBarHeight,
 
 			// wrapper style
 			wrapperStyle = params.wrapperStyle,

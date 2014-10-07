@@ -89,7 +89,7 @@ YogurtShowcase.Slider = CLASS({
 									width : '100%'
 								},
 								contentStyle : {
-									padding : '10px 30px'
+									padding : '10px 10px'
 								},
 								c : [H5({
 									style : {

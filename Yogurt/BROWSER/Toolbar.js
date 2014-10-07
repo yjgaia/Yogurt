@@ -50,6 +50,9 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			// wrapper
 			wrapper,
 
+			// title dom
+			titleDom,
+
 			// content
 			content,
 
@@ -57,7 +60,10 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			addWrapperStyle,
 
 			// add content style.
-			addContentStyle;
+			addContentStyle,
+
+			// set title.
+			setTitle;
 
 			wrapper = DIV({
 				style : {
@@ -82,7 +88,7 @@ Yogurt.Toolbar = CLASS(function(cls) {
 							left : 0
 						},
 						c : left
-					}), H1({
+					}), titleDom = H1({
 						style : {
 							paddingTop : 13,
 							fontSize : 20,
@@ -123,6 +129,11 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			if (contentStyle !== undefined) {
 				addContentStyle(contentStyle);
 			}
+
+			self.setTitle = setTitle = function(title) {
+				titleDom.empty();
+				titleDom.append(title);
+			};
 		}
 	};
 });

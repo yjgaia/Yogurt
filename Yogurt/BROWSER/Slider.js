@@ -12,6 +12,7 @@ Yogurt.Slider = CLASS({
 		//REQUIRED: params.slides
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.contentStyle
+		//OPTIONAL: params.isNotUsingDots
 
 		var
 		// slides
@@ -22,6 +23,9 @@ Yogurt.Slider = CLASS({
 
 		// content style
 		contentStyle = params.contentStyle,
+
+		// is not using dots
+		isNotUsingDots = params.isNotUsingDots,
 
 		// wrapper
 		wrapper,
@@ -43,18 +47,18 @@ Yogurt.Slider = CLASS({
 
 		// scroll interval
 		scrollInterval,
-
-		// scroll left.
-		scrollLeft,
-
-		// scroll right.
-		scrollRight,
+		
+		// scroll to.
+		scrollTo,
 
 		// add wrapper style.
 		addWrapperStyle,
 
 		// add content style.
-		addContentStyle;
+		addContentStyle,
+
+		// get page.
+		getPage;
 
 		wrapper = DIV({
 			c : [DIV({
@@ -101,7 +105,7 @@ Yogurt.Slider = CLASS({
 					}),
 					on : {
 						tap : function() {
-							scrollLeft();
+							scrollTo(page - 1);
 						}
 					}
 				}), DIV({
@@ -124,11 +128,11 @@ Yogurt.Slider = CLASS({
 					}),
 					on : {
 						tap : function() {
-							scrollRight();
+							scrollTo(page + 1);
 						}
 					}
 				})]
-			}), UUI.V_CENTER({
+			}), isNotUsingDots === true ? '' : UUI.V_CENTER({
 				wrapperStyle : {
 					height : 20
 				},
@@ -192,59 +196,57 @@ Yogurt.Slider = CLASS({
 			});
 		});
 
-		scrollLeft = function() {
+		self.scrollTo = scrollTo = function(_page) {
 
-			dots[page].addContentStyle({
-				backgroundColor : RGBA([128, 128, 128, 0.3])
-			});
-
-			if (page > 0) {
-				page -= 1;
+			if (_page < 0) {
+				_page = slides.length - 1;
+			} else if (_page >= slides.length) {
+				_page = 0;
 			}
 
-			dots[page].addContentStyle({
-				backgroundColor : '#000'
-			});
+			if (isNotUsingDots !== true) {
+				dots[page].addContentStyle({
+					backgroundColor : RGBA([128, 128, 128, 0.3])
+				});
+			}
 
 			if (scrollInterval !== undefined) {
 				scrollInterval.remove();
 				scrollInterval = undefined;
 			}
 
-			scrollInterval = INTERVAL(function() {
-				if (scrollWrapper.getEl().scrollLeft <= page * width) {
-					scrollWrapper.getEl().scrollLeft = page * width;
-					return false;
-				}
-				scrollWrapper.getEl().scrollLeft -= width / 50;
-			});
-		};
+			if (page < _page) {
+				page = _page;
 
-		scrollRight = function() {
+				scrollInterval = INTERVAL(function() {
+					if (scrollWrapper.getEl().scrollLeft >= page * width) {
+						scrollWrapper.getEl().scrollLeft = page * width;
+						return false;
+					}
+					scrollWrapper.getEl().scrollLeft += width / 50;
+				});
 
-			dots[page].addContentStyle({
-				backgroundColor : RGBA([128, 128, 128, 0.3])
-			});
+			} else if (page > _page) {
+				page = _page;
 
-			if (page < slides.length - 1) {
-				page += 1;
+				scrollInterval = INTERVAL(function() {
+					if (scrollWrapper.getEl().scrollLeft <= page * width) {
+						scrollWrapper.getEl().scrollLeft = page * width;
+						return false;
+					}
+					scrollWrapper.getEl().scrollLeft -= width / 50;
+				});
 			}
 
-			dots[page].addContentStyle({
-				backgroundColor : '#000'
-			});
-
-			if (scrollInterval !== undefined) {
-				scrollInterval.remove();
-				scrollInterval = undefined;
+			if (isNotUsingDots !== true) {
+				dots[page].addContentStyle({
+					backgroundColor : '#000'
+				});
 			}
 
-			scrollInterval = INTERVAL(function() {
-				if (scrollWrapper.getEl().scrollLeft >= page * width) {
-					scrollWrapper.getEl().scrollLeft = page * width;
-					return false;
-				}
-				scrollWrapper.getEl().scrollLeft += width / 50;
+			EVENT.fireAll({
+				node : self,
+				name : 'scroll'
 			});
 		};
 
@@ -275,9 +277,9 @@ Yogurt.Slider = CLASS({
 				left = scrollWrapper.getEl().scrollLeft;
 
 				if (touchstartLeft - e.getLeft() < 0) {
-					scrollLeft();
+					scrollTo(page - 1);
 				} else if (touchstartLeft - e.getLeft() > 0) {
-					scrollRight();
+					scrollTo(page + 1);
 				}
 
 				e.stop();
@@ -310,5 +312,9 @@ Yogurt.Slider = CLASS({
 		if (contentStyle !== undefined) {
 			addContentStyle(contentStyle);
 		}
+
+		self.getPage = getPage = function() {
+			return page;
+		};
 	}
 });

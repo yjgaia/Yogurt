@@ -50,7 +50,6 @@ Yogurt.BottomBar = CLASS(function(cls) {
 
 			wrapper = DIV({
 				style : {
-					backgroundColor : '#333',
 					height : height
 				},
 				c : content = DIV({

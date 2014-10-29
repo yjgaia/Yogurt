@@ -75,6 +75,9 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 			// content
 			content,
 
+			// touch pad
+			touchPad,
+
 			// toolbar tap event
 			toolbarTapEvent,
 
@@ -125,6 +128,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 						width : menuWidth,
 						height : '100%',
 						overflowY : 'scroll',
+						zIndex : 999999,
 						onDisplayResize : function(width, height) {
 
 							if (width > hideMenuWinWidth) {
@@ -147,6 +151,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 						width : menuWidth,
 						height : '100%',
 						overflowY : 'scroll',
+						zIndex : 999999,
 						onDisplayResize : function(width, height) {
 
 							if (width > hideMenuWinWidth) {
@@ -242,6 +247,26 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 
 					if (isLeftMenuHiding === true && isLeftMenuShowing !== true) {
 
+						if (touchPad !== undefined) {
+							touchPad.remove();
+						}
+
+						content.append( touchPad = DIV({
+							style : {
+								position : 'absolute',
+								left : menuWidth,
+								top : 0,
+								width : '100%',
+								height : '100%',
+								zIndex : 999999
+							},
+							on : {
+								tap : function() {
+									hideLeftMenu();
+								}
+							}
+						}));
+
 						ANIMATE({
 							node : content,
 							keyframes : KEYFRAMES({
@@ -327,10 +352,20 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 			self.hideLeftMenu = hideLeftMenu = function() {
 
 				if (WIN_WIDTH() > hideMenuWinWidth) {
-					// ignore.
+
+					if (touchPad !== undefined) {
+						touchPad.remove();
+						touchPad = undefined;
+					}
+
 				} else {
 
 					if (isLeftMenuHiding !== true && isLeftMenuShowing === true) {
+
+						if (touchPad !== undefined) {
+							touchPad.remove();
+							touchPad = undefined;
+						}
 
 						ANIMATE({
 							node : content,
@@ -421,6 +456,26 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 
 					if (isRightMenuHiding === true && isRightMenuShowing !== true) {
 
+						if (touchPad !== undefined) {
+							touchPad.remove();
+						}
+
+						content.append( touchPad = DIV({
+							style : {
+								position : 'absolute',
+								left : -menuWidth,
+								top : 0,
+								width : '100%',
+								height : '100%',
+								zIndex : 999999
+							},
+							on : {
+								tap : function() {
+									hideRightMenu();
+								}
+							}
+						}));
+
 						ANIMATE({
 							node : content,
 							keyframes : KEYFRAMES({
@@ -506,10 +561,20 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 			self.hideRightMenu = hideRightMenu = function() {
 
 				if (WIN_WIDTH() > hideMenuWinWidth) {
-					// ignore.
+
+					if (touchPad !== undefined) {
+						touchPad.remove();
+						touchPad = undefined;
+					}
+
 				} else {
 
 					if (isRightMenuHiding !== true && isRightMenuShowing === true) {
+
+						if (touchPad !== undefined) {
+							touchPad.remove();
+							touchPad = undefined;
+						}
 
 						ANIMATE({
 							node : content,

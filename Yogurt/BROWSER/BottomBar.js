@@ -14,7 +14,7 @@ Yogurt.BottomBar = CLASS(function(cls) {
 		init : function(inner, self, params) {
 			//REQUIRED: params
 			//REQUIRED: params.buttons
-			//OPTIONAL: params.wrapperStyle
+			//OPTIONAL: params.style
 			//OPTIONAL: params.contentStyle
 
 			var
@@ -30,9 +30,6 @@ Yogurt.BottomBar = CLASS(function(cls) {
 			// height
 			height = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarHeight === undefined ? 70 : BROWSER_CONFIG.Yogurt.BottomBarHeight,
 
-			// wrapper style
-			wrapperStyle = params.wrapperStyle,
-
 			// content style
 			contentStyle = params.contentStyle,
 
@@ -41,9 +38,6 @@ Yogurt.BottomBar = CLASS(function(cls) {
 
 			// content
 			content,
-
-			// add wrapper style.
-			addWrapperStyle,
 
 			// add content style.
 			addContentStyle;
@@ -87,16 +81,6 @@ Yogurt.BottomBar = CLASS(function(cls) {
 
 			inner.setWrapperDom(wrapper);
 			inner.setContentDom(content);
-
-			self.addWrapperStyle = addWrapperStyle = function(style) {
-				//REQUIRED: style
-
-				wrapper.addStyle(style);
-			};
-
-			if (wrapperStyle !== undefined) {
-				addWrapperStyle(wrapperStyle);
-			}
 
 			self.addContentStyle = addContentStyle = function(style) {
 				//REQUIRED: style

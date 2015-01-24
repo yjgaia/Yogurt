@@ -10,7 +10,7 @@ Yogurt.Checkbox = CLASS({
 		'use strict';
 
 		return {
-			wrapperStyle : {
+			style : {
 				padding : 5
 			}
 		};

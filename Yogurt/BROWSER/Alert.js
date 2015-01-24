@@ -10,7 +10,7 @@ Yogurt.Alert = CLASS({
 		'use strict';
 
 		return {
-			wrapperStyle : {
+			style : {
 				backgroundColor : '#fff',
 				color : '#333',
 				textAlign : 'center',

@@ -10,7 +10,7 @@ Yogurt.Textarea = CLASS({
 		'use strict';
 
 		return {
-			wrapperStyle : {
+			style : {
 				padding : 5,
 				backgroundColor : '#FFF',
 				position : 'relative',

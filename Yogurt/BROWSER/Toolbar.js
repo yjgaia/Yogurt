@@ -19,7 +19,7 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			//OPTIONAL: params.left
 			//OPTIONAL: params.title
 			//OPTIONAL: params.right
-			//OPTIONAL: params.wrapperStyle
+			//OPTIONAL: params.style
 			//OPTIONAL: params.contentStyle
 
 			var
@@ -41,9 +41,6 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			// text color
 			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.ToolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.ToolbarTextColor,
 
-			// wrapper style
-			wrapperStyle = params === undefined ? undefined : params.wrapperStyle,
-
 			// content style
 			contentStyle = params === undefined ? undefined : params.contentStyle,
 
@@ -55,9 +52,6 @@ Yogurt.Toolbar = CLASS(function(cls) {
 
 			// content
 			content,
-
-			// add wrapper style.
-			addWrapperStyle,
 
 			// add content style.
 			addContentStyle,
@@ -109,16 +103,6 @@ Yogurt.Toolbar = CLASS(function(cls) {
 
 			inner.setWrapperDom(wrapper);
 			inner.setContentDom(content);
-
-			self.addWrapperStyle = addWrapperStyle = function(style) {
-				//REQUIRED: style
-
-				wrapper.addStyle(style);
-			};
-
-			if (wrapperStyle !== undefined) {
-				addWrapperStyle(wrapperStyle);
-			}
 
 			self.addContentStyle = addContentStyle = function(style) {
 				//REQUIRED: style

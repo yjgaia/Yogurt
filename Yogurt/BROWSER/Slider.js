@@ -10,16 +10,13 @@ Yogurt.Slider = CLASS({
 		'use strict';
 		//REQUIRED: params
 		//REQUIRED: params.slides
-		//OPTIONAL: params.wrapperStyle
+		//OPTIONAL: params.style
 		//OPTIONAL: params.contentStyle
 		//OPTIONAL: params.isNotUsingDots
 
 		var
 		// slides
 		slides = params.slides,
-
-		// wrapper style
-		wrapperStyle = params.wrapperStyle,
 
 		// content style
 		contentStyle = params.contentStyle,
@@ -50,9 +47,6 @@ Yogurt.Slider = CLASS({
 		
 		// scroll to.
 		scrollTo,
-
-		// add wrapper style.
-		addWrapperStyle,
 
 		// add content style.
 		addContentStyle,
@@ -96,7 +90,7 @@ Yogurt.Slider = CLASS({
 						cursor : 'pointer'
 					},
 					c : UUI.V_CENTER({
-						wrapperStyle : {
+						style : {
 							height : '100%'
 						},
 						c : IMG({
@@ -119,7 +113,7 @@ Yogurt.Slider = CLASS({
 						cursor : 'pointer'
 					},
 					c : UUI.V_CENTER({
-						wrapperStyle : {
+						style : {
 							height : '100%'
 						},
 						c : IMG({
@@ -133,7 +127,7 @@ Yogurt.Slider = CLASS({
 					}
 				})]
 			}), isNotUsingDots === true ? '' : UUI.V_CENTER({
-				wrapperStyle : {
+				style : {
 					height : 20
 				},
 				c : DIV({
@@ -154,7 +148,7 @@ Yogurt.Slider = CLASS({
 							dot;
 
 							array.push( dot = UUI.PANEL({
-								wrapperStyle : {
+								style : {
 									flt : 'left',
 									padding : '0 2px'
 								},
@@ -292,16 +286,6 @@ Yogurt.Slider = CLASS({
 
 			e.stop();
 		});
-
-		self.addWrapperStyle = addWrapperStyle = function(style) {
-			//REQUIRED: style
-
-			wrapper.addStyle(style);
-		};
-
-		if (wrapperStyle !== undefined) {
-			addWrapperStyle(wrapperStyle);
-		}
 
 		self.addContentStyle = addContentStyle = function(style) {
 			//REQUIRED: style

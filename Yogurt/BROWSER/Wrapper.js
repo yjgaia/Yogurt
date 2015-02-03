@@ -17,7 +17,7 @@ Yogurt.Wrapper = CLASS({
 				backgroundColor : '#fff',
 				color : '#000',
 				fontSize : 16
-			}, BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.style === undefined ? {} : BROWSER_CONFIG.Yogurt.style])
+			}, BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.wrapperStyle === undefined ? {} : BROWSER_CONFIG.Yogurt.wrapperStyle])
 		}));
 	}
 });

@@ -22,13 +22,13 @@ Yogurt.BottomBar = CLASS(function(cls) {
 			buttons = params.buttons,
 
 			// color
-			color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarColor === undefined ? '#666' : BROWSER_CONFIG.Yogurt.BottomBarColor,
+			color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarColor === undefined ? '#666' : BROWSER_CONFIG.Yogurt.bottomBarColor,
 
 			// text color
-			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.BottomBarTextColor,
+			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.bottomBarTextColor,
 
 			// height
-			height = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.BottomBarHeight === undefined ? 70 : BROWSER_CONFIG.Yogurt.BottomBarHeight,
+			height = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarHeight === undefined ? 70 : BROWSER_CONFIG.Yogurt.bottomBarHeight,
 
 			// content style
 			contentStyle = params.contentStyle,

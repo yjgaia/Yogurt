@@ -29,6 +29,12 @@ Yogurt.Slider = CLASS({
 
 		// scroll wrapper
 		scrollWrapper,
+		
+		// left button
+		leftButton,
+		
+		// right button
+		rightButton,
 
 		// content
 		content,
@@ -79,7 +85,7 @@ Yogurt.Slider = CLASS({
 							return array;
 						})
 					})
-				}), DIV({
+				}), leftButton = DIV({
 					style : {
 						position : 'absolute',
 						left : 0,
@@ -102,7 +108,7 @@ Yogurt.Slider = CLASS({
 							scrollTo(page - 1);
 						}
 					}
-				}), DIV({
+				}), rightButton = DIV({
 					style : {
 						position : 'absolute',
 						right : 0,
@@ -189,59 +195,71 @@ Yogurt.Slider = CLASS({
 				});
 			});
 		});
+		
+		// hide first.
+		leftButton.hide();
 
 		self.scrollTo = scrollTo = function(_page) {
-
-			if (_page < 0) {
-				_page = slides.length - 1;
-			} else if (_page >= slides.length) {
-				_page = 0;
+			
+			if (_page === 0) {
+				leftButton.hide();
+			} else {
+				leftButton.show();
+			}
+			
+			if (_page === slides.length - 1) {
+				rightButton.hide();
+			} else {
+				rightButton.show();
 			}
 
-			if (isNotUsingDots !== true) {
-				dots[page].addContentStyle({
-					backgroundColor : RGBA([128, 128, 128, 0.3])
+			if (_page >= 0 &&_page < slides.length) {
+				
+				if (isNotUsingDots !== true) {
+					dots[page].addContentStyle({
+						backgroundColor : RGBA([128, 128, 128, 0.3])
+					});
+				}
+	
+				if (scrollInterval !== undefined) {
+					scrollInterval.remove();
+					scrollInterval = undefined;
+				}
+	
+				if (page < _page) {
+					page = _page;
+	
+					scrollInterval = INTERVAL(function() {
+						if (scrollWrapper.getEl().scrollLeft >= page * width) {
+							scrollWrapper.getEl().scrollLeft = page * width;
+							return false;
+						}
+						scrollWrapper.getEl().scrollLeft += width / 50;
+					});
+	
+				} else if (page > _page) {
+					page = _page;
+	
+					scrollInterval = INTERVAL(function() {
+						if (scrollWrapper.getEl().scrollLeft <= page * width) {
+							scrollWrapper.getEl().scrollLeft = page * width;
+							return false;
+						}
+						scrollWrapper.getEl().scrollLeft -= width / 50;
+					});
+				}
+	
+				if (isNotUsingDots !== true) {
+					dots[page].addContentStyle({
+						backgroundColor : '#000'
+					});
+				}
+	
+				EVENT.fireAll({
+					node : self,
+					name : 'scroll'
 				});
 			}
-
-			if (scrollInterval !== undefined) {
-				scrollInterval.remove();
-				scrollInterval = undefined;
-			}
-
-			if (page < _page) {
-				page = _page;
-
-				scrollInterval = INTERVAL(function() {
-					if (scrollWrapper.getEl().scrollLeft >= page * width) {
-						scrollWrapper.getEl().scrollLeft = page * width;
-						return false;
-					}
-					scrollWrapper.getEl().scrollLeft += width / 50;
-				});
-
-			} else if (page > _page) {
-				page = _page;
-
-				scrollInterval = INTERVAL(function() {
-					if (scrollWrapper.getEl().scrollLeft <= page * width) {
-						scrollWrapper.getEl().scrollLeft = page * width;
-						return false;
-					}
-					scrollWrapper.getEl().scrollLeft -= width / 50;
-				});
-			}
-
-			if (isNotUsingDots !== true) {
-				dots[page].addContentStyle({
-					backgroundColor : '#000'
-				});
-			}
-
-			EVENT.fireAll({
-				node : self,
-				name : 'scroll'
-			});
 		};
 
 		self.on('touchstart', function(e) {

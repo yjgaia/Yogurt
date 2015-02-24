@@ -25,10 +25,10 @@ YogurtShowcase.MenuLayout = CLASS({
 				contentStyle : {
 					onDisplayResize : function(width, height) {
 
-						if (width > Yogurt.MenuLayout.hideMenuWinWidth) {
+						if (width > Yogurt.MenuLayout.getHideMenuWinWidth()) {
 							return {
-								left : Yogurt.MenuLayout.menuWidth,
-								width : BODY.getWidth() - Yogurt.MenuLayout.menuWidth * 2
+								left : Yogurt.MenuLayout.getMenuWidth(),
+								width : BODY.getWidth() - Yogurt.MenuLayout.getMenuWidth() * 2
 							};
 						} else {
 							return {
@@ -44,7 +44,7 @@ YogurtShowcase.MenuLayout = CLASS({
 					style : {
 						onDisplayResize : function(width, height) {
 
-							if (width > Yogurt.MenuLayout.hideMenuWinWidth) {
+							if (width > Yogurt.MenuLayout.getHideMenuWinWidth()) {
 								return {
 									display : 'none'
 								};
@@ -70,7 +70,7 @@ YogurtShowcase.MenuLayout = CLASS({
 					style : {
 						onDisplayResize : function(width, height) {
 
-							if (width > Yogurt.MenuLayout.hideMenuWinWidth) {
+							if (width > Yogurt.MenuLayout.getHideMenuWinWidth()) {
 								return {
 									display : 'none'
 								};

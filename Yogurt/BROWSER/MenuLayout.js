@@ -7,6 +7,9 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 
 	// hide menu win width
 	hideMenuWinWidth = 800,
+	
+	// menu background color
+	menuBackgroundColor = '#222',
 
 	// get menu width.
 	getMenuWidth,
@@ -118,6 +121,10 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 			if (BROWSER_CONFIG.Yogurt.menuLayoutHideMenuWinWidth !== undefined) {
 				hideMenuWinWidth = BROWSER_CONFIG.Yogurt.menuLayoutHideMenuWinWidth;
 			}
+			
+			if (BROWSER_CONFIG.Yogurt.menuLayoutMenuBackgroundColor !== undefined) {
+				menuBackgroundColor = BROWSER_CONFIG.Yogurt.menuLayoutMenuBackgroundColor;
+			}
 	
 			if (leftMenu !== undefined) {
 				menuCount += 1;
@@ -132,7 +139,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 					style : {
 						position : 'fixed',
 						top : 0,
-						backgroundColor : '#222',
+						backgroundColor : menuBackgroundColor,
 						width : menuWidth,
 						height : '100%',
 						overflowY : 'scroll',
@@ -155,7 +162,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 					style : {
 						position : 'fixed',
 						top : 0,
-						backgroundColor : '#222',
+						backgroundColor : menuBackgroundColor,
 						width : menuWidth,
 						height : '100%',
 						overflowY : 'scroll',

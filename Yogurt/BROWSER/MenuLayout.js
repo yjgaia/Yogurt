@@ -255,12 +255,14 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 			};
 	
 			self.showLeftMenu = showLeftMenu = function() {
-	
+				
 				if (WIN_WIDTH() > hideMenuWinWidth) {
 					// ignore.
 				} else {
 	
 					if (isLeftMenuHiding === true && isLeftMenuShowing !== true) {
+					
+						scrollTo(0, 0);
 	
 						if (touchPad !== undefined) {
 							touchPad.remove();
@@ -470,6 +472,8 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 				} else {
 	
 					if (isRightMenuHiding === true && isRightMenuShowing !== true) {
+					
+						scrollTo(0, 0);
 	
 						if (touchPad !== undefined) {
 							touchPad.remove();

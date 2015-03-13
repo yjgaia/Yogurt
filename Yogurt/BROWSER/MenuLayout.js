@@ -114,15 +114,15 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 			// toggle right menu.
 			toggleRightMenu;
 			
-			if (BROWSER_CONFIG.Yogurt.menuLayoutMenuWidth !== undefined) {
+			if (BROWSER_CONFIG.Yogurt !== undefined && BROWSER_CONFIG.Yogurt.menuLayoutMenuWidth !== undefined) {
 				menuWidth = BROWSER_CONFIG.Yogurt.menuLayoutMenuWidth;
 			}
 			
-			if (BROWSER_CONFIG.Yogurt.menuLayoutHideMenuWinWidth !== undefined) {
+			if (BROWSER_CONFIG.Yogurt !== undefined && BROWSER_CONFIG.Yogurt.menuLayoutHideMenuWinWidth !== undefined) {
 				hideMenuWinWidth = BROWSER_CONFIG.Yogurt.menuLayoutHideMenuWinWidth;
 			}
 			
-			if (BROWSER_CONFIG.Yogurt.menuLayoutMenuBackgroundColor !== undefined) {
+			if (BROWSER_CONFIG.Yogurt !== undefined && BROWSER_CONFIG.Yogurt.menuLayoutMenuBackgroundColor !== undefined) {
 				menuBackgroundColor = BROWSER_CONFIG.Yogurt.menuLayoutMenuBackgroundColor;
 			}
 	

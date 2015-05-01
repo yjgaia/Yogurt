@@ -11,10 +11,7 @@ YogurtShowcase.Alert = CLASS({
 
 		var
 		// wrapper
-		wrapper,
-
-		// close.
-		close;
+		wrapper;
 
 		TITLE('Yogurt Alert.');
 
@@ -53,9 +50,8 @@ YogurtShowcase.Alert = CLASS({
 
 		Yogurt.Alert('Alert');
 
-		//OVERRIDE: self.close
-		self.close = close = function(params) {
+		inner.on('close', function() {
 			wrapper.remove();
-		};
+		});
 	}
 });

@@ -11,10 +11,7 @@ YogurtShowcase.Control = CLASS({
 
 		var
 		// wrapper
-		wrapper,
-
-		// close.
-		close;
+		wrapper;
 
 		YogurtShowcase.GLOBAL.wrapper = wrapper = Yogurt.Wrapper({
 			c : [
@@ -23,9 +20,8 @@ YogurtShowcase.Control = CLASS({
 			YogurtShowcase.GLOBAL.content = DIV()]
 		}).appendTo(BODY);
 
-		//OVERRIDE: self.close
-		self.close = close = function(params) {
+		inner.on('close', function() {
 			wrapper.remove();
-		};
+		});
 	}
 });

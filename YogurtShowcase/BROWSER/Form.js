@@ -11,10 +11,7 @@ YogurtShowcase.Form = CLASS({
 
 		var
 		// wrapper
-		wrapper,
-
-		// close.
-		close;
+		wrapper;
 
 		TITLE('Yogurt Form.');
 
@@ -104,7 +101,7 @@ YogurtShowcase.Form = CLASS({
 
 					// human
 					Yogurt.Checkbox({
-						wrapperStyle : {
+						style : {
 							marginTop : 10
 						},
 						label : 'Are your human?'
@@ -112,7 +109,7 @@ YogurtShowcase.Form = CLASS({
 
 					// age
 					Yogurt.Select({
-						wrapperStyle : {
+						style : {
 							marginTop : 10
 						},
 						options : RUN(function() {
@@ -139,7 +136,7 @@ YogurtShowcase.Form = CLASS({
 
 					// description
 					Yogurt.Textarea({
-						wrapperStyle : {
+						style : {
 							marginTop : 10
 						},
 						placeholder : 'Who you are?'
@@ -155,9 +152,8 @@ YogurtShowcase.Form = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		//OVERRIDE: self.close
-		self.close = close = function(params) {
+		inner.on('close', function() {
 			wrapper.remove();
-		};
+		});
 	}
 });

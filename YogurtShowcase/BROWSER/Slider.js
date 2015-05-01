@@ -11,10 +11,7 @@ YogurtShowcase.Slider = CLASS({
 
 		var
 		// wrapper
-		wrapper,
-
-		// close.
-		close;
+		wrapper;
 
 		TITLE('Yogurt Slider.');
 
@@ -71,7 +68,7 @@ YogurtShowcase.Slider = CLASS({
 					}], function(data) {
 
 						slides.push(Yogurt.Slide({
-							wrapperStyle : {
+							style : {
 								backgroundImage : YogurtShowcase.R(data.image),
 								backgroundPosition : 'center',
 								backgroundSize : 'cover',
@@ -83,7 +80,7 @@ YogurtShowcase.Slider = CLASS({
 								height : '100%'
 							},
 							c : UUI.PANEL({
-								wrapperStyle : {
+								style : {
 									position : 'absolute',
 									bottom : 0,
 									width : '100%'
@@ -126,9 +123,8 @@ YogurtShowcase.Slider = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		//OVERRIDE: self.close
-		self.close = close = function(params) {
+		inner.on('close', function() {
 			wrapper.remove();
-		};
+		});
 	}
 });

@@ -13,6 +13,8 @@ Yogurt.Slider = CLASS({
 		//OPTIONAL: params.style
 		//OPTIONAL: params.contentStyle
 		//OPTIONAL: params.isNotUsingDots
+		//OPTIONAL: params.dotColor
+		//OPTIONAL: params.dotHighlightColor
 
 		var
 		// slides
@@ -23,6 +25,12 @@ Yogurt.Slider = CLASS({
 
 		// is not using dots
 		isNotUsingDots = params.isNotUsingDots,
+		
+		// dot color
+		dotColor = params.dotColor === undefined ? RGBA([128, 128, 128, 0.3]) : params.dotColor,
+		
+		// dot highlight color
+		dotHighlightColor = params.dotHighlightColor === undefined ? '#000' : params.dotHighlightColor,
 
 		// wrapper
 		wrapper,
@@ -159,7 +167,7 @@ Yogurt.Slider = CLASS({
 									padding : '0 2px'
 								},
 								contentStyle : {
-									backgroundColor : i === 0 ? '#000' : RGBA([128, 128, 128, 0.3]),
+									backgroundColor : i === 0 ? dotHighlightColor : dotColor,
 									width : 8,
 									height : 8,
 									borderRadius : 4
@@ -201,13 +209,13 @@ Yogurt.Slider = CLASS({
 
 		self.scrollTo = scrollTo = function(_page) {
 			
-			if (_page === 0) {
+			if (_page <= 0) {
 				leftButton.hide();
 			} else {
 				leftButton.show();
 			}
 			
-			if (_page === slides.length - 1) {
+			if (_page >= slides.length - 1) {
 				rightButton.hide();
 			} else {
 				rightButton.show();
@@ -217,7 +225,7 @@ Yogurt.Slider = CLASS({
 				
 				if (isNotUsingDots !== true) {
 					dots[page].addContentStyle({
-						backgroundColor : RGBA([128, 128, 128, 0.3])
+						backgroundColor : dotColor
 					});
 				}
 	
@@ -251,7 +259,7 @@ Yogurt.Slider = CLASS({
 	
 				if (isNotUsingDots !== true) {
 					dots[page].addContentStyle({
-						backgroundColor : '#000'
+						backgroundColor : dotHighlightColor
 					});
 				}
 	

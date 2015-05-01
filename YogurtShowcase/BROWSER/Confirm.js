@@ -14,10 +14,7 @@ YogurtShowcase.Confirm = CLASS({
 		wrapper,
 
 		// content
-		content,
-
-		// close.
-		close;
+		content;
 
 		TITLE('Yogurt Confirm.');
 
@@ -59,9 +56,8 @@ YogurtShowcase.Confirm = CLASS({
 			content.append('Yes!');
 		});
 
-		//OVERRIDE: self.close
-		self.close = close = function(params) {
+		inner.on('close', function() {
 			wrapper.remove();
-		};
+		});
 	}
 });

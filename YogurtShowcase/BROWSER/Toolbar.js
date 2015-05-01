@@ -11,10 +11,7 @@ YogurtShowcase.Toolbar = CLASS({
 
 		var
 		// wrapper
-		wrapper,
-
-		// close.
-		close;
+		wrapper;
 
 		TITLE('Yogurt Toolbar');
 
@@ -61,9 +58,8 @@ YogurtShowcase.Toolbar = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		//OVERRIDE: self.close
-		self.close = close = function(params) {
+		inner.on('close', function() {
 			wrapper.remove();
-		};
+		});
 	}
 });

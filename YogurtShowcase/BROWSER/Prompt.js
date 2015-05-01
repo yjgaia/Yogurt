@@ -14,10 +14,7 @@ YogurtShowcase.Prompt = CLASS({
 		wrapper,
 
 		// content
-		content,
-
-		// close.
-		close;
+		content;
 
 		TITLE('Yogurt Prompt.');
 
@@ -59,9 +56,8 @@ YogurtShowcase.Prompt = CLASS({
 			content.append(str);
 		});
 
-		//OVERRIDE: self.close
-		self.close = close = function(params) {
+		inner.on('close', function() {
 			wrapper.remove();
-		};
+		});
 	}
 });

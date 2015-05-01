@@ -14,10 +14,7 @@ YogurtShowcase.BottomBar = CLASS({
 		wrapper,
 
 		// content
-		content,
-
-		// close.
-		close;
+		content;
 
 		TITLE('Yogurt Bottom Bar');
 
@@ -144,9 +141,8 @@ YogurtShowcase.BottomBar = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		//OVERRIDE: self.close
-		self.close = close = function(params) {
+		inner.on('close', function() {
 			wrapper.remove();
-		};
+		});
 	}
 });

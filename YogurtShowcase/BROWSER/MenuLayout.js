@@ -11,10 +11,7 @@ YogurtShowcase.MenuLayout = CLASS({
 
 		var
 		// menu layout
-		menuLayout,
-
-		// close.
-		close;
+		menuLayout;
 
 		TITLE('Yogurt Menu.');
 
@@ -150,9 +147,8 @@ YogurtShowcase.MenuLayout = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		//OVERRIDE: self.close
-		self.close = close = function(params) {
-			menuLayout.remove();
-		};
+		inner.on('close', function() {
+			wrapper.remove();
+		});
 	}
 });

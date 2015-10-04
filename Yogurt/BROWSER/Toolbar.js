@@ -31,6 +31,9 @@ Yogurt.Toolbar = CLASS(function(cls) {
 
 			// right
 			right = params === undefined ? undefined : params.right,
+			
+			// background
+			background = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.toolbarBackground,
 
 			// color
 			color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.toolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.toolbarColor,
@@ -67,6 +70,7 @@ Yogurt.Toolbar = CLASS(function(cls) {
 					style : {
 						position : 'fixed',
 						top : 0,
+						background : background,
 						backgroundColor : color,
 						backgroundImage : backgroundImage,
 						height : height,

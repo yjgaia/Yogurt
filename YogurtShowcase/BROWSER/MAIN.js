@@ -57,5 +57,10 @@ YogurtShowcase.MAIN = METHOD({
 			uri : 'Slider',
 			target : YogurtShowcase.Slider
 		});
+
+		YogurtShowcase.MATCH_VIEW({
+			uri : 'Calendar',
+			target : YogurtShowcase.Calendar
+		});
 	}
 });

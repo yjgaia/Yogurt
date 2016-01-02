@@ -1,9 +1,12 @@
-require(process.env.UPPERCASE_IO_PATH + '/BOOT.js');
+require(process.env.UPPERCASE_PATH + '/BOOT.js');
 
 BOOT({
 	CONFIG : {
 		defaultBoxName : 'YogurtShowcase',
 		isDevMode : true,
 		webServerPort : 8881
+	},
+	NODE_CONFIG : {
+		isNotUsingCPUClustering : true
 	}
 });

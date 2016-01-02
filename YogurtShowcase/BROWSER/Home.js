@@ -98,6 +98,9 @@ YogurtShowcase.Home = CLASS({
 						}, {
 							title : 'Slider',
 							uri : 'Slider'
+						}, {
+							title : 'Calendar',
+							uri : 'Calendar'
 						}], function(data, i) {
 
 							array.push(Yogurt.Button({

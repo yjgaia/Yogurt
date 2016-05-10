@@ -3,7 +3,7 @@ Yogurt.Alert = CLASS({
 	preset : function() {
 		'use strict';
 
-		return UUI.MODAL;
+		return UUI.ALERT;
 	},
 
 	params : function() {
@@ -33,6 +33,11 @@ Yogurt.Alert = CLASS({
 			contentStyle : {
 				padding : 20,
 				fontSize : 20
+			},
+			buttonStyle : {
+				borderTop : '1px solid #999',
+				padding : 15,
+				fontSize : 20
 			}
 		};
 	},
@@ -40,9 +45,27 @@ Yogurt.Alert = CLASS({
 	init : function(inner, self, message) {
 		'use strict';
 		//REQUIRED: message
+		
+		var
+		// color
+		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
 
 		self.append(message);
-
+		
+		self.getButton().on('mouseover', function(e, button) {
+			button.addStyle({
+				color : '#fff',
+				backgroundColor : color
+			});
+		});
+		
+		self.getButton().on('mouseout', function(e, button) {
+			button.addStyle({
+				color : color,
+				backgroundColor : 'transparent'
+			});
+		});
+		
 		UANI.FADE_IN({
 			node : self.getNode()
 		});

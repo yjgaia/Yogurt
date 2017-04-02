@@ -1,13 +1,10 @@
 Yogurt.Wrapper = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return NODE;
 	},
 
-	init : function(inner, self, params) {
-		'use strict';
+	init : (inner, self, params) => {
 		//OPTIONAL: params
 		//OPTIONAL: params.c
 		//OPTIONAL: params.style

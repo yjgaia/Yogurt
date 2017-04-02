@@ -1,17 +1,12 @@
 Yogurt.Button = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return UUI.BUTTON;
 	},
 
-	params : function() {
-		'use strict';
+	params : () => {
 
-		var
-		// color
-		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
+		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
 
 		return {
 			style : {
@@ -24,13 +19,13 @@ Yogurt.Button = CLASS({
 			},
 			spacing : 5,
 			on : {
-				mouseover : function(e, input) {
+				mouseover : (e, input) => {
 					input.addStyle({
 						color : '#fff',
 						backgroundColor : color
 					});
 				},
-				mouseout : function(e, input) {
+				mouseout : (e, input) => {
 					input.addStyle({
 						color : color,
 						backgroundColor : '#fff'

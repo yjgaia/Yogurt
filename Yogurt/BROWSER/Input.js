@@ -1,14 +1,11 @@
 Yogurt.Input = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return UUI.FULL_INPUT;
 	},
 
-	params : function() {
-		'use strict';
-
+	params : () => {
+		
 		return {
 			style : {
 				padding : 5,

@@ -1,13 +1,10 @@
 Yogurt.Slider = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return NODE;
 	},
 
-	init : function(inner, self, params) {
-		'use strict';
+	init : (inner, self, params) => {
 		//REQUIRED: params
 		//REQUIRED: params.slides
 		//OPTIONAL: params.style
@@ -16,75 +13,39 @@ Yogurt.Slider = CLASS({
 		//OPTIONAL: params.dotColor
 		//OPTIONAL: params.dotHighlightColor
 
-		var
-		// slides
-		slides = params.slides,
+		let slides = params.slides;
+		let contentStyle = params.contentStyle;
+		let isNotUsingDots = params.isNotUsingDots;
+		let dotColor = params.dotColor === undefined ? RGBA([128, 128, 128, 0.3]) : params.dotColor;
+		let dotHighlightColor = params.dotHighlightColor === undefined ? '#000' : params.dotHighlightColor;
 
-		// content style
-		contentStyle = params.contentStyle,
+		let scrollWrapper;
+		let leftButton;
+		let rightButton;
+		let content;
 
-		// is not using dots
-		isNotUsingDots = params.isNotUsingDots,
-		
-		// dot color
-		dotColor = params.dotColor === undefined ? RGBA([128, 128, 128, 0.3]) : params.dotColor,
-		
-		// dot highlight color
-		dotHighlightColor = params.dotHighlightColor === undefined ? '#000' : params.dotHighlightColor,
+		let dots = [];
+		let page = 0;
 
-		// wrapper
-		wrapper,
+		let width;
 
-		// scroll wrapper
-		scrollWrapper,
-		
-		// left button
-		leftButton,
-		
-		// right button
-		rightButton,
+		let scrollInterval;
 
-		// content
-		content,
-
-		// dots
-		dots = [],
-
-		// page
-		page = 0,
-
-		// width
-		width,
-
-		// scroll interval
-		scrollInterval,
-		
-		// scroll to.
-		scrollTo,
-
-		// add content style.
-		addContentStyle,
-
-		// get page.
-		getPage;
-
-		wrapper = DIV({
+		let wrapper = DIV({
 			c : [DIV({
 				style : {
 					position : 'relative'
 				},
-				c : [ scrollWrapper = DIV({
+				c : [scrollWrapper = DIV({
 					style : {
 						overflowX : 'hidden'
 					},
 					c : content = DIV({
-						c : RUN(function() {
+						c : RUN(() => {
 
-							var
-							// array
-							array = [];
+							let array = [];
 
-							EACH(slides, function(slide) {
+							EACH(slides, (slide) => {
 								array.push(slide);
 							});
 
@@ -112,7 +73,7 @@ Yogurt.Slider = CLASS({
 						})
 					}),
 					on : {
-						tap : function() {
+						tap : () => {
 							scrollTo(page - 1);
 						}
 					}
@@ -135,7 +96,7 @@ Yogurt.Slider = CLASS({
 						})
 					}),
 					on : {
-						tap : function() {
+						tap : () => {
 							scrollTo(page + 1);
 						}
 					}
@@ -149,17 +110,13 @@ Yogurt.Slider = CLASS({
 						width : 12 * slides.length,
 						margin : 'auto'
 					},
-					c : RUN(function() {
+					c : RUN(() => {
 
-						var
-						// array
-						array = [];
+						let array = [];
 
-						REPEAT(slides.length, function(i) {
+						REPEAT(slides.length, (i) => {
 
-							var
-							// dot
-							dot;
+							let dot;
 
 							array.push( dot = UUI.PANEL({
 								style : {
@@ -188,7 +145,7 @@ Yogurt.Slider = CLASS({
 		inner.setWrapperDom(wrapper);
 		inner.setContentDom(content);
 
-		self.on('show', function() {
+		self.on('show', () => {
 
 			width = self.getWidth();
 
@@ -196,7 +153,7 @@ Yogurt.Slider = CLASS({
 				width : width * slides.length
 			});
 
-			EACH(slides, function(slide) {
+			EACH(slides, (slide) => {
 				slide.addStyle({
 					flt : 'left',
 					width : width
@@ -207,7 +164,7 @@ Yogurt.Slider = CLASS({
 		// hide first.
 		leftButton.hide();
 
-		self.scrollTo = scrollTo = function(_page) {
+		let scrollTo = self.scrollTo = (_page) => {
 			
 			if (_page <= 0) {
 				leftButton.hide();
@@ -237,7 +194,7 @@ Yogurt.Slider = CLASS({
 				if (page < _page) {
 					page = _page;
 	
-					scrollInterval = INTERVAL(function() {
+					scrollInterval = INTERVAL(() => {
 						if (scrollWrapper.getEl().scrollLeft >= page * width) {
 							scrollWrapper.getEl().scrollLeft = page * width;
 							return false;
@@ -248,7 +205,7 @@ Yogurt.Slider = CLASS({
 				} else if (page > _page) {
 					page = _page;
 	
-					scrollInterval = INTERVAL(function() {
+					scrollInterval = INTERVAL(() => {
 						if (scrollWrapper.getEl().scrollLeft <= page * width) {
 							scrollWrapper.getEl().scrollLeft = page * width;
 							return false;
@@ -270,31 +227,22 @@ Yogurt.Slider = CLASS({
 			}
 		};
 
-		self.on('touchstart', function(e) {
+		self.on('touchstart', (e) => {
 
-			var
-			// origin scroll left
-			originScrollLeft = scrollWrapper.getEl().scrollLeft,
+			let originScrollLeft = scrollWrapper.getEl().scrollLeft;
+			let touchstartLeft = e.getLeft();
 
-			// touchstart left
-			touchstartLeft = e.getLeft(),
+			let mousemoveHandler;
+			let outHandler;
 
-			// mouse move handler.
-			mousemoveHandler,
-
-			// out handler.
-			outHandler;
-
-			self.on('touchmove', mousemoveHandler = function(e) {
+			self.on('touchmove', mousemoveHandler = (e) => {
 				e.stop();
 				scrollWrapper.getEl().scrollLeft = originScrollLeft + touchstartLeft - e.getLeft();
 			});
 
-			self.on('touchend', outHandler = function(e) {
+			self.on('touchend', outHandler = (e) => {
 
-				var
-				// left
-				left = scrollWrapper.getEl().scrollLeft;
+				let left = scrollWrapper.getEl().scrollLeft;
 
 				if (touchstartLeft - e.getLeft() < 0) {
 					scrollTo(page - 1);
@@ -313,7 +261,7 @@ Yogurt.Slider = CLASS({
 			e.stop();
 		});
 
-		self.addContentStyle = addContentStyle = function(style) {
+		let addContentStyle = self.addContentStyle = (style) => {
 			//REQUIRED: style
 
 			content.addStyle(style);
@@ -323,7 +271,7 @@ Yogurt.Slider = CLASS({
 			addContentStyle(contentStyle);
 		}
 
-		self.getPage = getPage = function() {
+		let getPage = self.getPage = () => {
 			return page;
 		};
 	}

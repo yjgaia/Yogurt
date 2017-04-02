@@ -1,13 +1,10 @@
 Yogurt.Alert = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return UUI.ALERT;
 	},
 
-	params : function() {
-		'use strict';
+	params : () => {
 
 		return {
 			style : {
@@ -17,7 +14,7 @@ Yogurt.Alert = CLASS({
 				border : '1px solid #333',
 				borderRadius : 5,
 				boxShadow : '0 0 5px rgba(0,0,0,0.3)',
-				onDisplayResize : function(width, height) {
+				onDisplayResize : (width, height) => {
 
 					if (width > 300) {
 						return {
@@ -42,24 +39,21 @@ Yogurt.Alert = CLASS({
 		};
 	},
 
-	init : function(inner, self, message) {
-		'use strict';
+	init : (inner, self, message) => {
 		//REQUIRED: message
 		
-		var
-		// color
-		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
+		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
 
 		self.append(message);
 		
-		self.getButton().on('mouseover', function(e, button) {
+		self.getButton().on('mouseover', (e, button) => {
 			button.addStyle({
 				color : '#fff',
 				backgroundColor : color
 			});
 		});
 		
-		self.getButton().on('mouseout', function(e, button) {
+		self.getButton().on('mouseout', (e, button) => {
 			button.addStyle({
 				color : color,
 				backgroundColor : 'transparent'

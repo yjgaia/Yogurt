@@ -1,14 +1,11 @@
 Yogurt.Textarea = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return UUI.FULL_TEXTAREA;
 	},
 
-	params : function() {
-		'use strict';
-
+	params : () => {
+		
 		return {
 			style : {
 				padding : 5,

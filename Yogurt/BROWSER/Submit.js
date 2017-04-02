@@ -1,17 +1,12 @@
 Yogurt.Submit = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return UUI.FULL_SUBMIT;
 	},
 
-	params : function() {
-		'use strict';
-
-		var
-		// color
-		color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
+	params : () => {
+		
+		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
 
 		return {
 			style : {
@@ -31,13 +26,13 @@ Yogurt.Submit = CLASS({
 				width : '100%'
 			},
 			on : {
-				mouseover : function(e, input) {
+				mouseover : (e, input) => {
 					input.addStyle({
 						color : '#fff',
 						backgroundColor : color
 					});
 				},
-				mouseout : function(e, input) {
+				mouseout : (e, input) => {
 					input.addStyle({
 						color : color,
 						backgroundColor : '#fff'

@@ -1,118 +1,50 @@
-Yogurt.MenuLayout = CLASS(function(cls) {
-	'use strict';
+Yogurt.MenuLayout = CLASS((cls) => {
 
-	var
-	// menu width
-	menuWidth = 200,
+	let menuWidth = 200;
+	let hideMenuWinWidth = 800;
+	let menuBackgroundColor = '#222';
 
-	// hide menu win width
-	hideMenuWinWidth = 800,
-	
-	// menu background color
-	menuBackgroundColor = '#222',
-
-	// get menu width.
-	getMenuWidth,
-
-	// get hide menu win width.
-	getHideMenuWinWidth;
-
-	cls.getMenuWidth = getMenuWidth = function() {
+	cls.getMenuWidth = getMenuWidth = () => {
 		return menuWidth;
 	};
 
-	cls.getHideMenuWinWidth = getHideMenuWinWidth = function() {
+	cls.getHideMenuWinWidth = getHideMenuWinWidth = () => {
 		return hideMenuWinWidth;
 	};
 
 	return {
 
-		preset : function() {
+		preset : () => {
 			return NODE;
 		},
 	
-		init : function(inner, self, params) {
+		init : (inner, self, params) => {
 			//REQUIRED: params
 			//REQUIRED: params.toolbar
 			//OPTIONAL: params.leftMenu
 			//OPTIONAL: params.rightMenu
 			//OPTIONAL: params.bottomBar
 	
-			var
-			// toolbar
-			toolbar = params.toolbar,
-	
-			// left menu
-			leftMenu = params.leftMenu,
-	
-			// right menu
-			rightMenu = params.rightMenu,
-	
-			// bottom bar
-			bottomBar = params.bottomBar,
+			let toolbar = params.toolbar;
+			let leftMenu = params.leftMenu;
+			let rightMenu = params.rightMenu;
+			let bottomBar = params.bottomBar;
 			
-			// is left menu hiding
-			isLeftMenuHiding = true,
+			let isLeftMenuHiding = true;
+			let isLeftMenuShowing;
+			let isRightMenuHiding = true;
+			let isRightMenuShowing;
 	
-			// is left menu showing
-			isLeftMenuShowing,
-	
-			// is right menu hiding
-			isRightMenuHiding = true,
-	
-			// is right menu showing
-			isRightMenuShowing,
-	
-			// menu count
-			menuCount = 0,
-	
-			// wrapper
-			wrapper,
-	
-			// left menu wrapper
-			leftMenuWrapper,
-	
-			// right menu wrapper
-			rightMenuWrapper,
-	
-			// content
-			content,
-	
-			// touch pad
-			touchPad,
-	
-			// toolbar tap event
-			toolbarTapEvent,
-	
-			// content tap event
-			contentTapEvent,
-	
-			// bottom bar tap event
-			bottomBarTapEvent,
-	
-			// set bottom bar.
-			setBottomBar,
-	
-			// remove bottom bar.
-			removeBottomBar,
-	
-			// show left menu.
-			showLeftMenu,
-	
-			// hide left menu.
-			hideLeftMenu,
-	
-			// toggle left menu.
-			toggleLeftMenu,
-	
-			// show right menu.
-			showRightMenu,
-	
-			// hide right menu.
-			hideRightMenu,
-	
-			// toggle right menu.
-			toggleRightMenu;
+			let menuCount = 0;
+			
+			let leftMenuWrapper;
+			let rightMenuWrapper;
+			let content;
+			let touchPad;
+			
+			let toolbarTapEvent;
+			let contentTapEvent;
+			let bottomBarTapEvent;
 			
 			if (BROWSER_CONFIG.Yogurt !== undefined && BROWSER_CONFIG.Yogurt.menuLayoutMenuWidth !== undefined) {
 				menuWidth = BROWSER_CONFIG.Yogurt.menuLayoutMenuWidth;
@@ -134,7 +66,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 				menuCount += 1;
 			}
 	
-			wrapper = DIV({
+			let wrapper = DIV({
 				c : [leftMenu !== undefined ? leftMenuWrapper = DIV({
 					style : {
 						position : 'fixed',
@@ -144,7 +76,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 						height : '100%',
 						overflowY : 'scroll',
 						zIndex : 999999,
-						onDisplayResize : function(width, height) {
+						onDisplayResize : (width, height) => {
 	
 							if (width > hideMenuWinWidth) {
 								return {
@@ -167,7 +99,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 						height : '100%',
 						overflowY : 'scroll',
 						zIndex : 999999,
-						onDisplayResize : function(width, height) {
+						onDisplayResize : (width, height) => {
 	
 							if (width > hideMenuWinWidth) {
 								return {
@@ -183,7 +115,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 					c : rightMenu
 				}) : '', toolbar, content = DIV({
 					style : {
-						onDisplayResize : function(width, height) {
+						onDisplayResize : (width, height) => {
 	
 							if (width > hideMenuWinWidth) {
 								return {
@@ -202,7 +134,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 			});
 	
 			toolbar.addContentStyle({
-				onDisplayResize : function(width, height) {
+				onDisplayResize : (width, height) => {
 	
 					if (width > hideMenuWinWidth) {
 						return {
@@ -221,12 +153,12 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 			inner.setWrapperDom(wrapper);
 			inner.setContentDom(content);
 	
-			self.setBottomBar = setBottomBar = function(_bottomBar) {
+			let setBottomBar = self.setBottomBar = (_bottomBar) => {
 	
 				bottomBar = _bottomBar;
 	
 				bottomBar.addContentStyle({
-					onDisplayResize : function(width, height) {
+					onDisplayResize : (width, height) => {
 	
 						if (width > hideMenuWinWidth) {
 							return {
@@ -249,12 +181,12 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 				setBottomBar(bottomBar);
 			}
 	
-			self.removeBottomBar = removeBottomBar = function() {
+			let removeBottomBar = self.removeBottomBar = () => {
 				bottomBar.remove();
 				bottomBar = undefined;
 			};
 	
-			self.showLeftMenu = showLeftMenu = function() {
+			let showLeftMenu = self.showLeftMenu = () => {
 				
 				if (WIN_WIDTH() > hideMenuWinWidth) {
 					// ignore.
@@ -278,7 +210,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 								zIndex : 999999
 							},
 							on : {
-								tap : function() {
+								tap : () => {
 									hideLeftMenu();
 								}
 							}
@@ -294,7 +226,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 									marginLeft : menuWidth
 								}
 							})
-						}, function() {
+						}, () => {
 							isLeftMenuShowing = true;
 						});
 	
@@ -342,14 +274,14 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 						toolbarTapEvent = EVENT({
 							node : toolbar,
 							name : 'touchstart'
-						}, function(e) {
+						}, (e) => {
 							toggleLeftMenu();
 						});
 	
 						contentTapEvent = EVENT({
 							node : content,
 							name : 'touchstart'
-						}, function(e) {
+						}, (e) => {
 							toggleLeftMenu();
 						});
 	
@@ -358,7 +290,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 							bottomBarTapEvent = EVENT({
 								node : bottomBar,
 								name : 'touchstart'
-							}, function(e) {
+							}, (e) => {
 								toggleLeftMenu();
 							});
 						}
@@ -366,7 +298,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 				}
 			};
 	
-			self.hideLeftMenu = hideLeftMenu = function() {
+			let hideLeftMenu = self.hideLeftMenu = () => {
 	
 				if (WIN_WIDTH() > hideMenuWinWidth) {
 	
@@ -394,7 +326,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 									marginLeft : 0
 								}
 							})
-						}, function() {
+						}, () => {
 							isLeftMenuHiding = true;
 						});
 	
@@ -449,7 +381,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 				}
 			};
 	
-			self.toggleLeftMenu = toggleLeftMenu = function() {
+			let toggleLeftMenu = self.toggleLeftMenu = () => {
 	
 				if (WIN_WIDTH() > hideMenuWinWidth) {
 					// ignore.
@@ -465,7 +397,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 				}
 			};
 	
-			self.showRightMenu = showRightMenu = function() {
+			let showRightMenu = self.showRightMenu = () => {
 	
 				if (WIN_WIDTH() > hideMenuWinWidth) {
 					// ignore.
@@ -489,7 +421,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 								zIndex : 999999
 							},
 							on : {
-								tap : function() {
+								tap : () => {
 									hideRightMenu();
 								}
 							}
@@ -505,7 +437,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 									marginLeft : -menuWidth
 								}
 							})
-						}, function() {
+						}, () => {
 							isRightMenuShowing = true;
 						});
 	
@@ -553,14 +485,14 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 						toolbarTapEvent = EVENT({
 							node : toolbar,
 							name : 'touchstart'
-						}, function(e) {
+						}, (e) => {
 							toggleRightMenu();
 						});
 	
 						contentTapEvent = EVENT({
 							node : content,
 							name : 'touchstart'
-						}, function(e) {
+						}, (e) => {
 							toggleRightMenu();
 						});
 	
@@ -569,7 +501,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 							bottomBarTapEvent = EVENT({
 								node : bottomBar,
 								name : 'touchstart'
-							}, function(e) {
+							}, (e) => {
 								toggleRightMenu();
 							});
 						}
@@ -577,7 +509,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 				}
 			};
 	
-			self.hideRightMenu = hideRightMenu = function() {
+			let hideRightMenu = self.hideRightMenu = () => {
 	
 				if (WIN_WIDTH() > hideMenuWinWidth) {
 	
@@ -605,7 +537,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 									marginLeft : 0
 								}
 							})
-						}, function() {
+						}, () => {
 							isRightMenuHiding = true;
 						});
 	
@@ -660,7 +592,7 @@ Yogurt.MenuLayout = CLASS(function(cls) {
 				}
 			};
 	
-			self.toggleRightMenu = toggleRightMenu = function() {
+			let toggleRightMenu = self.toggleRightMenu = () => {
 	
 				if (WIN_WIDTH() > hideMenuWinWidth) {
 					// ignore.

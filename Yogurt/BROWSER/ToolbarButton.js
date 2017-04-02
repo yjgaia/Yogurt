@@ -1,13 +1,10 @@
 Yogurt.ToolbarButton = CLASS({
 
-	preset : function() {
-		'use strict';
-		
+	preset : () => {
 		return NODE;
 	},
 
-	init : function(inner, self, params) {
-		'use strict';
+	init : (inner, self, params) => {
 		//REQUIRED: params
 		//OPTIONAL: params.img
 		//OPTIONAL: params.title
@@ -16,41 +13,15 @@ Yogurt.ToolbarButton = CLASS({
 		//OPTIONAL: params.style
 		//OPTIONAL: params.on
 
-		var
-		// img
-		img = params.img,
+		let img = params.img;
+		let title = params.title;
+		let href = params.href;
+		let target = params.target;
 
-		// title
-		title = params.title,
-
-		// href
-		href = params.href,
-
-		// target
-		target = params.target,
-
-		// a
-		a,
-
-		// title dom
-		titleDom,
-
-		// span
-		span,
-
-		// evt
-		evt,
-
-		// set title.
-		setTitle,
-
-		// get img.
-		getImg,
-
-		// tap.
-		tap;
-
-		a = A({
+		let titleDom;
+		let span;
+		
+		let a = A({
 			style : {
 				display : 'block',
 				padding : '16px 10px',
@@ -83,10 +54,10 @@ Yogurt.ToolbarButton = CLASS({
 
 			a.prepend(img);
 
-			evt = EVENT({
+			let evt = EVENT({
 				node : img,
 				name : 'load'
-			}, function(e) {
+			}, (e) => {
 				titleDom.addStyle({
 					marginTop : (img.getHeight() - titleDom.getHeight()) / 2
 				});
@@ -97,16 +68,16 @@ Yogurt.ToolbarButton = CLASS({
 
 		inner.setDom(a);
 
-		self.setTitle = setTitle = function(title) {
+		let setTitle = self.setTitle = (title) => {
 			span.empty();
 			span.append(title);
 		};
 
-		self.getImg = getImg = function() {
+		let getImg = self.getImg = () => {
 			return img;
 		};
 
-		self.tap = tap = function() {
+		let tap = self.tap = () => {
 			EVENT.fireAll({
 				node : self,
 				name : 'tap'

@@ -1,48 +1,28 @@
-Yogurt.BottomBar = CLASS(function(cls) {
-	'use strict';
-
-	var
-	// z index
-	zIndex = 999;
+Yogurt.BottomBar = CLASS((cls) => {
+	
+	let zIndex = 999;
 
 	return {
 
-		preset : function() {
+		preset : () => {
 			return NODE;
 		},
 
-		init : function(inner, self, params) {
+		init : (inner, self, params) => {
 			//REQUIRED: params
 			//REQUIRED: params.buttons
 			//OPTIONAL: params.style
 			//OPTIONAL: params.contentStyle
 
-			var
-			// buttons
-			buttons = params.buttons,
-
-			// color
-			color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarColor === undefined ? '#666' : BROWSER_CONFIG.Yogurt.bottomBarColor,
-
-			// text color
-			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.bottomBarTextColor,
-
-			// height
-			height = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarHeight === undefined ? 70 : BROWSER_CONFIG.Yogurt.bottomBarHeight,
-
-			// content style
-			contentStyle = params.contentStyle,
-
-			// wrapper
-			wrapper,
-
-			// content
-			content,
-
-			// add content style.
-			addContentStyle;
-
-			wrapper = DIV({
+			let buttons = params.buttons;
+			let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarColor === undefined ? '#666' : BROWSER_CONFIG.Yogurt.bottomBarColor;
+			let textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.bottomBarTextColor;
+			let height = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarHeight === undefined ? 70 : BROWSER_CONFIG.Yogurt.bottomBarHeight;
+			let contentStyle = params.contentStyle;
+			
+			let content;
+			
+			let wrapper = DIV({
 				style : {
 					height : height
 				},
@@ -61,13 +41,11 @@ Yogurt.BottomBar = CLASS(function(cls) {
 							padding : '12px 0',
 							color : textColor
 						},
-						c : RUN(function() {
+						c : RUN(() => {
 
-							var
-							// array
-							array = [];
+							let array = [];
 
-							EACH(buttons, function(button) {
+							EACH(buttons, (button) => {
 								array.push(button);
 							});
 
@@ -82,7 +60,7 @@ Yogurt.BottomBar = CLASS(function(cls) {
 			inner.setWrapperDom(wrapper);
 			inner.setContentDom(content);
 
-			self.addContentStyle = addContentStyle = function(style) {
+			let addContentStyle = self.addContentStyle = (style) => {
 				//REQUIRED: style
 
 				content.addStyle(style);

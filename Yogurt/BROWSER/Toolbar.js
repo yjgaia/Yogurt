@@ -1,20 +1,15 @@
-Yogurt.Toolbar = CLASS(function(cls) {
-	'use strict';
+Yogurt.Toolbar = CLASS((cls) => {
 
-	var
-	// z index
-	zIndex = 999,
-
-	// height
-	height = 50;
+	const Z_INDEX = 999;
+	const HEIGHT = 50;
 
 	return {
 
-		preset : function() {
+		preset : () => {
 			return NODE;
 		},
 
-		init : function(inner, self, params) {
+		init : (inner, self, params) => {
 			//OPTIONAL: params
 			//OPTIONAL: params.left
 			//OPTIONAL: params.title
@@ -22,49 +17,21 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			//OPTIONAL: params.style
 			//OPTIONAL: params.contentStyle
 
-			var
-			// left
-			left = params === undefined ? undefined : params.left,
+			let left = params === undefined ? undefined : params.left;
+			let title = params === undefined ? undefined : params.title;
+			let right = params === undefined ? undefined : params.right;
+			let background = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.toolbarBackground;
+			let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.toolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.toolbarColor;
+			let backgroundImage = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.toolbarBackgroundImage;
+			let textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.toolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.toolbarTextColor;
+			let contentStyle = params === undefined ? undefined : params.contentStyle;
 
-			// title
-			title = params === undefined ? undefined : params.title,
+			let titleDom;
+			let content;
 
-			// right
-			right = params === undefined ? undefined : params.right,
-			
-			// background
-			background = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.toolbarBackground,
-
-			// color
-			color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.toolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.toolbarColor,
-
-			// background image
-			backgroundImage = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.toolbarBackgroundImage,
-
-			// text color
-			textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.toolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.toolbarTextColor,
-
-			// content style
-			contentStyle = params === undefined ? undefined : params.contentStyle,
-
-			// wrapper
-			wrapper,
-
-			// title dom
-			titleDom,
-
-			// content
-			content,
-
-			// add content style.
-			addContentStyle,
-
-			// set title.
-			setTitle;
-
-			wrapper = DIV({
+			let wrapper = DIV({
 				style : {
-					height : height
+					height : HEIGHT
 				},
 				c : content = DIV({
 					style : {
@@ -73,9 +40,9 @@ Yogurt.Toolbar = CLASS(function(cls) {
 						background : background,
 						backgroundColor : color,
 						backgroundImage : backgroundImage,
-						height : height,
+						height : HEIGHT,
 						width : '100%',
-						zIndex : zIndex,
+						zIndex : Z_INDEX,
 						color : textColor
 					},
 					c : [left === undefined ? '' : DIV({
@@ -107,7 +74,7 @@ Yogurt.Toolbar = CLASS(function(cls) {
 			inner.setWrapperDom(wrapper);
 			inner.setContentDom(content);
 
-			self.addContentStyle = addContentStyle = function(style) {
+			let addContentStyle = self.addContentStyle = (style) => {
 				//REQUIRED: style
 
 				content.addStyle(style);
@@ -117,7 +84,7 @@ Yogurt.Toolbar = CLASS(function(cls) {
 				addContentStyle(contentStyle);
 			}
 
-			self.setTitle = setTitle = function(title) {
+			let setTitle = self.setTitle = (title) => {
 				titleDom.empty();
 				titleDom.append(title);
 			};

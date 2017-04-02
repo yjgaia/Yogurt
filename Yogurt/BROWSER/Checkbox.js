@@ -1,14 +1,11 @@
 Yogurt.Checkbox = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return UUI.FULL_CHECKBOX;
 	},
 
-	params : function() {
-		'use strict';
-
+	params : () => {
+		
 		return {
 			style : {
 				padding : 5

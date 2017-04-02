@@ -1,27 +1,19 @@
-Yogurt.BottomButton = CLASS(function(cls) {
-	'use strict';
-
-	var
-	// width
-	width = 60,
-
-	// image height
-	imageHeight = 24,
-
-	// get width.
-	getWidth;
-
-	cls.getWidth = getWidth = function() {
+Yogurt.BottomButton = CLASS((cls) => {
+	
+	let width = 60;
+	let imageHeight = 24;
+	
+	let getWidth = cls.getWidth = () => {
 		return width;
 	};
 
 	return {
 
-		preset : function() {
+		preset : () => {
 			return NODE;
 		},
 
-		init : function(inner, self, params) {
+		init : (inner, self, params) => {
 			//REQUIRED: params
 			//OPTIONAL: params.img
 			//OPTIONAL: params.title
@@ -30,35 +22,14 @@ Yogurt.BottomButton = CLASS(function(cls) {
 			//OPTIONAL: params.style
 			//OPTIONAL: params.on
 
-			var
-			// img
-			img = params.img,
+			let img = params.img;
+			let title = params.title;
+			let href = params.href;
+			let target = params.target;
 
-			// title
-			title = params.title,
+			let titleDom;
 
-			// href
-			href = params.href,
-
-			// target
-			target = params.target,
-
-			// a
-			a,
-
-			// title dom
-			titleDom,
-
-			// set title.
-			setTitle,
-
-			// get img.
-			getImg,
-
-			// tap.
-			tap;
-
-			a = A({
+			let a = A({
 				style : {
 					flt : 'left',
 					display : 'block',
@@ -96,16 +67,16 @@ Yogurt.BottomButton = CLASS(function(cls) {
 
 			inner.setDom(a);
 
-			self.setTitle = setTitle = function(title) {
+			let setTitle = self.setTitle = (title) => {
 				titleDom.empty();
 				titleDom.append(title);
 			};
 
-			self.getImg = getImg = function() {
+			let getImg = self.getImg = () => {
 				return img;
 			};
 
-			self.tap = tap = function() {
+			let tap = self.tap = () => {
 				EVENT.fireAll({
 					node : self,
 					name : 'tap'

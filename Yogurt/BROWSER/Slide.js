@@ -1,8 +1,6 @@
 Yogurt.Slide = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return UUI.PANEL;
 	}
 });

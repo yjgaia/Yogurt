@@ -4,11 +4,11 @@ Yogurt.MenuLayout = CLASS((cls) => {
 	let hideMenuWinWidth = 800;
 	let menuBackgroundColor = '#222';
 
-	cls.getMenuWidth = getMenuWidth = () => {
+	let getMenuWidth = cls.getMenuWidth = () => {
 		return menuWidth;
 	};
 
-	cls.getHideMenuWinWidth = getHideMenuWinWidth = () => {
+	let getHideMenuWinWidth = cls.getHideMenuWinWidth = () => {
 		return hideMenuWinWidth;
 	};
 

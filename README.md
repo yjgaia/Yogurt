@@ -1,7 +1,7 @@
 # Yogurt
-Yogurt는 UPPERCASE 기반 모바일 UI 프레임워크입니다.
+Yogurt는 [UPPERCASE](http://uppercase.io) 기반 UI 프레임워크입니다.
 
-![ScreenShot](https://raw.githubusercontent.com/UIO-BOX/Yogurt/master/YogurtShowcase/R/yogurt.jpg)
+![ScreenShot](https://raw.githubusercontent.com/Hanul/Yogurt/master/YogurtShowcase/R/yogurt.jpg)
 
 각 기능에 대한 예제는 `YogurtShowcase/BROWSER` 폴더를 참고해 주시기 바랍니다.
 
@@ -70,6 +70,9 @@ DOM들을 감싸는 래퍼를 만듭니다.
 
 ## Calendar
 달력을 생성합니다.
+
+## Folder Tree
+폴더 트리를 생성합니다.
 
 ## 라이센스
 [MIT](LICENSE)

@@ -1,0 +1,1 @@
+FontAwesome.GetIcon=METHOD(e=>{let t=document.createElement("style");return t.type="text/css",t.appendChild(document.createTextNode("@import url(/FontAwesome/R/css/font-awesome.min.css);")),document.getElementsByTagName("head")[0].appendChild(t),{run:e=>{let t=DOM({tag:"i",cls:"fa fa-"+e});return t.getEl().setAttribute("aria-hidden","true"),t}}});

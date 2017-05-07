@@ -1,4 +1,4 @@
-YogurtShowcase.BottomBar = CLASS({
+YogurtShowcase('KitchenSink').BottomBar = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -26,12 +26,10 @@ YogurtShowcase.BottomBar = CLASS({
 
 				// left
 				left : Yogurt.ToolbarButton({
-					img : IMG({
-						src : Yogurt.R('back.png')
-					}),
+					icon : FontAwesome.GetIcon('chevron-left'),
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				}),
@@ -53,9 +51,7 @@ YogurtShowcase.BottomBar = CLASS({
 			// bottom bar
 			Yogurt.BottomBar({
 				buttons : [Yogurt.BottomButton({
-					img : IMG({
-						src : YogurtShowcase.R('bottom1.png')
-					}),
+					icon : FontAwesome.GetIcon('car'),
 					title : 'Car',
 					on : {
 						tap : function() {
@@ -70,9 +66,7 @@ YogurtShowcase.BottomBar = CLASS({
 						}
 					}
 				}), Yogurt.BottomButton({
-					img : IMG({
-						src : YogurtShowcase.R('bottom2.png')
-					}),
+					icon : FontAwesome.GetIcon('bus'),
 					title : 'Bus',
 					on : {
 						tap : function() {
@@ -87,9 +81,7 @@ YogurtShowcase.BottomBar = CLASS({
 						}
 					}
 				}), Yogurt.BottomButton({
-					img : IMG({
-						src : YogurtShowcase.R('bottom3.png')
-					}),
+					icon : FontAwesome.GetIcon('train'),
 					title : 'Train',
 					on : {
 						tap : function() {
@@ -104,9 +96,7 @@ YogurtShowcase.BottomBar = CLASS({
 						}
 					}
 				}), Yogurt.BottomButton({
-					img : IMG({
-						src : YogurtShowcase.R('bottom4.png')
-					}),
+					icon : FontAwesome.GetIcon('ship'),
 					title : 'Ship',
 					on : {
 						tap : function() {
@@ -121,9 +111,7 @@ YogurtShowcase.BottomBar = CLASS({
 						}
 					}
 				}), Yogurt.BottomButton({
-					img : IMG({
-						src : YogurtShowcase.R('bottom5.png')
-					}),
+					icon : FontAwesome.GetIcon('plane'),
 					title : 'Plane',
 					on : {
 						tap : function() {

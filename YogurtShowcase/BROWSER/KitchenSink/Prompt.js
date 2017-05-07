@@ -1,4 +1,4 @@
-YogurtShowcase.Prompt = CLASS({
+YogurtShowcase('KitchenSink').Prompt = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -26,12 +26,10 @@ YogurtShowcase.Prompt = CLASS({
 
 				// left
 				left : Yogurt.ToolbarButton({
-					img : IMG({
-						src : Yogurt.R('back.png')
-					}),
+					icon : FontAwesome.GetIcon('chevron-left'),
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				}),

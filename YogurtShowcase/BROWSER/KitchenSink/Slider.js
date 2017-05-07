@@ -1,4 +1,4 @@
-YogurtShowcase.Slider = CLASS({
+YogurtShowcase('KitchenSink').Slider = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -23,12 +23,10 @@ YogurtShowcase.Slider = CLASS({
 
 				// left
 				left : Yogurt.ToolbarButton({
-					img : IMG({
-						src : Yogurt.R('back.png')
-					}),
+					icon : FontAwesome.GetIcon('chevron-left'),
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				}),
@@ -91,7 +89,7 @@ YogurtShowcase.Slider = CLASS({
 								c : [H5({
 									style : {
 										flt : 'left',
-										backgroundColor : RGBA([0, 0, 0, 0.8]),
+										backgroundColor : 'rgba(0, 0, 0, 0.8)',
 										color : '#fff',
 										padding : '8px 10px',
 									},
@@ -99,7 +97,7 @@ YogurtShowcase.Slider = CLASS({
 								}), CLEAR_BOTH(), P({
 									style : {
 										marginTop : 10,
-										backgroundColor : RGBA([0, 0, 0, 0.8]),
+										backgroundColor : 'rgba(0, 0, 0, 0.8)',
 										color : '#fff',
 										padding : '8px 10px'
 									},

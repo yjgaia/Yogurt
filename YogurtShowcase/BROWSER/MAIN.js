@@ -7,60 +7,65 @@ YogurtShowcase.MAIN = METHOD({
 			uri : ['', '**'],
 			target : YogurtShowcase.Control
 		});
-
+		
 		YogurtShowcase.MATCH_VIEW({
 			uri : '',
 			target : YogurtShowcase.Home
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'Toolbar',
-			target : YogurtShowcase.Toolbar
+			uri : 'KitchenSink',
+			target : YogurtShowcase.KitchenSink.Home
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'Button',
-			target : YogurtShowcase.Button
+			uri : 'KitchenSink/Toolbar',
+			target : YogurtShowcase.KitchenSink.Toolbar
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'Form',
-			target : YogurtShowcase.Form
+			uri : 'KitchenSink/Button',
+			target : YogurtShowcase.KitchenSink.Button
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'Alert',
-			target : YogurtShowcase.Alert
+			uri : 'KitchenSink/Form',
+			target : YogurtShowcase.KitchenSink.Form
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'Prompt',
-			target : YogurtShowcase.Prompt
+			uri : 'KitchenSink/Alert',
+			target : YogurtShowcase.KitchenSink.Alert
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'Confirm',
-			target : YogurtShowcase.Confirm
+			uri : 'KitchenSink/Prompt',
+			target : YogurtShowcase.KitchenSink.Prompt
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'MenuLayout',
-			target : YogurtShowcase.MenuLayout
+			uri : 'KitchenSink/Confirm',
+			target : YogurtShowcase.KitchenSink.Confirm
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'BottomBar',
-			target : YogurtShowcase.BottomBar
+			uri : 'KitchenSink/MenuLayout',
+			target : YogurtShowcase.KitchenSink.MenuLayout
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'Slider',
-			target : YogurtShowcase.Slider
+			uri : 'KitchenSink/BottomBar',
+			target : YogurtShowcase.KitchenSink.BottomBar
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'Calendar',
-			target : YogurtShowcase.Calendar
+			uri : 'KitchenSink/Slider',
+			target : YogurtShowcase.KitchenSink.Slider
+		});
+
+		YogurtShowcase.MATCH_VIEW({
+			uri : 'KitchenSink/Calendar',
+			target : YogurtShowcase.KitchenSink.Calendar
 		});
 	}
 });

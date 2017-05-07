@@ -1,5 +1,12 @@
 # UUI
-UJS User Interface BOX for web applications.
+웹 애플리케이션 개발을 위한 UPPERCASE용 UI BOX입니다.
+
+## 설치하기
+1. 프로젝트의 `DEPENDENCY` 파일에 `Hanul/UUI`를 추가합니다.
+2. [`ubm`](https://www.npmjs.com/package/ubm)을 이용해 설치합니다.
+    ```
+    ubm install
+    ```
 
 ## BUTTON
 이미지가 위에, 글자가 아래에 오는 버튼을 생성합니다.
@@ -38,7 +45,7 @@ UUI.BUTTON_H({
 	spacing : 5,
 	title : '저장하기',
 	on : {
-		tap : function() {
+		tap : () => {
 			
 			UUI.NOTICE({
 				style : {
@@ -62,7 +69,7 @@ UUI.IMG_BUTTON({
 		src : UUI_SHOWCASE.R('save.png')
 	}),
 	on : {
-		tap : function() {
+		tap : () => {
 			
 			UUI.NOTICE({
 				style : {
@@ -90,7 +97,7 @@ UUI.TEXT_BUTTON({
 	},
 	title : '저장하기',
 	on : {
-		tap : function() {
+		tap : () => {
 			
 			UUI.NOTICE({
 				style : {
@@ -135,7 +142,7 @@ list.addItem({
 });
 
 // 특정 아이템이 제거 되었을 때 실행되는 핸들러
-list.addRemoveItemHandler('b', function() {
+list.addRemoveItemHandler('b', () => {
 	console.log('b가 지워졌습니다.');
 });
 
@@ -183,7 +190,7 @@ table.addTR({
 });
 
 // 특정 열이 제거 되었을 때 실행되는 핸들러
-table.addRemoveTRHandler('b', function() {
+table.addRemoveTRHandler('b', () => {
 	console.log('b가 지워졌습니다.');
 });
 
@@ -240,6 +247,8 @@ UUI.MODAL({
 });
 ```
 
+`close` 이벤트 사용 가능
+
 ## NOTICE
 화면 가운데에 특정 메시지를 출력하고, 잠시 후 삭제되는 모들을 생성합니다.
 ```javascript
@@ -271,7 +280,7 @@ loading = UUI.LOADING({
 });
 
 // loaded
-DELAY(3, function() {
+DELAY(3, () => {
 	loading.remove();
 });
 ```
@@ -298,7 +307,7 @@ UUI.VALID_FORM({
 		placeholder : 'Name'
 	})],
 	on : {
-		submit : function(e, form) {
+		submit : (e, form) => {
 			
 			console.log(form.getData());
 			
@@ -372,10 +381,10 @@ UUI.FULL_SUBMIT({
 UUI.FULL_UPLOAD_FORM({
 	box : UUI_SHOWCASE
 }, {
-	overSizeFile : function(maxUploadFileMB) {
+	overSizeFile : (maxUploadFileMB) => {
 		alert('Max upload file size is ' + maxUploadFileMB + 'mb.');
 	},
-	success : function(fileData, form) {
+	success : (fileData, form) => {
 		
 		if (
 		fileData.type === 'image/png' ||
@@ -431,10 +440,13 @@ UUI.CALENDAR({
 		textAlign : 'center',
 		cursor : 'pointer'
 	}
-}, function(selectedCal) {
+}, (selectedCal) => {
 	console.log(selectedCal.getYear() + '-' + selectedCal.getMonth() + '-' + selectedCal.getDate());
 })
 ```
+
+## API 문서
+[API](API/README.md)
 
 ## 소스코드
 https://github.com/Hanul/UUI

@@ -22,12 +22,8 @@ Yogurt.Calendar = CLASS({
 				padding : '10px 15px',
 				fontWeight : 'bold'
 			},
-			leftArrowImg : IMG({
-				src : Yogurt.R('cal/left.png')
-			}),
-			rightArrowImg : IMG({
-				src : Yogurt.R('cal/right.png')
-			}),
+			leftArrowIcon : FontAwesome.GetIcon('chevron-left'),
+			rightArrowIcon : FontAwesome.GetIcon('chevron-right'),
 			dayStyle : {
 				backgroundColor : '#999',
 				color : '#fff',

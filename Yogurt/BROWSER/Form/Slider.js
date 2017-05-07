@@ -16,7 +16,7 @@ Yogurt.Slider = CLASS({
 		let slides = params.slides;
 		let contentStyle = params.contentStyle;
 		let isNotUsingDots = params.isNotUsingDots;
-		let dotColor = params.dotColor === undefined ? RGBA([128, 128, 128, 0.3]) : params.dotColor;
+		let dotColor = params.dotColor === undefined ? 'rgba(128, 128, 128, 0.3)' : params.dotColor;
 		let dotHighlightColor = params.dotHighlightColor === undefined ? '#000' : params.dotHighlightColor;
 
 		let scrollWrapper;
@@ -66,11 +66,10 @@ Yogurt.Slider = CLASS({
 					},
 					c : UUI.V_CENTER({
 						style : {
-							height : '100%'
+							height : '100%',
+							color : '#fff'
 						},
-						c : IMG({
-							src : Yogurt.R('left.png')
-						})
+						c : FontAwesome.GetIcon('chevron-left')
 					}),
 					on : {
 						tap : () => {
@@ -89,11 +88,10 @@ Yogurt.Slider = CLASS({
 					},
 					c : UUI.V_CENTER({
 						style : {
-							height : '100%'
+							height : '100%',
+							color : '#fff'
 						},
-						c : IMG({
-							src : Yogurt.R('right.png')
-						})
+						c : FontAwesome.GetIcon('chevron-right')
 					}),
 					on : {
 						tap : () => {

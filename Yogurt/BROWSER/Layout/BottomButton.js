@@ -15,14 +15,14 @@ Yogurt.BottomButton = CLASS((cls) => {
 
 		init : (inner, self, params) => {
 			//REQUIRED: params
-			//OPTIONAL: params.img
+			//OPTIONAL: params.icon
 			//OPTIONAL: params.title
 			//OPTIONAL: params.href
 			//OPTIONAL: params.target
 			//OPTIONAL: params.style
 			//OPTIONAL: params.on
 
-			let img = params.img;
+			let icon = params.icon;
 			let title = params.title;
 			let href = params.href;
 			let target = params.target;
@@ -51,16 +51,16 @@ Yogurt.BottomButton = CLASS((cls) => {
 				}));
 			}
 
-			if (img !== undefined) {
+			if (icon !== undefined) {
 
 				a.prepend(DIV({
 					style : {
 						marginBottom : title !== undefined ? 5 : 0
 					},
-					c : img
+					c : icon
 				}));
 
-				img.addStyle({
+				icon.addStyle({
 					height : imageHeight
 				});
 			}
@@ -72,8 +72,8 @@ Yogurt.BottomButton = CLASS((cls) => {
 				titleDom.append(title);
 			};
 
-			let getImg = self.getImg = () => {
-				return img;
+			let getIcon = self.getIcon = () => {
+				return icon;
 			};
 
 			let tap = self.tap = () => {

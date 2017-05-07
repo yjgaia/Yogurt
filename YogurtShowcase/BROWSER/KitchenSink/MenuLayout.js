@@ -1,4 +1,4 @@
-YogurtShowcase.MenuLayout = CLASS({
+YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -52,9 +52,7 @@ YogurtShowcase.MenuLayout = CLASS({
 							}
 						}
 					},
-					img : IMG({
-						src : Yogurt.R('menu.png')
-					}),
+					icon : FontAwesome.GetIcon('bars'),
 					on : {
 						tap : function(e) {
 							menuLayout.toggleLeftMenu();
@@ -78,9 +76,7 @@ YogurtShowcase.MenuLayout = CLASS({
 							}
 						}
 					},
-					img : IMG({
-						src : Yogurt.R('menu.png')
-					}),
+					icon : FontAwesome.GetIcon('bars'),
 					on : {
 						tap : function(e) {
 							menuLayout.toggleRightMenu();
@@ -99,14 +95,12 @@ YogurtShowcase.MenuLayout = CLASS({
 						borderBottom : '1px solid #666',
 						fontSize : 15
 					},
-					img : IMG({
-						src : Yogurt.R('back.png')
-					}),
+					icon : FontAwesome.GetIcon('chevron-left'),
 					spacing : 10,
 					title : 'Go Home',
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				})]
@@ -119,14 +113,12 @@ YogurtShowcase.MenuLayout = CLASS({
 						borderBottom : '1px solid #666',
 						fontSize : 15
 					},
-					img : IMG({
-						src : Yogurt.R('back.png')
-					}),
+					icon : FontAwesome.GetIcon('chevron-left'),
 					spacing : 10,
 					title : 'Go Home',
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				})]
@@ -148,7 +140,7 @@ YogurtShowcase.MenuLayout = CLASS({
 		}).appendTo(BODY);
 
 		inner.on('close', function() {
-			wrapper.remove();
+			menuLayout.remove();
 		});
 	}
 });

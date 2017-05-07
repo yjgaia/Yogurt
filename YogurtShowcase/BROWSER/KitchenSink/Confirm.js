@@ -1,4 +1,4 @@
-YogurtShowcase.Confirm = CLASS({
+YogurtShowcase('KitchenSink').Confirm = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -26,12 +26,10 @@ YogurtShowcase.Confirm = CLASS({
 
 				// left
 				left : Yogurt.ToolbarButton({
-					img : IMG({
-						src : Yogurt.R('back.png')
-					}),
+					icon : FontAwesome.GetIcon('chevron-left'),
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				}),

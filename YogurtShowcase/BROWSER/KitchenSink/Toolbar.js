@@ -1,4 +1,4 @@
-YogurtShowcase.Alert = CLASS({
+YogurtShowcase('KitchenSink').Toolbar = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -13,7 +13,7 @@ YogurtShowcase.Alert = CLASS({
 		// wrapper
 		wrapper;
 
-		TITLE('Yogurt Alert.');
+		TITLE('Yogurt Toolbar');
 
 		wrapper = Yogurt.Wrapper({
 			c : [
@@ -23,18 +23,26 @@ YogurtShowcase.Alert = CLASS({
 
 				// left
 				left : Yogurt.ToolbarButton({
-					img : IMG({
-						src : Yogurt.R('back.png')
-					}),
+					icon : FontAwesome.GetIcon('chevron-left'),
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				}),
 
 				// title
-				title : 'Alert'
+				title : 'Toolbar',
+
+				// right
+				right : Yogurt.ToolbarButton({
+					title : 'Button',
+					on : {
+						tap : function() {
+							Yogurt.Alert('test');
+						}
+					}
+				})
 			}),
 
 			// content
@@ -47,8 +55,6 @@ YogurtShowcase.Alert = CLASS({
 				})]
 			})]
 		}).appendTo(BODY);
-
-		Yogurt.Alert('Alert');
 
 		inner.on('close', function() {
 			wrapper.remove();

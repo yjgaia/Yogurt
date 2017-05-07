@@ -1,4 +1,4 @@
-YogurtShowcase.Calendar = CLASS({
+YogurtShowcase('KitchenSink').Calendar = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -26,12 +26,10 @@ YogurtShowcase.Calendar = CLASS({
 
 				// left
 				left : Yogurt.ToolbarButton({
-					img : IMG({
-						src : Yogurt.R('back.png')
-					}),
+					icon : FontAwesome.GetIcon('chevron-left'),
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				}),

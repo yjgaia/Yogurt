@@ -6,14 +6,14 @@ Yogurt.ToolbarButton = CLASS({
 
 	init : (inner, self, params) => {
 		//REQUIRED: params
-		//OPTIONAL: params.img
+		//OPTIONAL: params.icon
 		//OPTIONAL: params.title
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
 		//OPTIONAL: params.on
 
-		let img = params.img;
+		let icon = params.icon;
 		let title = params.title;
 		let href = params.href;
 		let target = params.target;
@@ -40,26 +40,26 @@ Yogurt.ToolbarButton = CLASS({
 			}), CLEAR_BOTH()]
 		});
 
-		if (img !== undefined) {
+		if (icon !== undefined) {
 
-			img.addStyle({
+			icon.addStyle({
 				flt : 'left'
 			});
 
-			if (img.getStyle('margin') === undefined && img.getStyle('marginRight') === undefined) {
-				img.addStyle({
+			if (icon.getStyle('margin') === undefined && icon.getStyle('marginRight') === undefined) {
+				icon.addStyle({
 					marginRight : 5
 				});
 			}
 
-			a.prepend(img);
+			a.prepend(icon);
 
 			let evt = EVENT({
-				node : img,
+				node : icon,
 				name : 'load'
 			}, (e) => {
 				titleDom.addStyle({
-					marginTop : (img.getHeight() - titleDom.getHeight()) / 2
+					marginTop : (icon.getHeight() - titleDom.getHeight()) / 2
 				});
 
 				evt.remove();
@@ -73,8 +73,8 @@ Yogurt.ToolbarButton = CLASS({
 			span.append(title);
 		};
 
-		let getImg = self.getImg = () => {
-			return img;
+		let getIcon = self.getIcon = () => {
+			return icon;
 		};
 
 		let tap = self.tap = () => {

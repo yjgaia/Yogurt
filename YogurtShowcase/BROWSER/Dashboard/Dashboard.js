@@ -1,4 +1,4 @@
-YogurtShowcase.Home = CLASS({
+YogurtShowcase.Dashboard = CLASS({
 
 	preset : function() {
 		'use strict';

@@ -218,54 +218,54 @@ Yogurt.MenuLayout = CLASS((cls) => {
 	
 						ANIMATE({
 							node : content,
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									marginLeft : 0
 								},
 								to : {
 									marginLeft : menuWidth
 								}
-							})
+							}
 						}, () => {
 							isLeftMenuShowing = true;
 						});
 	
 						ANIMATE({
 							node : toolbar.getContentDom(),
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									left : 0
 								},
 								to : {
 									left : menuWidth
 								}
-							})
+							}
 						});
 	
 						ANIMATE({
 							node : leftMenuWrapper,
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									left : -menuWidth
 								},
 								to : {
 									left : 0
 								}
-							})
+							}
 						});
 	
 						if (bottomBar !== undefined) {
 	
 							ANIMATE({
 								node : bottomBar.getContentDom(),
-								keyframes : KEYFRAMES({
+								keyframes : {
 									from : {
 										left : 0
 									},
 									to : {
 										left : menuWidth
 									}
-								})
+								}
 							});
 						}
 	
@@ -318,54 +318,54 @@ Yogurt.MenuLayout = CLASS((cls) => {
 	
 						ANIMATE({
 							node : content,
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									marginLeft : menuWidth
 								},
 								to : {
 									marginLeft : 0
 								}
-							})
+							}
 						}, () => {
 							isLeftMenuHiding = true;
 						});
 	
 						ANIMATE({
 							node : toolbar.getContentDom(),
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									left : menuWidth
 								},
 								to : {
 									left : 0
 								}
-							})
+							}
 						});
 	
 						ANIMATE({
 							node : leftMenuWrapper,
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									left : 0
 								},
 								to : {
 									left : -menuWidth
 								}
-							})
+							}
 						});
 	
 						if (bottomBar !== undefined) {
 	
 							ANIMATE({
 								node : bottomBar.getContentDom(),
-								keyframes : KEYFRAMES({
+								keyframes : {
 									from : {
 										left : menuWidth
 									},
 									to : {
 										left : 0
 									}
-								})
+								}
 							});
 						}
 	
@@ -429,54 +429,54 @@ Yogurt.MenuLayout = CLASS((cls) => {
 	
 						ANIMATE({
 							node : content,
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									marginLeft : 0
 								},
 								to : {
 									marginLeft : -menuWidth
 								}
-							})
+							}
 						}, () => {
 							isRightMenuShowing = true;
 						});
 	
 						ANIMATE({
 							node : toolbar.getContentDom(),
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									left : 0
 								},
 								to : {
 									left : -menuWidth
 								}
-							})
+							}
 						});
 	
 						ANIMATE({
 							node : rightMenuWrapper,
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									right : -menuWidth
 								},
 								to : {
 									right : 0
 								}
-							})
+							}
 						});
 	
 						if (bottomBar !== undefined) {
 	
 							ANIMATE({
 								node : bottomBar.getContentDom(),
-								keyframes : KEYFRAMES({
+								keyframes : {
 									from : {
 										left : 0
 									},
 									to : {
 										left : -menuWidth
 									}
-								})
+								}
 							});
 						}
 	
@@ -529,54 +529,54 @@ Yogurt.MenuLayout = CLASS((cls) => {
 	
 						ANIMATE({
 							node : content,
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									marginLeft : -menuWidth
 								},
 								to : {
 									marginLeft : 0
 								}
-							})
+							}
 						}, () => {
 							isRightMenuHiding = true;
 						});
 	
 						ANIMATE({
 							node : toolbar.getContentDom(),
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									left : -menuWidth
 								},
 								to : {
 									left : 0
 								}
-							})
+							}
 						});
 	
 						ANIMATE({
 							node : rightMenuWrapper,
-							keyframes : KEYFRAMES({
+							keyframes : {
 								from : {
 									right : 0
 								},
 								to : {
 									right : -menuWidth
 								}
-							})
+							}
 						});
 	
 						if (bottomBar !== undefined) {
 	
 							ANIMATE({
 								node : bottomBar.getContentDom(),
-								keyframes : KEYFRAMES({
+								keyframes : {
 									from : {
 										left : -menuWidth
 									},
 									to : {
 										left : 0
 									}
-								})
+								}
 							});
 						}
 	

@@ -1,4 +1,4 @@
-YogurtShowcase.Button = CLASS({
+YogurtShowcase('KitchenSink').Button = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -23,12 +23,10 @@ YogurtShowcase.Button = CLASS({
 
 				// left
 				left : Yogurt.ToolbarButton({
-					img : IMG({
-						src : Yogurt.R('back.png')
-					}),
+					icon : FontAwesome.GetIcon('chevron-left'),
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				}),
@@ -51,7 +49,7 @@ YogurtShowcase.Button = CLASS({
 					title : 'Go Back',
 					on : {
 						tap : function() {
-							YogurtShowcase.GO('');
+							YogurtShowcase.GO('KitchenSink');
 						}
 					}
 				})]

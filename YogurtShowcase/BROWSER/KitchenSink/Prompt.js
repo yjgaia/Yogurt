@@ -1,34 +1,24 @@
 YogurtShowcase('KitchenSink').Prompt = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return VIEW;
 	},
 
-	init : function(inner, self) {
-		'use strict';
-
-		var
-		// wrapper
-		wrapper,
-
-		// content
-		content;
-
+	init : (inner, self) => {
+		
 		TITLE('Yogurt Prompt.');
 
-		wrapper = Yogurt.Wrapper({
+		let content;
+		let wrapper = Yogurt.Wrapper({
 			c : [
 
 			// toolbar
 			Yogurt.Toolbar({
 
 				// left
-				left : Yogurt.ToolbarButton({
-					icon : FontAwesome.GetIcon('chevron-left'),
+				left : Yogurt.BackButton({
 					on : {
-						tap : function() {
+						tap : () => {
 							YogurtShowcase.GO('KitchenSink');
 						}
 					}
@@ -49,12 +39,12 @@ YogurtShowcase('KitchenSink').Prompt = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		Yogurt.Prompt('Prompt!', function(str) {
+		Yogurt.Prompt('Prompt!', (str) => {
 			content.empty();
 			content.append(str);
 		});
 
-		inner.on('close', function() {
+		inner.on('close', () => {
 			wrapper.remove();
 		});
 	}

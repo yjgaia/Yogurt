@@ -1,7 +1,6 @@
 YogurtShowcase.MAIN = METHOD({
 
-	run : function(params) {
-		'use strict';
+	run : (params) => {
 
 		YogurtShowcase.MATCH_VIEW({
 			uri : ['', '**'],
@@ -13,6 +12,10 @@ YogurtShowcase.MAIN = METHOD({
 			target : YogurtShowcase.Home
 		});
 
+		/*
+		 * Kitchen Sink
+		 */
+		
 		YogurtShowcase.MATCH_VIEW({
 			uri : 'KitchenSink',
 			target : YogurtShowcase.KitchenSink.Home

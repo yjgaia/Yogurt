@@ -1,31 +1,23 @@
 YogurtShowcase('KitchenSink').Slider = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return VIEW;
 	},
 
-	init : function(inner, self) {
-		'use strict';
-
-		var
-		// wrapper
-		wrapper;
+	init : (inner, self) => {
 
 		TITLE('Yogurt Slider.');
 
-		wrapper = Yogurt.Wrapper({
+		let wrapper = Yogurt.Wrapper({
 			c : [
 
 			// toolbar
 			Yogurt.Toolbar({
 
 				// left
-				left : Yogurt.ToolbarButton({
-					icon : FontAwesome.GetIcon('chevron-left'),
+				left : Yogurt.BackButton({
 					on : {
-						tap : function() {
+						tap : () => {
 							YogurtShowcase.GO('KitchenSink');
 						}
 					}
@@ -37,11 +29,9 @@ YogurtShowcase('KitchenSink').Slider = CLASS({
 			
 			// slider
 			Yogurt.Slider({
-				slides : RUN(function() {
+				slides : RUN(() => {
 
-					var
-					// slides
-					slides = [];
+					let slides = [];
 
 					EACH([{
 						image : 'car.jpg',
@@ -63,7 +53,7 @@ YogurtShowcase('KitchenSink').Slider = CLASS({
 						image : 'plane.jpg',
 						title : 'Plane',
 						content : 'This is a plane.'
-					}], function(data) {
+					}], (data) => {
 
 						slides.push(Yogurt.Slide({
 							style : {
@@ -121,7 +111,7 @@ YogurtShowcase('KitchenSink').Slider = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		inner.on('close', function() {
+		inner.on('close', () => {
 			wrapper.remove();
 		});
 	}

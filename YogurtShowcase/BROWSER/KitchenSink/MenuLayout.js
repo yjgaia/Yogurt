@@ -1,26 +1,19 @@
 YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return VIEW;
 	},
 
-	init : function(inner, self) {
-		'use strict';
-
-		var
-		// menu layout
-		menuLayout;
+	init : (inner, self) => {
 
 		TITLE('Yogurt Menu.');
 
-		menuLayout = Yogurt.MenuLayout({
+		let menuLayout = Yogurt.MenuLayout({
 
 			toolbar : Yogurt.Toolbar({
 
 				contentStyle : {
-					onDisplayResize : function(width, height) {
+					onDisplayResize : (width, height) => {
 
 						if (width > Yogurt.MenuLayout.getHideMenuWinWidth()) {
 							return {
@@ -39,7 +32,7 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 				// left
 				left : Yogurt.ToolbarButton({
 					style : {
-						onDisplayResize : function(width, height) {
+						onDisplayResize : (width, height) => {
 
 							if (width > Yogurt.MenuLayout.getHideMenuWinWidth()) {
 								return {
@@ -54,7 +47,7 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 					},
 					icon : FontAwesome.GetIcon('bars'),
 					on : {
-						tap : function(e) {
+						tap : (e) => {
 							menuLayout.toggleLeftMenu();
 						}
 					}
@@ -63,7 +56,7 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 				// right
 				right : Yogurt.ToolbarButton({
 					style : {
-						onDisplayResize : function(width, height) {
+						onDisplayResize : (width, height) => {
 
 							if (width > Yogurt.MenuLayout.getHideMenuWinWidth()) {
 								return {
@@ -78,7 +71,7 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 					},
 					icon : FontAwesome.GetIcon('bars'),
 					on : {
-						tap : function(e) {
+						tap : (e) => {
 							menuLayout.toggleRightMenu();
 						}
 					}
@@ -99,7 +92,7 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 					spacing : 10,
 					title : 'Go Home',
 					on : {
-						tap : function() {
+						tap : () => {
 							YogurtShowcase.GO('KitchenSink');
 						}
 					}
@@ -117,7 +110,7 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 					spacing : 10,
 					title : 'Go Home',
 					on : {
-						tap : function() {
+						tap : () => {
 							YogurtShowcase.GO('KitchenSink');
 						}
 					}
@@ -139,7 +132,7 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		inner.on('close', function() {
+		inner.on('close', () => {
 			menuLayout.remove();
 		});
 	}

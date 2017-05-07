@@ -1,31 +1,23 @@
 YogurtShowcase('KitchenSink').Alert = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return VIEW;
 	},
 
-	init : function(inner, self) {
-		'use strict';
-
-		var
-		// wrapper
-		wrapper;
+	init : (inner, self) => {
 
 		TITLE('Yogurt Alert.');
 
-		wrapper = Yogurt.Wrapper({
+		let wrapper = Yogurt.Wrapper({
 			c : [
 
 			// toolbar
 			Yogurt.Toolbar({
 
 				// left
-				left : Yogurt.ToolbarButton({
-					icon : FontAwesome.GetIcon('chevron-left'),
+				left : Yogurt.BackButton({
 					on : {
-						tap : function() {
+						tap : () => {
 							YogurtShowcase.GO('KitchenSink');
 						}
 					}
@@ -48,7 +40,7 @@ YogurtShowcase('KitchenSink').Alert = CLASS({
 
 		Yogurt.Alert('Alert');
 
-		inner.on('close', function() {
+		inner.on('close', () => {
 			wrapper.remove();
 		});
 	}

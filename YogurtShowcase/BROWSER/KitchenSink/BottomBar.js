@@ -1,34 +1,24 @@
 YogurtShowcase('KitchenSink').BottomBar = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return VIEW;
 	},
 
-	init : function(inner, self) {
-		'use strict';
-
-		var
-		// wrapper
-		wrapper,
-
-		// content
-		content;
+	init : (inner, self) => {
 
 		TITLE('Yogurt Bottom Bar');
 
-		wrapper = Yogurt.Wrapper({
+		let content;
+		let wrapper = Yogurt.Wrapper({
 			c : [
 
 			// toolbar
 			Yogurt.Toolbar({
 
 				// left
-				left : Yogurt.ToolbarButton({
-					icon : FontAwesome.GetIcon('chevron-left'),
+				left : Yogurt.BackButton({
 					on : {
-						tap : function() {
+						tap : () => {
 							YogurtShowcase.GO('KitchenSink');
 						}
 					}
@@ -54,7 +44,7 @@ YogurtShowcase('KitchenSink').BottomBar = CLASS({
 					icon : FontAwesome.GetIcon('car'),
 					title : 'Car',
 					on : {
-						tap : function() {
+						tap : () => {
 							content.empty();
 							content.append(IMG({
 								style : {
@@ -69,7 +59,7 @@ YogurtShowcase('KitchenSink').BottomBar = CLASS({
 					icon : FontAwesome.GetIcon('bus'),
 					title : 'Bus',
 					on : {
-						tap : function() {
+						tap : () => {
 							content.empty();
 							content.append(IMG({
 								style : {
@@ -84,7 +74,7 @@ YogurtShowcase('KitchenSink').BottomBar = CLASS({
 					icon : FontAwesome.GetIcon('train'),
 					title : 'Train',
 					on : {
-						tap : function() {
+						tap : () => {
 							content.empty();
 							content.append(IMG({
 								style : {
@@ -99,7 +89,7 @@ YogurtShowcase('KitchenSink').BottomBar = CLASS({
 					icon : FontAwesome.GetIcon('ship'),
 					title : 'Ship',
 					on : {
-						tap : function() {
+						tap : () => {
 							content.empty();
 							content.append(IMG({
 								style : {
@@ -114,7 +104,7 @@ YogurtShowcase('KitchenSink').BottomBar = CLASS({
 					icon : FontAwesome.GetIcon('plane'),
 					title : 'Plane',
 					on : {
-						tap : function() {
+						tap : () => {
 							content.empty();
 							content.append(IMG({
 								style : {
@@ -129,7 +119,7 @@ YogurtShowcase('KitchenSink').BottomBar = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		inner.on('close', function() {
+		inner.on('close', () => {
 			wrapper.remove();
 		});
 	}

@@ -1,31 +1,23 @@
 YogurtShowcase('KitchenSink').Form = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return VIEW;
 	},
 
-	init : function(inner, self) {
-		'use strict';
-
-		var
-		// wrapper
-		wrapper;
+	init : (inner, self) => {
 
 		TITLE('Yogurt Form.');
 
-		wrapper = Yogurt.Wrapper({
+		let wrapper = Yogurt.Wrapper({
 			c : [
 
 			// toolbar
 			Yogurt.Toolbar({
 
 				// left
-				left : Yogurt.ToolbarButton({
-					icon : FontAwesome.GetIcon('chevron-left'),
+				left : Yogurt.BackButton({
 					on : {
-						tap : function() {
+						tap : () => {
 							YogurtShowcase.GO('KitchenSink');
 						}
 					}
@@ -110,18 +102,16 @@ YogurtShowcase('KitchenSink').Form = CLASS({
 						style : {
 							marginTop : 10
 						},
-						options : RUN(function() {
+						options : RUN(() => {
 
-							var
-							// array
-							array = [OPTION({
+							let array = [OPTION({
 								c : ['How old are you?']
 							})];
 
 							REPEAT({
 								start : 0,
 								end : 200
-							}, function(age) {
+							}, (age) => {
 								array.push(OPTION({
 									value : age,
 									c : [age]
@@ -150,7 +140,7 @@ YogurtShowcase('KitchenSink').Form = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		inner.on('close', function() {
+		inner.on('close', ()  {
 			wrapper.remove();
 		});
 	}

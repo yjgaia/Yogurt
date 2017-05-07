@@ -1,34 +1,24 @@
 YogurtShowcase('KitchenSink').Calendar = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return VIEW;
 	},
 
-	init : function(inner, self) {
-		'use strict';
-
-		var
-		// wrapper
-		wrapper,
-		
-		// selected date panel
-		selectedDatePanel;
+	init : (inner, self) => {
 
 		TITLE('Yogurt Calendar.');
 
-		wrapper = Yogurt.Wrapper({
+		let selectedDatePanel;
+		let wrapper = Yogurt.Wrapper({
 			c : [
 
 			// toolbar
 			Yogurt.Toolbar({
 
 				// left
-				left : Yogurt.ToolbarButton({
-					icon : FontAwesome.GetIcon('chevron-left'),
+				left : Yogurt.BackButton({
 					on : {
-						tap : function() {
+						tap : () => {
 							YogurtShowcase.GO('KitchenSink');
 						}
 					}
@@ -60,13 +50,13 @@ YogurtShowcase('KitchenSink').Calendar = CLASS({
 			},
 			c :
 			// calendar
-			Yogurt.Calendar({}, function(cal) {
+			Yogurt.Calendar({}, (cal) => {
 				selectedDatePanel.empty();
 				selectedDatePanel.append(cal.getYear() + '-' + cal.getMonth() + '-' + cal.getDate());
 			})
 		});
 
-		inner.on('close', function() {
+		inner.on('close', () => {
 			wrapper.remove();
 		});
 	}

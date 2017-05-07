@@ -1,25 +1,18 @@
 YogurtShowcase.Dashboard = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return VIEW;
 	},
 
-	init : function(inner, self) {
-		'use strict';
-
-		var
-		// wrapper
-		wrapper;
-
+	init : (inner, self) => {
+		
 		TITLE('Yogurt Toolbar.');
 
-		wrapper = Yogurt.Wrapper({
+		let wrapper = Yogurt.Wrapper({
 			c : 'test'
 		}).appendTo(YogurtShowcase.GLOBAL.content);
 
-		inner.on('close', function() {
+		inner.on('close', () => {
 			wrapper.remove();
 		});
 	}

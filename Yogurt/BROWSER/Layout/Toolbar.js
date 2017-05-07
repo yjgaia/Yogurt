@@ -1,7 +1,7 @@
 Yogurt.Toolbar = CLASS((cls) => {
 
 	const Z_INDEX = 999;
-	const HEIGHT = 50;
+	const HEIGHT = 48;
 
 	return {
 

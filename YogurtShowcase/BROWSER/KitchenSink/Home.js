@@ -1,21 +1,14 @@
 YogurtShowcase('KitchenSink').Home = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return VIEW;
 	},
 
-	init : function(inner, self) {
-		'use strict';
-
-		var
-		// wrapper
-		wrapper;
+	init : (inner, self) => {
 
 		TITLE('Yogurt Toolbar.');
 
-		wrapper = Yogurt.Wrapper({
+		let wrapper = Yogurt.Wrapper({
 			c : [
 
 			// toolbar
@@ -41,19 +34,20 @@ YogurtShowcase('KitchenSink').Home = CLASS({
 						marginTop : 20
 					},
 					c : ['Welcome to Yogurt Showcase.\nYogurt is ', A({
+						style : {
+							color : '#0366d6'
+						},
 						href : 'http://uppercase.io',
 						target : '_blank',
-						c : ['UPPERCASE.IO']
-					}), '-Based Mobile UI Framework.']
+						c : 'UPPERCASE'
+					}), '-Based UI Framework.']
 				}), UL({
 					style : {
 						marginTop : 20
 					},
-					c : RUN(function() {
+					c : RUN(() => {
 
-						var
-						// array
-						array = [];
+						let array = [];
 
 						EACH([{
 							title : 'Toolbar',
@@ -101,7 +95,7 @@ YogurtShowcase('KitchenSink').Home = CLASS({
 						}, {
 							title : 'Calendar',
 							uri : 'Calendar'
-						}], function(data, i) {
+						}], (data, i) => {
 
 							array.push(Yogurt.Button({
 								style : {
@@ -109,7 +103,7 @@ YogurtShowcase('KitchenSink').Home = CLASS({
 								},
 								title : data.title + (data.todo === true ? ' (TODO)' : ''),
 								on : {
-									tap : function() {
+									tap : () => {
 										if (data.todo === true) {
 											Yogurt.Alert('Working...');
 										} else {
@@ -126,7 +120,7 @@ YogurtShowcase('KitchenSink').Home = CLASS({
 			})]
 		}).appendTo(YogurtShowcase.GLOBAL.content);
 
-		inner.on('close', function() {
+		inner.on('close', () => {
 			wrapper.remove();
 		});
 	}

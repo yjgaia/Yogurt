@@ -55,7 +55,8 @@ Yogurt.BottomButton = CLASS((cls) => {
 
 				a.prepend(DIV({
 					style : {
-						marginBottom : title !== undefined ? 5 : 0
+						marginBottom : title !== undefined ? 5 : 0,
+						fontSize : 26
 					},
 					c : icon
 				}));

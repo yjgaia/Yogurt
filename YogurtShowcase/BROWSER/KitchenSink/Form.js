@@ -140,7 +140,7 @@ YogurtShowcase('KitchenSink').Form = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		inner.on('close', ()  {
+		inner.on('close', () => {
 			wrapper.remove();
 		});
 	}

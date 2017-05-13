@@ -4,11 +4,7 @@ Yogurt는 [UPPERCASE](http://uppercase.io) 기반 UI 프레임워크입니다.
 ![ScreenShot](https://raw.githubusercontent.com/Hanul/Yogurt/master/YogurtShowcase/R/yogurt.jpg)
 
 ## 설치하기
-1. 프로젝트의 `DEPENDENCY` 파일에 `Hanul/Yogurt`를 추가합니다.
-2. [`ubm`](https://www.npmjs.com/package/ubm)을 이용해 설치합니다.
-    ```
-    ubm install
-    ```
+프로젝트의 `DEPENDENCY` 파일에 `Hanul/Yogurt`를 추가합니다.
 
 ## Wrapper
 DOM들을 감싸는 래퍼를 만듭니다.

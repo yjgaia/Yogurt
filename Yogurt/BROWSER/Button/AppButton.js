@@ -17,7 +17,7 @@ Yogurt.AppButton = CLASS({
 		};
 	},
 	
-	init : (self, inner, params) => {
+	init : (inner, self, params) => {
 		//REQUIRED: params
 		//REQUIRED: params.icon
 		//REQUIRED: params.title

@@ -48,6 +48,12 @@ YogurtShowcase('KitchenSink').Calendar = CLASS({
 			style : {
 				width : 280
 			},
+			xIcon : FontAwesome.GetIcon({
+				style : {
+					fontSize : 25
+				},
+				key : 'times-circle'
+			}),
 			c :
 			// calendar
 			Yogurt.Calendar({}, (cal) => {

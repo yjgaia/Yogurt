@@ -60,8 +60,7 @@ YogurtShowcase('KitchenSink').Home = CLASS({
 							uri : 'Form'
 						}, {
 							title : 'List',
-							uri : 'List',
-							todo : true
+							uri : 'List'
 						}, {
 							title : 'Tab',
 							uri : 'Tab',

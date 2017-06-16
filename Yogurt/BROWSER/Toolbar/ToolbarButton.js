@@ -32,7 +32,8 @@ Yogurt.ToolbarButton = CLASS({
 			target : target,
 			c : [ titleDom = DIV({
 				style : {
-					flt : 'left'
+					flt : 'left',
+					marginTop : -3
 				},
 				c : span = SPAN({
 					c : title === undefined ? '' : title
@@ -48,7 +49,7 @@ Yogurt.ToolbarButton = CLASS({
 
 			if (icon.getStyle('margin') === undefined && icon.getStyle('marginRight') === undefined) {
 				icon.addStyle({
-					marginRight : 5
+					marginRight : 7
 				});
 			}
 

@@ -54,7 +54,7 @@ Yogurt.Toolbar = CLASS((cls) => {
 						c : left
 					}), titleDom = H1({
 						style : {
-							paddingTop : 13,
+							paddingTop : 11,
 							fontSize : 20,
 							textAlign : 'center',
 							fontWeight : 'bold'

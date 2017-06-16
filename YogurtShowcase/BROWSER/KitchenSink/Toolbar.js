@@ -24,11 +24,12 @@ YogurtShowcase('KitchenSink').Toolbar = CLASS({
 				}),
 
 				// title
-				title : 'Toolbar',
+				title : '툴바',
 
 				// right
 				right : Yogurt.ToolbarButton({
-					title : 'Button',
+					icon : FontAwesome.GetIcon('pencil'),
+					title : '버튼',
 					on : {
 						tap : () => {
 							Yogurt.Alert('test');

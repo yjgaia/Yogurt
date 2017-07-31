@@ -70,5 +70,10 @@ YogurtShowcase.MAIN = METHOD({
 			uri : 'KitchenSink/Calendar',
 			target : YogurtShowcase.KitchenSink.Calendar
 		});
+
+		YogurtShowcase.MATCH_VIEW({
+			uri : 'KitchenSink/FileTree',
+			target : YogurtShowcase.KitchenSink.FileTree
+		});
 	}
 });

@@ -94,6 +94,9 @@ YogurtShowcase('KitchenSink').Home = CLASS({
 						}, {
 							title : 'Calendar',
 							uri : 'Calendar'
+						}, {
+							title : 'File Tree',
+							uri : 'FileTree'
 						}], (data, i) => {
 
 							array.push(Yogurt.Button({

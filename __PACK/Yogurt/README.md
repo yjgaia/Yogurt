@@ -77,13 +77,6 @@ DOM들을 감싸는 래퍼를 만듭니다.
 ## Calendar
 달력을 생성합니다.
 
-## Folder Tree (TODO)
-폴더 트리를 생성합니다.
-
-## Vertical Divider
-
-## Horizontal Divider
-
 ## API 문서
 [API](API/README.md)
 

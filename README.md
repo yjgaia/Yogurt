@@ -7,18 +7,24 @@ Yogurt는 [UPPERCASE](http://uppercase.io) 기반 UI 프레임워크입니다.
 프로젝트의 `DEPENDENCY` 파일에 `Hanul/Yogurt`를 추가합니다.
 
 ## 설정
-- BROWSER_CONFIG.Yogurt.wrapperStyle
-- BROWSER_CONFIG.Yogurt.buttonColor
-- BROWSER_CONFIG.Yogurt.toolbarBackground
-- BROWSER_CONFIG.Yogurt.toolbarBackgroundImage
-- BROWSER_CONFIG.Yogurt.toolbarColor
-- BROWSER_CONFIG.Yogurt.toolbarTextColor
-- BROWSER_CONFIG.Yogurt.bottomBarColor
-- BROWSER_CONFIG.Yogurt.bottomBarTextColor
-- BROWSER_CONFIG.Yogurt.bottomBarHeight
-- BROWSER_CONFIG.Yogurt.menuLayoutMenuWidth
-- BROWSER_CONFIG.Yogurt.menuLayoutHideMenuWinWidth
-- BROWSER_CONFIG.Yogurt.menuLayoutMenuBackgroundColor
+```javascript
+BROWSER_CONFIG : {
+	Yogurt : {
+		wrapperStyle : 
+		buttonColor : 
+		toolbarBackground : 
+		toolbarBackgroundImage : 
+		toolbarColor : 
+		toolbarTextColor : 
+		bottomBarColor : 
+		bottomBarTextColor : 
+		bottomBarHeight : 
+		menuLayoutMenuWidth : 
+		menuLayoutHideMenuWinWidth : 
+		menuLayoutMenuBackgroundColor : 
+	}
+}
+```
 
 ## Wrapper
 DOM들을 감싸는 래퍼를 만듭니다.

@@ -125,7 +125,13 @@ Yogurt.Slider = CLASS({
 									backgroundColor : i === 0 ? dotHighlightColor : dotColor,
 									width : 8,
 									height : 8,
-									borderRadius : 4
+									borderRadius : 4,
+									cursor : 'pointer'
+								},
+								on : {
+									tap : () => {
+										scrollTo(i);
+									}
 								}
 							}));
 
@@ -176,20 +182,26 @@ Yogurt.Slider = CLASS({
 				rightButton.show();
 			}
 
-			if (_page >= 0 &&_page < slides.length) {
+			if (_page >= 0 && _page < slides.length) {
 				
 				if (isNotUsingDots !== true) {
 					dots[page].addContentStyle({
 						backgroundColor : dotColor
 					});
 				}
-	
+				
 				if (scrollInterval !== undefined) {
 					scrollInterval.remove();
 					scrollInterval = undefined;
 				}
-	
-				if (page < _page) {
+				
+				if (Math.abs(page - _page) > 1) {
+					page = _page;
+					
+					scrollWrapper.getEl().scrollLeft = page * width;
+				}
+				
+				else if (page < _page) {
 					page = _page;
 	
 					scrollInterval = INTERVAL(() => {
@@ -199,7 +211,7 @@ Yogurt.Slider = CLASS({
 						}
 						scrollWrapper.getEl().scrollLeft += width / 50;
 					});
-	
+				
 				} else if (page > _page) {
 					page = _page;
 	

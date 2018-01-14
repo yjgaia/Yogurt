@@ -14,12 +14,18 @@ Yogurt.Toolbar = CLASS((cls) => {
 			//OPTIONAL: params.left
 			//OPTIONAL: params.title
 			//OPTIONAL: params.right
+			//OPTIONAL: params.height
 			//OPTIONAL: params.style
 			//OPTIONAL: params.contentStyle
 
 			let left = params === undefined ? undefined : params.left;
 			let title = params === undefined ? undefined : params.title;
 			let right = params === undefined ? undefined : params.right;
+			let height = params === undefined ? undefined : params.height;
+			if (height === undefined) {
+				height = HEIGHT;
+			}
+			
 			let background = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.toolbarBackground;
 			let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.toolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.toolbarColor;
 			let backgroundImage = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.toolbarBackgroundImage;
@@ -31,7 +37,7 @@ Yogurt.Toolbar = CLASS((cls) => {
 
 			let wrapper = DIV({
 				style : {
-					height : HEIGHT
+					height : height
 				},
 				c : content = DIV({
 					style : {
@@ -40,7 +46,7 @@ Yogurt.Toolbar = CLASS((cls) => {
 						background : background,
 						backgroundColor : color,
 						backgroundImage : backgroundImage,
-						height : HEIGHT,
+						height : height,
 						width : '100%',
 						zIndex : Z_INDEX,
 						color : textColor

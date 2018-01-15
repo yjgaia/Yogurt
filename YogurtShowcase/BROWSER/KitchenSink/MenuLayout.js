@@ -84,6 +84,7 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 			leftMenu : DIV({
 				c : [UUI.BUTTON_H({
 					style : {
+						width : '100%',
 						padding : 15,
 						borderBottom : '1px solid #666',
 						fontSize : 15
@@ -102,6 +103,7 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 			rightMenu : DIV({
 				c : [UUI.BUTTON_H({
 					style : {
+						width : '100%',
 						padding : 15,
 						borderBottom : '1px solid #666',
 						fontSize : 15

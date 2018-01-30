@@ -1,12 +1,9 @@
 # `CLASS` Yogurt.Wrapper
 
+## Mom CLASS
+`NODE`
+
 ## Parameters
-* `OPTIONAL` params 
-* `OPTIONAL` params.c 
-* `OPTIONAL` params.style 
-
-## Static Members
-No static members.
-
-## Public Members
-No public members.
+* `OPTIONAL` *params*
+* `OPTIONAL` *params.c*
+* `OPTIONAL` *params.style*

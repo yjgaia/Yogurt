@@ -195,13 +195,7 @@ Yogurt.Slider = CLASS({
 					scrollInterval = undefined;
 				}
 				
-				if (Math.abs(page - _page) > 1) {
-					page = _page;
-					
-					scrollWrapper.getEl().scrollLeft = page * width;
-				}
-				
-				else if (page < _page) {
+				if (page < _page) {
 					page = _page;
 	
 					scrollInterval = INTERVAL(() => {

@@ -1,4 +1,4 @@
-YogurtShowcase('KitchenSink').Calendar = CLASS({
+YogurtShowcase.Calendar = CLASS({
 
 	preset : () => {
 		return VIEW;
@@ -19,7 +19,7 @@ YogurtShowcase('KitchenSink').Calendar = CLASS({
 				left : Yogurt.BackButton({
 					on : {
 						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
+							YogurtShowcase.GO('');
 						}
 					}
 				}),
@@ -50,9 +50,12 @@ YogurtShowcase('KitchenSink').Calendar = CLASS({
 			},
 			xIcon : FontAwesome.GetIcon({
 				style : {
-					fontSize : 25
+					fontSize : 20,
+					backgroundColor : '#333',
+					borderRadius : 15,
+					padding : '2px 4px'
 				},
-				key : 'times-circle'
+				key : 'times'
 			}),
 			c :
 			// calendar

@@ -56,9 +56,5 @@ Yogurt.Alert = CLASS({
 				backgroundColor : 'transparent'
 			});
 		});
-		
-		UANI.FADE_IN({
-			node : self.getNode()
-		});
 	}
 });

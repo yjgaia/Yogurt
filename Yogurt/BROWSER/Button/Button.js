@@ -10,7 +10,7 @@ Yogurt.Button = CLASS({
 
 		return {
 			style : {
-				padding : '20px 0',
+				padding : '20px 30px',
 				color : color,
 				fontSize : 24,
 				border : '1px solid ' + color,

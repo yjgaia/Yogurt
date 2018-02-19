@@ -9,9 +9,9 @@ Yogurt.Confirm = CLASS({
 		return {
 			style : {
 				backgroundColor : '#fff',
-				color : '#333',
+				color : '#666',
 				textAlign : 'center',
-				border : '1px solid #333',
+				border : '1px solid #666',
 				borderRadius : 5,
 				boxShadow : '0 0 5px rgba(0,0,0,0.3)',
 				onDisplayResize : (width, height) => {
@@ -80,10 +80,6 @@ Yogurt.Confirm = CLASS({
 				color : color,
 				backgroundColor : 'transparent'
 			});
-		});
-		
-		UANI.FADE_IN({
-			node : self.getNode()
 		});
 	}
 });

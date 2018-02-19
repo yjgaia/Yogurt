@@ -1,4 +1,4 @@
-YogurtShowcase('KitchenSink').Form = CLASS({
+YogurtShowcase.Form = CLASS({
 
 	preset : () => {
 		return VIEW;
@@ -18,7 +18,7 @@ YogurtShowcase('KitchenSink').Form = CLASS({
 				left : Yogurt.BackButton({
 					on : {
 						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
+							YogurtShowcase.GO('');
 						}
 					}
 				}),

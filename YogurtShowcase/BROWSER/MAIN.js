@@ -1,79 +1,65 @@
 YogurtShowcase.MAIN = METHOD({
 
 	run : (params) => {
-
-		YogurtShowcase.MATCH_VIEW({
-			uri : ['', '**'],
-			target : YogurtShowcase.Control
-		});
 		
 		YogurtShowcase.MATCH_VIEW({
 			uri : '',
 			target : YogurtShowcase.Home
 		});
 
-		/*
-		 * Kitchen Sink
-		 */
-		
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink',
-			target : YogurtShowcase.KitchenSink.Home
+			uri : 'Toolbar',
+			target : YogurtShowcase.Toolbar
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/Toolbar',
-			target : YogurtShowcase.KitchenSink.Toolbar
+			uri : 'Button',
+			target : YogurtShowcase.Button
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/Button',
-			target : YogurtShowcase.KitchenSink.Button
+			uri : 'Form',
+			target : YogurtShowcase.Form
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/Form',
-			target : YogurtShowcase.KitchenSink.Form
+			uri : 'Alert',
+			target : YogurtShowcase.Alert
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/Alert',
-			target : YogurtShowcase.KitchenSink.Alert
+			uri : 'Prompt',
+			target : YogurtShowcase.Prompt
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/Prompt',
-			target : YogurtShowcase.KitchenSink.Prompt
+			uri : 'Confirm',
+			target : YogurtShowcase.Confirm
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/Confirm',
-			target : YogurtShowcase.KitchenSink.Confirm
+			uri : 'MenuLayout',
+			target : YogurtShowcase.MenuLayout
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/MenuLayout',
-			target : YogurtShowcase.KitchenSink.MenuLayout
+			uri : 'BottomBar',
+			target : YogurtShowcase.BottomBar
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/BottomBar',
-			target : YogurtShowcase.KitchenSink.BottomBar
+			uri : 'Slider',
+			target : YogurtShowcase.Slider
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/Slider',
-			target : YogurtShowcase.KitchenSink.Slider
+			uri : 'Calendar',
+			target : YogurtShowcase.Calendar
 		});
 
 		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/Calendar',
-			target : YogurtShowcase.KitchenSink.Calendar
-		});
-
-		YogurtShowcase.MATCH_VIEW({
-			uri : 'KitchenSink/FileTree',
-			target : YogurtShowcase.KitchenSink.FileTree
+			uri : 'FileTree',
+			target : YogurtShowcase.FileTree
 		});
 	}
 });

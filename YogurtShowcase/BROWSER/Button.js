@@ -1,4 +1,4 @@
-YogurtShowcase('KitchenSink').Confirm = CLASS({
+YogurtShowcase.Button = CLASS({
 
 	preset : () => {
 		return VIEW;
@@ -6,9 +6,8 @@ YogurtShowcase('KitchenSink').Confirm = CLASS({
 
 	init : (inner, self) => {
 		
-		TITLE('Yogurt Confirm.');
+		TITLE('Yogurt Button.');
 
-		let content;
 		let wrapper = Yogurt.Wrapper({
 			c : [
 
@@ -19,13 +18,13 @@ YogurtShowcase('KitchenSink').Confirm = CLASS({
 				left : Yogurt.BackButton({
 					on : {
 						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
+							YogurtShowcase.GO('');
 						}
 					}
 				}),
 
 				// title
-				title : 'Confirm'
+				title : 'Button'
 			}),
 
 			// content
@@ -33,16 +32,21 @@ YogurtShowcase('KitchenSink').Confirm = CLASS({
 				style : {
 					padding : 20
 				},
-				c : content = P({
-					c : 'Welcome to Yogurt Showcase.'
-				})
+				c : [P({
+					c : ['Welcome to Button Showcase.']
+				}), Yogurt.Button({
+					style : {
+						marginTop : 15
+					},
+					title : 'Go Back',
+					on : {
+						tap : () => {
+							YogurtShowcase.GO('');
+						}
+					}
+				})]
 			})]
 		}).appendTo(BODY);
-
-		Yogurt.Confirm('Confirm!', () => {
-			content.empty();
-			content.append('Yes!');
-		});
 
 		inner.on('close', () => {
 			wrapper.remove();

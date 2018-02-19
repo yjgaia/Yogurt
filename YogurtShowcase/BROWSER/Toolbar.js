@@ -1,12 +1,12 @@
-YogurtShowcase('KitchenSink').Alert = CLASS({
+YogurtShowcase.Toolbar = CLASS({
 
 	preset : () => {
 		return VIEW;
 	},
 
 	init : (inner, self) => {
-
-		TITLE('Yogurt Alert.');
+		
+		TITLE('Yogurt Toolbar');
 
 		let wrapper = Yogurt.Wrapper({
 			c : [
@@ -18,13 +18,24 @@ YogurtShowcase('KitchenSink').Alert = CLASS({
 				left : Yogurt.BackButton({
 					on : {
 						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
+							YogurtShowcase.GO('');
 						}
 					}
 				}),
 
 				// title
-				title : 'Alert'
+				title : '툴바',
+
+				// right
+				right : Yogurt.ToolbarButton({
+					icon : FontAwesome.GetIcon('pencil'),
+					title : '버튼',
+					on : {
+						tap : () => {
+							Yogurt.Alert('test');
+						}
+					}
+				})
 			}),
 
 			// content
@@ -37,8 +48,6 @@ YogurtShowcase('KitchenSink').Alert = CLASS({
 				})]
 			})]
 		}).appendTo(BODY);
-
-		Yogurt.Alert('Alert');
 
 		inner.on('close', () => {
 			wrapper.remove();

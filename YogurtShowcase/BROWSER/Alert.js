@@ -1,14 +1,13 @@
-YogurtShowcase('KitchenSink').Prompt = CLASS({
+YogurtShowcase.Alert = CLASS({
 
 	preset : () => {
 		return VIEW;
 	},
 
 	init : (inner, self) => {
-		
-		TITLE('Yogurt Prompt.');
 
-		let content;
+		TITLE('Yogurt Alert.');
+
 		let wrapper = Yogurt.Wrapper({
 			c : [
 
@@ -19,13 +18,13 @@ YogurtShowcase('KitchenSink').Prompt = CLASS({
 				left : Yogurt.BackButton({
 					on : {
 						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
+							YogurtShowcase.GO('');
 						}
 					}
 				}),
 
 				// title
-				title : 'Prompt'
+				title : 'Alert'
 			}),
 
 			// content
@@ -33,15 +32,14 @@ YogurtShowcase('KitchenSink').Prompt = CLASS({
 				style : {
 					padding : 20
 				},
-				c : content = P({
-					c : 'Welcome to Yogurt Showcase.'
-				})
+				c : [P({
+					c : ['Welcome to Yogurt Showcase.']
+				})]
 			})]
 		}).appendTo(BODY);
 
-		Yogurt.Prompt('Prompt!', (str) => {
-			content.empty();
-			content.append(str);
+		Yogurt.Alert({
+			msg : 'Alert'
 		});
 
 		inner.on('close', () => {

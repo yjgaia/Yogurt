@@ -1,4 +1,4 @@
-YogurtShowcase('KitchenSink').Toolbar = CLASS({
+YogurtShowcase.Prompt = CLASS({
 
 	preset : () => {
 		return VIEW;
@@ -6,8 +6,9 @@ YogurtShowcase('KitchenSink').Toolbar = CLASS({
 
 	init : (inner, self) => {
 		
-		TITLE('Yogurt Toolbar');
+		TITLE('Yogurt Prompt.');
 
+		let content;
 		let wrapper = Yogurt.Wrapper({
 			c : [
 
@@ -18,24 +19,13 @@ YogurtShowcase('KitchenSink').Toolbar = CLASS({
 				left : Yogurt.BackButton({
 					on : {
 						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
+							YogurtShowcase.GO('');
 						}
 					}
 				}),
 
 				// title
-				title : '툴바',
-
-				// right
-				right : Yogurt.ToolbarButton({
-					icon : FontAwesome.GetIcon('pencil'),
-					title : '버튼',
-					on : {
-						tap : () => {
-							Yogurt.Alert('test');
-						}
-					}
-				})
+				title : 'Prompt'
 			}),
 
 			// content
@@ -43,11 +33,16 @@ YogurtShowcase('KitchenSink').Toolbar = CLASS({
 				style : {
 					padding : 20
 				},
-				c : [P({
-					c : ['Welcome to Yogurt Showcase.']
-				})]
+				c : content = P({
+					c : 'Welcome to Yogurt Showcase.'
+				})
 			})]
 		}).appendTo(BODY);
+
+		Yogurt.Prompt('Prompt!', (str) => {
+			content.empty();
+			content.append(str);
+		});
 
 		inner.on('close', () => {
 			wrapper.remove();

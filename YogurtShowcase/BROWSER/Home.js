@@ -5,94 +5,104 @@ YogurtShowcase.Home = CLASS({
 	},
 
 	init : (inner, self) => {
-		
+
 		TITLE('Yogurt Toolbar.');
 
 		let wrapper = Yogurt.Wrapper({
 			c : [
-			
+
+			// toolbar
 			Yogurt.Toolbar({
+
+				// title
 				title : 'Yogurt!'
 			}),
-			
+
+			// content
 			DIV({
 				style : {
 					padding : 20
 				},
-				c : [Yogurt.AppButton({
+				c : [IMG({
 					style : {
-						flt : 'left'
+						display : 'block',
+						maxWidth : '100%'
 					},
-					icon : IMG({
+					src : YogurtShowcase.R('yogurt.jpg')
+				}), P({
+					style : {
+						marginTop : 20
+					},
+					c : ['Welcome to Yogurt Showcase.\nYogurt is ', A({
 						style : {
-							border : '1px solid #ccc'
+							color : '#0366d6'
 						},
-						src : YogurtShowcase.R('analytics.png')
-					}),
-					title : 'Dashboard',
-					on : {
-						tap : () => {
-							YogurtShowcase.GO('Dashboard');
-						}
-					}
-				}),
-				
-				Yogurt.AppButton({
+						href : 'http://uppercase.io',
+						target : '_blank',
+						c : 'UPPERCASE'
+					}), '-Based UI Framework.']
+				}), UL({
 					style : {
-						marginLeft : 20,
-						flt : 'left'
+						marginTop : 20
 					},
-					icon : IMG({
-						style : {
-							border : '1px solid #ccc'
-						},
-						src : YogurtShowcase.R('browser.png')
-					}),
-					title : 'IDE',
-					on : {
-						tap : () => {
-							YogurtShowcase.GO('IDE');
-						}
-					}
-				}),
-				
-				Yogurt.AppButton({
-					style : {
-						marginLeft : 20,
-						flt : 'left'
-					},
-					icon : IMG({
-						style : {
-							border : '1px solid #ccc'
-						},
-						src : YogurtShowcase.R('salad.png')
-					}),
-					title : 'Kitchen Sink',
-					on : {
-						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
-						}
-					}
-				}),
-				
-				CLEAR_BOTH()]
-			}),
-			
-			P({
-				style : {
-					padding : 20,
-					fontSize : 12
-				},
-				c : ['All icons designed by ', A({
-					style : {
-						color : '#0366d6'
-					},
-					href : 'http://www.flaticon.com/authors/madebyoliver',
-					target : '_blank',
-					c : 'Madebyoliver from Flaticon'
-				}), '.']
+					c : RUN(() => {
+
+						let array = [];
+
+						EACH([{
+							title : 'Toolbar',
+							uri : 'Toolbar'
+						}, {
+							title : 'Button',
+							uri : 'Button'
+						}, {
+							title : 'Form',
+							uri : 'Form'
+						}, {
+							title : 'Alert',
+							uri : 'Alert'
+						}, {
+							title : 'Prompt',
+							uri : 'Prompt'
+						}, {
+							title : 'Confirm',
+							uri : 'Confirm'
+						}, {
+							title : 'Menu Layout',
+							uri : 'MenuLayout'
+						}, {
+							title : 'Bottom Bar',
+							uri : 'BottomBar'
+						}, {
+							title : 'Slider',
+							uri : 'Slider'
+						}, {
+							title : 'Calendar',
+							uri : 'Calendar'
+						}], (data, i) => {
+
+							array.push(Yogurt.Button({
+								style : {
+									marginTop : i === 0 ? 0 : 15
+								},
+								title : data.title + (data.todo === true ? ' (TODO)' : ''),
+								on : {
+									tap : () => {
+										if (data.todo === true) {
+											Yogurt.Alert('Working...');
+										} else {
+											YogurtShowcase.GO(data.uri);
+										}
+									}
+								}
+							}));
+						});
+
+						return array;
+					})
+				})]
 			})]
-		}).appendTo(YogurtShowcase.GLOBAL.content);
+		}).appendTo(BODY);
 
 		inner.on('close', () => {
 			wrapper.remove();

@@ -1,4 +1,4 @@
-YogurtShowcase('KitchenSink').MenuLayout = CLASS({
+YogurtShowcase.MenuLayout = CLASS({
 
 	preset : () => {
 		return VIEW;
@@ -85,16 +85,18 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 				c : [UUI.BUTTON_H({
 					style : {
 						width : '100%',
-						padding : 15,
 						borderBottom : '1px solid #666',
 						fontSize : 15
+					},
+					contentStyle : {
+						padding : 15
 					},
 					icon : FontAwesome.GetIcon('chevron-left'),
 					spacing : 10,
 					title : 'Go Home',
 					on : {
 						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
+							YogurtShowcase.GO('');
 						}
 					}
 				})]
@@ -104,16 +106,18 @@ YogurtShowcase('KitchenSink').MenuLayout = CLASS({
 				c : [UUI.BUTTON_H({
 					style : {
 						width : '100%',
-						padding : 15,
 						borderBottom : '1px solid #666',
 						fontSize : 15
+					},
+					contentStyle : {
+						padding : 15
 					},
 					icon : FontAwesome.GetIcon('chevron-left'),
 					spacing : 10,
 					title : 'Go Home',
 					on : {
 						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
+							YogurtShowcase.GO('');
 						}
 					}
 				})]

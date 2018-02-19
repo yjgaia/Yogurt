@@ -1,4 +1,4 @@
-YogurtShowcase('KitchenSink').Slider = CLASS({
+YogurtShowcase.Slider = CLASS({
 
 	preset : () => {
 		return VIEW;
@@ -18,7 +18,7 @@ YogurtShowcase('KitchenSink').Slider = CLASS({
 				left : Yogurt.BackButton({
 					on : {
 						tap : () => {
-							YogurtShowcase.GO('KitchenSink');
+							YogurtShowcase.GO('');
 						}
 					}
 				}),

@@ -55,12 +55,9 @@ Yogurt.Prompt = CLASS({
 		};
 	},
 
-	init : (inner, self, message) => {
-		//REQUIRED: message
+	init : (inner, self) => {
 		
 		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
-
-		self.append(message);
 		
 		self.getOkButton().on('mouseover', (e, button) => {
 			button.addStyle({

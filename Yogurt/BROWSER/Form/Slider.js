@@ -270,7 +270,7 @@ Yogurt.Slider = CLASS({
 					scrollTo(page + 1);
 				}
 
-				e.stop();
+				e.stopBubbling();
 
 				self.off('touchmove', mousemoveHandler);
 				self.off('touchend', outHandler);
@@ -278,7 +278,7 @@ Yogurt.Slider = CLASS({
 			});
 			self.on('mouseout', outHandler);
 
-			e.stop();
+			e.stopBubbling();
 		});
 
 		let addContentStyle = self.addContentStyle = (style) => {

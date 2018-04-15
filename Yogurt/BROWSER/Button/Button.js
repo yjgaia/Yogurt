@@ -8,13 +8,16 @@ Yogurt.Button = CLASS({
 
 		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.buttonColor;
 		let mouseoverColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonMouseoverColor;
-
+		
+		let titleColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonTitleColor === undefined ? mouseoverColor : BROWSER_CONFIG.Yogurt.buttonTitleColor;
+		let mouseoverTitleColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverTitleColor === undefined ? color : BROWSER_CONFIG.Yogurt.buttonMouseoverTitleColor;
+		
 		return {
 			style : {
 				padding : '20px 30px',
-				color : mouseoverColor,
+				color : titleColor,
 				fontSize : 24,
-				border : '1px solid ' + mouseoverColor,
+				border : '1px solid ' + titleColor,
 				borderRadius : 5,
 				backgroundColor : color
 			},
@@ -22,13 +25,13 @@ Yogurt.Button = CLASS({
 			on : {
 				mouseover : (e, input) => {
 					input.addStyle({
-						color : color,
+						color : mouseoverTitleColor,
 						backgroundColor : mouseoverColor
 					});
 				},
 				mouseout : (e, input) => {
 					input.addStyle({
-						color : mouseoverColor,
+						color : titleColor,
 						backgroundColor : color
 					});
 				}

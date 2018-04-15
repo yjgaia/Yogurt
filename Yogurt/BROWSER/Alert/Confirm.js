@@ -54,31 +54,34 @@ Yogurt.Confirm = CLASS({
 		
 		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.buttonColor;
 		let mouseoverColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonMouseoverColor;
-
+		
+		let titleColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonTitleColor === undefined ? mouseoverColor : BROWSER_CONFIG.Yogurt.buttonTitleColor;
+		let mouseoverTitleColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverTitleColor === undefined ? color : BROWSER_CONFIG.Yogurt.buttonMouseoverTitleColor;
+		
 		self.getOkButton().on('mouseover', (e, button) => {
 			button.addStyle({
-				color : color,
+				color : mouseoverTitleColor,
 				backgroundColor : mouseoverColor
 			});
 		});
 		
 		self.getOkButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : mouseoverColor,
+				color : titleColor,
 				backgroundColor : color
 			});
 		});
 		
 		self.getCancelButton().on('mouseover', (e, button) => {
 			button.addStyle({
-				color : color,
+				color : mouseoverTitleColor,
 				backgroundColor : mouseoverColor
 			});
 		});
 		
 		self.getCancelButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : mouseoverColor,
+				color : titleColor,
 				backgroundColor : color
 			});
 		});

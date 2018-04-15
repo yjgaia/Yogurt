@@ -8,7 +8,10 @@ Yogurt.Submit = CLASS({
 		
 		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.buttonColor;
 		let mouseoverColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonMouseoverColor;
-
+		
+		let titleColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonTitleColor === undefined ? mouseoverColor : BROWSER_CONFIG.Yogurt.buttonTitleColor;
+		let mouseoverTitleColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverTitleColor === undefined ? color : BROWSER_CONFIG.Yogurt.buttonMouseoverTitleColor;
+		
 		return {
 			style : {
 				display : 'block',
@@ -17,9 +20,9 @@ Yogurt.Submit = CLASS({
 				paddingBottom : 20,
 				cursor : 'pointer',
 				textDecoration : 'none',
-				color : color,
+				color : titleColor,
 				fontSize : 24,
-				border : '1px solid ' + color,
+				border : '1px solid ' + titleColor,
 				borderRadius : 5,
 				touchCallout : 'none',
 				userSelect : 'none',
@@ -29,13 +32,13 @@ Yogurt.Submit = CLASS({
 			on : {
 				mouseover : (e, input) => {
 					input.addStyle({
-						color : color,
+						color : mouseoverTitleColor,
 						backgroundColor : mouseoverColor
 					});
 				},
 				mouseout : (e, input) => {
 					input.addStyle({
-						color : mouseoverColor,
+						color : titleColor,
 						backgroundColor : color
 					});
 				}

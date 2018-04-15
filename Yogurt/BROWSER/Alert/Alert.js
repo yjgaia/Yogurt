@@ -41,19 +41,20 @@ Yogurt.Alert = CLASS({
 
 	init : (inner, self) => {
 		
-		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
-		
+		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.buttonColor;
+		let mouseoverColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonMouseoverColor;
+
 		self.getButton().on('mouseover', (e, button) => {
 			button.addStyle({
-				color : '#fff',
-				backgroundColor : color
+				color : color,
+				backgroundColor : mouseoverColor
 			});
 		});
 		
 		self.getButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : color,
-				backgroundColor : 'transparent'
+				color : mouseoverColor,
+				backgroundColor : color
 			});
 		});
 	}

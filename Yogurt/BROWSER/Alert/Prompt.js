@@ -58,35 +58,36 @@ Yogurt.Prompt = CLASS({
 	init : (inner, self, message) => {
 		//REQUIRED: message
 		
-		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
+		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.buttonColor;
+		let mouseoverColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonMouseoverColor;
 
 		self.append(message);
 		
 		self.getOkButton().on('mouseover', (e, button) => {
 			button.addStyle({
-				color : '#fff',
-				backgroundColor : color
+				color : color,
+				backgroundColor : mouseoverColor
 			});
 		});
 		
 		self.getOkButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : color,
-				backgroundColor : 'transparent'
+				color : mouseoverColor,
+				backgroundColor : color
 			});
 		});
 		
 		self.getCancelButton().on('mouseover', (e, button) => {
 			button.addStyle({
-				color : '#fff',
-				backgroundColor : color
+				color : color,
+				backgroundColor : mouseoverColor
 			});
 		});
 		
 		self.getCancelButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : color,
-				backgroundColor : 'transparent'
+				color : mouseoverColor,
+				backgroundColor : color
 			});
 		});
 	}

@@ -6,7 +6,8 @@ Yogurt.Submit = CLASS({
 
 	params : () => {
 		
-		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonColor;
+		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.buttonColor;
+		let mouseoverColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonMouseoverColor;
 
 		return {
 			style : {
@@ -28,14 +29,14 @@ Yogurt.Submit = CLASS({
 			on : {
 				mouseover : (e, input) => {
 					input.addStyle({
-						color : '#fff',
-						backgroundColor : color
+						color : color,
+						backgroundColor : mouseoverColor
 					});
 				},
 				mouseout : (e, input) => {
 					input.addStyle({
-						color : color,
-						backgroundColor : '#fff'
+						color : mouseoverColor,
+						backgroundColor : color
 					});
 				}
 			}

@@ -11,6 +11,7 @@ BOOT({
 		Yogurt : {
 			wrapperStyle : 
 			buttonColor : 
+			buttonMouseoverColor : 
 			toolbarBackground : 
 			toolbarBackgroundImage : 
 			toolbarColor : 

@@ -12,6 +12,7 @@ BROWSER_CONFIG : {
 	Yogurt : {
 		wrapperStyle : 
 		buttonColor : 
+		buttonMouseoverColor : 
 		toolbarBackground : 
 		toolbarBackgroundImage : 
 		toolbarColor : 

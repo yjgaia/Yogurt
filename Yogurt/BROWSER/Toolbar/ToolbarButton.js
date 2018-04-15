@@ -47,7 +47,7 @@ Yogurt.ToolbarButton = CLASS({
 				flt : 'left'
 			});
 
-			if (icon.getStyle('margin') === undefined && icon.getStyle('marginRight') === undefined) {
+			if (icon.getStyle('margin') === undefined && icon.getStyle('marginRight') === undefined && title !== undefined) {
 				icon.addStyle({
 					marginRight : 7
 				});

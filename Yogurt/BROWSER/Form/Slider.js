@@ -148,9 +148,9 @@ Yogurt.Slider = CLASS({
 
 		inner.setWrapperDom(wrapper);
 		inner.setContentDom(content);
-
-		self.on('show', () => {
-
+		
+		let resizeEvent = EVENT('resize', () => {
+			
 			width = self.getWidth();
 
 			self.addContentStyle({
@@ -164,70 +164,86 @@ Yogurt.Slider = CLASS({
 				});
 			});
 		});
+
+		self.on('show', () => {
+			resizeEvent.fire();
+		});
+		
+		self.on('remove', () => {
+			resizeEvent.remove();
+			resizeEvent = undefined;
+		});
 		
 		// hide first.
 		leftButton.hide();
+		
+		if (slides.length === 1) {
+			rightButton.hide();
+		}
 
 		let scrollTo = self.scrollTo = (_page) => {
 			
-			if (_page <= 0) {
-				leftButton.hide();
-			} else {
-				leftButton.show();
-			}
-			
-			if (_page >= slides.length - 1) {
-				rightButton.hide();
-			} else {
-				rightButton.show();
-			}
-
-			if (_page >= 0 && _page < slides.length) {
+			if (slides.length > 1) {
 				
-				if (isNotUsingDots !== true) {
-					dots[page].addContentStyle({
-						backgroundColor : dotColor
-					});
+				if (_page <= 0) {
+					leftButton.hide();
+				} else {
+					leftButton.show();
 				}
 				
-				if (scrollInterval !== undefined) {
-					scrollInterval.remove();
-					scrollInterval = undefined;
-				}
-				
-				if (page < _page) {
-					page = _page;
-	
-					scrollInterval = INTERVAL(() => {
-						if (scrollWrapper.getEl().scrollLeft >= page * width) {
-							scrollWrapper.getEl().scrollLeft = page * width;
-							return false;
-						}
-						scrollWrapper.getEl().scrollLeft += width / 50;
-					});
-				
-				} else if (page > _page) {
-					page = _page;
-	
-					scrollInterval = INTERVAL(() => {
-						if (scrollWrapper.getEl().scrollLeft <= page * width) {
-							scrollWrapper.getEl().scrollLeft = page * width;
-							return false;
-						}
-						scrollWrapper.getEl().scrollLeft -= width / 50;
-					});
+				if (_page >= slides.length - 1) {
+					rightButton.hide();
+				} else {
+					rightButton.show();
 				}
 	
-				if (isNotUsingDots !== true) {
-					dots[page].addContentStyle({
-						backgroundColor : dotHighlightColor
+				if (_page >= 0 && _page < slides.length) {
+					
+					if (isNotUsingDots !== true) {
+						dots[page].addContentStyle({
+							backgroundColor : dotColor
+						});
+					}
+					
+					if (scrollInterval !== undefined) {
+						scrollInterval.remove();
+						scrollInterval = undefined;
+					}
+					
+					if (page < _page) {
+						page = _page;
+		
+						scrollInterval = INTERVAL(() => {
+							if (scrollWrapper.getEl().scrollLeft >= page * width) {
+								scrollWrapper.getEl().scrollLeft = page * width;
+								return false;
+							}
+							scrollWrapper.getEl().scrollLeft += width / 50;
+						});
+					
+					} else if (page > _page) {
+						page = _page;
+		
+						scrollInterval = INTERVAL(() => {
+							if (scrollWrapper.getEl().scrollLeft <= page * width) {
+								scrollWrapper.getEl().scrollLeft = page * width;
+								return false;
+							}
+							scrollWrapper.getEl().scrollLeft -= width / 50;
+						});
+					}
+		
+					if (isNotUsingDots !== true) {
+						dots[page].addContentStyle({
+							backgroundColor : dotHighlightColor
+						});
+					}
+		
+					EVENT.fireAll({
+						node : self,
+						name : 'scroll'
 					});
 				}
-	
-				EVENT.fireAll({
-					node : self,
-					name : 'scroll'
-				});
 			}
 		};
 
@@ -254,7 +270,7 @@ Yogurt.Slider = CLASS({
 					scrollTo(page + 1);
 				}
 
-				e.stop();
+				e.stopBubbling();
 
 				self.off('touchmove', mousemoveHandler);
 				self.off('touchend', outHandler);
@@ -262,7 +278,7 @@ Yogurt.Slider = CLASS({
 			});
 			self.on('mouseout', outHandler);
 
-			e.stop();
+			e.stopBubbling();
 		});
 
 		let addContentStyle = self.addContentStyle = (style) => {

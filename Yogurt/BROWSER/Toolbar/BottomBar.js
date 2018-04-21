@@ -15,23 +15,20 @@ Yogurt.BottomBar = CLASS((cls) => {
 			//OPTIONAL: params.contentStyle
 
 			let buttons = params.buttons;
-			let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarColor === undefined ? '#666' : BROWSER_CONFIG.Yogurt.bottomBarColor;
-			let textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.bottomBarTextColor;
-			let height = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.bottomBarHeight === undefined ? 70 : BROWSER_CONFIG.Yogurt.bottomBarHeight;
 			let contentStyle = params.contentStyle;
 			
 			let content;
 			
 			let wrapper = DIV({
 				style : {
-					height : height
+					height : Yogurt.Theme.bottomBarHeight
 				},
 				c : content = DIV({
 					style : {
 						position : 'fixed',
 						left : 0,
 						bottom : 0,
-						backgroundColor : color,
+						backgroundColor : Yogurt.Theme.bottomBarColor,
 						width : '100%'
 					},
 					c : DIV({
@@ -39,7 +36,7 @@ Yogurt.BottomBar = CLASS((cls) => {
 							width : Yogurt.BottomButton.getWidth() * buttons.length,
 							margin : 'auto',
 							padding : '12px 0',
-							color : textColor
+							color : Yogurt.Theme.bottomBarTextColor
 						},
 						c : RUN(() => {
 

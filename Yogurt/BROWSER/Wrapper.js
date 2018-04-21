@@ -10,11 +10,7 @@ Yogurt.Wrapper = CLASS({
 		//OPTIONAL: params.style
 
 		inner.setDom(DIV({
-			style : COMBINE([{
-				backgroundColor : '#fff',
-				color : '#000',
-				fontSize : 16
-			}, BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.wrapperStyle === undefined ? {} : BROWSER_CONFIG.Yogurt.wrapperStyle])
+			style : Yogurt.Theme.wrapperStyle
 		}));
 	}
 });

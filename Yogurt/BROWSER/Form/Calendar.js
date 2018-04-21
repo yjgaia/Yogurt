@@ -5,20 +5,14 @@ Yogurt.Calendar = CLASS({
 	},
 
 	params : () => {
-		
-		let background = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.toolbarBackground;
-		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.toolbarColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.toolbarColor;
-		let backgroundImage = BROWSER_CONFIG.Yogurt === undefined ? undefined : BROWSER_CONFIG.Yogurt.toolbarBackgroundImage;
-		let textColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.toolbarTextColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.toolbarTextColor;
-		
 		return {
 			style : {
-				borderBottom : '10px solid ' + color
+				borderBottom : '10px solid ' + Yogurt.Theme.toolbarColor
 			},
 			headerStyle : {
-				backgroundColor : color,
+				backgroundColor : Yogurt.Theme.toolbarColor,
 				fontSize : 20,
-				color : textColor,
+				color : Yogurt.Theme.toolbarTextColor,
 				padding : '10px 15px',
 				fontWeight : 'bold'
 			},

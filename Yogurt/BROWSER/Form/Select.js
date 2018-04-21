@@ -5,7 +5,6 @@ Yogurt.Select = CLASS({
 	},
 
 	params : () => {
-		
 		return {
 			style : {
 				padding : 5,

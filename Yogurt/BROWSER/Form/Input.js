@@ -5,11 +5,10 @@ Yogurt.Input = CLASS({
 	},
 
 	params : () => {
-		
 		return {
 			style : {
 				padding : 5,
-				backgroundColor : '#FFF',
+				backgroundColor : '#fff',
 				position : 'relative',
 				border : '1px solid #666'
 			}

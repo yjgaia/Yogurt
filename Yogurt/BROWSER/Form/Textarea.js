@@ -5,7 +5,6 @@ Yogurt.Textarea = CLASS({
 	},
 
 	params : () => {
-		
 		return {
 			style : {
 				padding : 5,

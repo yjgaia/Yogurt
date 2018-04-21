@@ -2,6 +2,9 @@ YogurtShowcase.MAIN = METHOD({
 
 	run : (params) => {
 		
+		// 다크 테마 반영
+		Yogurt.Theme = Yogurt.DarkTheme;
+		
 		YogurtShowcase.MATCH_VIEW({
 			uri : '',
 			target : YogurtShowcase.Home

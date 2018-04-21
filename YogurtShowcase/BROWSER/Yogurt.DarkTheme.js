@@ -1,4 +1,4 @@
-Yogurt.Theme = {
+Yogurt.DarkTheme = {
 	
 	// 레이아웃 관련 스타일
 	wrapperStyle : {

@@ -15,7 +15,6 @@ Yogurt.Alert = CLASS({
 				borderRadius : 5,
 				boxShadow : '0 0 5px rgba(0,0,0,0.3)',
 				onDisplayResize : (width, height) => {
-
 					if (width > 300) {
 						return {
 							width : 280
@@ -41,23 +40,17 @@ Yogurt.Alert = CLASS({
 
 	init : (inner, self) => {
 		
-		let color = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonColor === undefined ? '#fff' : BROWSER_CONFIG.Yogurt.buttonColor;
-		let mouseoverColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverColor === undefined ? '#333' : BROWSER_CONFIG.Yogurt.buttonMouseoverColor;
-		
-		let titleColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonTitleColor === undefined ? mouseoverColor : BROWSER_CONFIG.Yogurt.buttonTitleColor;
-		let mouseoverTitleColor = BROWSER_CONFIG.Yogurt === undefined || BROWSER_CONFIG.Yogurt.buttonMouseoverTitleColor === undefined ? color : BROWSER_CONFIG.Yogurt.buttonMouseoverTitleColor;
-		
 		self.getButton().on('mouseover', (e, button) => {
 			button.addStyle({
-				color : mouseoverTitleColor,
-				backgroundColor : mouseoverColor
+				color : Yogurt.Theme.buttonMouseoverTitleColor,
+				backgroundColor : Yogurt.Theme.buttonMouseoverColor
 			});
 		});
 		
 		self.getButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : titleColor,
-				backgroundColor : color
+				color : Yogurt.Theme.buttonTitleColor,
+				backgroundColor : 'transparent'
 			});
 		});
 	}

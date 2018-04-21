@@ -15,10 +15,10 @@ YogurtShowcase.MenuLayout = CLASS({
 				contentStyle : {
 					onDisplayResize : (width, height) => {
 
-						if (width > Yogurt.MenuLayout.getHideMenuWinWidth()) {
+						if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 							return {
-								left : Yogurt.MenuLayout.getMenuWidth(),
-								width : BODY.getWidth() - Yogurt.MenuLayout.getMenuWidth() * 2
+								left : Yogurt.Theme.menuLayoutMenuWidth,
+								width : BODY.getWidth() - Yogurt.Theme.menuLayoutMenuWidth * 2
 							};
 						} else {
 							return {
@@ -34,7 +34,7 @@ YogurtShowcase.MenuLayout = CLASS({
 					style : {
 						onDisplayResize : (width, height) => {
 
-							if (width > Yogurt.MenuLayout.getHideMenuWinWidth()) {
+							if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 								return {
 									display : 'none'
 								};
@@ -58,7 +58,7 @@ YogurtShowcase.MenuLayout = CLASS({
 					style : {
 						onDisplayResize : (width, height) => {
 
-							if (width > Yogurt.MenuLayout.getHideMenuWinWidth()) {
+							if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 								return {
 									display : 'none'
 								};

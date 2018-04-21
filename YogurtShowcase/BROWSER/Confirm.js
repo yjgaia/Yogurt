@@ -39,7 +39,9 @@ YogurtShowcase.Confirm = CLASS({
 			})]
 		}).appendTo(BODY);
 
-		Yogurt.Confirm('Confirm!', () => {
+		Yogurt.Confirm({
+			msg : 'Confirm!'
+		}, () => {
 			content.empty();
 			content.append('Yes!');
 		});

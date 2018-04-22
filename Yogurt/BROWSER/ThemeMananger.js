@@ -28,6 +28,9 @@ Yogurt.ThemeMananger = OBJECT({
 				buttonMouseoverColor : '#333',
 				buttonMouseoverTitleColor : '#eee',
 				
+				// 폼 관련 스타일
+				inputBorderColor : '#666',
+				
 				// 툴바 관련 스타일
 				toolbarBackground : undefined,
 				toolbarBackgroundImage : undefined,

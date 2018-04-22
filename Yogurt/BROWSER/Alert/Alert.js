@@ -49,7 +49,7 @@ Yogurt.Alert = CLASS({
 		
 		self.getButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : Yogurt.Theme.buttonTitleColor,
+				color : 'inherit',
 				backgroundColor : 'transparent'
 			});
 		});

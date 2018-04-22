@@ -69,7 +69,7 @@ Yogurt.Prompt = CLASS({
 		
 		self.getOkButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : Yogurt.Theme.buttonTitleColor,
+				color : 'inherit',
 				backgroundColor : 'transparent'
 			});
 		});
@@ -83,7 +83,7 @@ Yogurt.Prompt = CLASS({
 		
 		self.getCancelButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : Yogurt.Theme.buttonTitleColor,
+				color : 'inherit',
 				backgroundColor : 'transparent'
 			});
 		});

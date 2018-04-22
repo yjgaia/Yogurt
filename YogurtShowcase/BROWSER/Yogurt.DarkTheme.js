@@ -2,8 +2,8 @@ Yogurt.DarkTheme = {
 	
 	// 레이아웃 관련 스타일
 	wrapperStyle : {
-		backgroundColor : '#fff',
-		color : '#000',
+		backgroundColor : '#333',
+		color : '#fff',
 		fontSize : 16
 	},
 	menuLayoutMenuWidth : 200,
@@ -11,19 +11,22 @@ Yogurt.DarkTheme = {
 	menuLayoutMenuBackgroundColor : '#222',
 	
 	// 버튼 관련 스타일
-	buttonColor : '#eee',
-	buttonTitleColor : '#333',
-	buttonMouseoverColor : '#333',
+	buttonColor : '#222',
+	buttonTitleColor : '#eee',
+	buttonMouseoverColor : '#444',
 	buttonMouseoverTitleColor : '#eee',
+	
+	// 폼 관련 스타일
+	inputBorderColor : '#999',
 	
 	// 툴바 관련 스타일
 	toolbarBackground : undefined,
 	toolbarBackgroundImage : undefined,
-	toolbarColor : '#333',
+	toolbarColor : '#222',
 	toolbarTextColor : '#fff',
 	
 	// 아래 바 관련 스타일
-	bottomBarColor : '#666',
-	bottomBarTextColor : '#fff',
+	bottomBarColor : '#222',
+	bottomBarTextColor : '#999',
 	bottomBarHeight : 70
 };

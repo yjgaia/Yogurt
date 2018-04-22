@@ -61,7 +61,7 @@ Yogurt.Confirm = CLASS({
 		
 		self.getOkButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : Yogurt.Theme.buttonTitleColor,
+				color : 'inherit',
 				backgroundColor : 'transparent'
 			});
 		});
@@ -75,7 +75,7 @@ Yogurt.Confirm = CLASS({
 		
 		self.getCancelButton().on('mouseout', (e, button) => {
 			button.addStyle({
-				color : Yogurt.Theme.buttonTitleColor,
+				color : 'inherit',
 				backgroundColor : 'transparent'
 			});
 		});

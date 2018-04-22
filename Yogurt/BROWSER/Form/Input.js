@@ -10,7 +10,7 @@ Yogurt.Input = CLASS({
 				padding : 5,
 				backgroundColor : '#fff',
 				position : 'relative',
-				border : '1px solid #666'
+				border : '1px solid ' + Yogurt.Theme.inputBorderColor
 			}
 		};
 	}

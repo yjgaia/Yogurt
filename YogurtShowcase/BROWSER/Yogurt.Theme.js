@@ -18,6 +18,8 @@ Yogurt.Theme = {
 	
 	// 폼 관련 스타일
 	inputBorderColor : '#666',
+	rangeTrackColor : '#999',
+	rangeThumbColor : '#666',
 	
 	// 툴바 관련 스타일
 	toolbarBackground : undefined,

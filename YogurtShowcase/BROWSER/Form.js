@@ -122,6 +122,14 @@ YogurtShowcase.Form = CLASS({
 						})
 					}),
 
+					// age2
+					Yogurt.Range({
+						style : {
+							marginTop : 10
+						},
+						value : 50
+					}),
+
 					// description
 					Yogurt.Textarea({
 						style : {

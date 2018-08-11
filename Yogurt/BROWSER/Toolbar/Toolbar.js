@@ -45,7 +45,8 @@ Yogurt.Toolbar = CLASS((cls) => {
 						height : height,
 						width : '100%',
 						zIndex : Z_INDEX,
-						color : Yogurt.Theme.toolbarTextColor
+						color : Yogurt.Theme.toolbarTextColor,
+						boxShadow : '0 2px 4px rgba(0, 0, 0, .5)'
 					},
 					c : [left === undefined ? '' : DIV({
 						style : {

@@ -111,7 +111,7 @@ Yogurt.MenuLayout = CLASS({
 
 				if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 					return {
-						left : Yogurt.Theme.menuLayoutMenuWidth,
+						left : leftMenu === undefined ? 0 : Yogurt.Theme.menuLayoutMenuWidth,
 						width : BODY.getWidth() - (leftMenu === undefined ? 0 : Yogurt.Theme.menuLayoutMenuWidth) - (rightMenu === undefined ? 0 : Yogurt.Theme.menuLayoutMenuWidth)
 					};
 				} else {

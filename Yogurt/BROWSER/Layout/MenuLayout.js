@@ -92,7 +92,7 @@ Yogurt.MenuLayout = CLASS({
 
 						if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 							return {
-								marginLeft : Yogurt.Theme.menuLayoutMenuWidth,
+								marginLeft : leftMenu === undefined ? 0 : Yogurt.Theme.menuLayoutMenuWidth,
 								width : BODY.getWidth() - Yogurt.Theme.menuLayoutMenuWidth * menuCount
 							};
 						} else {

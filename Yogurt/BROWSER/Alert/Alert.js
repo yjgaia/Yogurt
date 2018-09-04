@@ -43,14 +43,16 @@ Yogurt.Alert = CLASS({
 		self.getButton().on('mouseover', (e, button) => {
 			button.addStyle({
 				color : Yogurt.Theme.buttonMouseoverTitleColor,
-				backgroundColor : Yogurt.Theme.buttonMouseoverColor
+				backgroundColor : Yogurt.Theme.buttonMouseoverColor,
+				borderRadius : '0 0 5px 5px'
 			});
 		});
 		
 		self.getButton().on('mouseout', (e, button) => {
 			button.addStyle({
 				color : 'inherit',
-				backgroundColor : 'transparent'
+				backgroundColor : 'transparent',
+				borderRadius : '0 0 5px 5px'
 			});
 		});
 	}

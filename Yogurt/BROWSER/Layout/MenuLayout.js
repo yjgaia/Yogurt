@@ -47,7 +47,7 @@ Yogurt.MenuLayout = CLASS({
 					backgroundColor : Yogurt.Theme.menuLayoutMenuBackgroundColor,
 					width : Yogurt.Theme.menuLayoutMenuWidth,
 					height : '100%',
-					overflowY : 'scroll',
+					overflowY : 'auto',
 					zIndex : 999999,
 					onDisplayResize : (width, height) => {
 
@@ -70,7 +70,7 @@ Yogurt.MenuLayout = CLASS({
 					backgroundColor : Yogurt.Theme.menuLayoutMenuBackgroundColor,
 					width : Yogurt.Theme.menuLayoutMenuWidth,
 					height : '100%',
-					overflowY : 'scroll',
+					overflowY : 'auto',
 					zIndex : 999999,
 					onDisplayResize : (width, height) => {
 

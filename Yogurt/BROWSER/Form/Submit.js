@@ -9,8 +9,7 @@ Yogurt.Submit = CLASS({
 			style : {
 				display : 'block',
 				textAlign : 'center',
-				paddingTop : 15,
-				paddingBottom : 15,
+				padding : '15px 0',
 				cursor : 'pointer',
 				textDecoration : 'none',
 				color : Yogurt.Theme.buttonTitleColor,

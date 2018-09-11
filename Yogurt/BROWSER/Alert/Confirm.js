@@ -56,7 +56,7 @@ Yogurt.Confirm = CLASS({
 			button.addStyle({
 				color : Yogurt.Theme.buttonMouseoverTitleColor,
 				backgroundColor : Yogurt.Theme.buttonMouseoverColor,
-				borderRadius : '0 0 5px 5px'
+				borderRadius : '0 0 0 5px'
 			});
 		});
 		
@@ -64,7 +64,7 @@ Yogurt.Confirm = CLASS({
 			button.addStyle({
 				color : 'inherit',
 				backgroundColor : 'transparent',
-				borderRadius : '0 0 5px 5px'
+				borderRadius : '0 0 0 5px'
 			});
 		});
 		
@@ -72,7 +72,7 @@ Yogurt.Confirm = CLASS({
 			button.addStyle({
 				color : Yogurt.Theme.buttonMouseoverTitleColor,
 				backgroundColor : Yogurt.Theme.buttonMouseoverColor,
-				borderRadius : '0 0 5px 5px'
+				borderRadius : '0 0 5px 0'
 			});
 		});
 		
@@ -80,7 +80,7 @@ Yogurt.Confirm = CLASS({
 			button.addStyle({
 				color : 'inherit',
 				backgroundColor : 'transparent',
-				borderRadius : '0 0 5px 5px'
+				borderRadius : '0 0 5px 0'
 			});
 		});
 	}

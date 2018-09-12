@@ -55,10 +55,7 @@ Yogurt.Prompt = CLASS({
 		};
 	},
 
-	init : (inner, self, message) => {
-		//REQUIRED: message
-		
-		self.append(message);
+	init : (inner, self) => {
 		
 		self.getOkButton().on('mouseover', (e, button) => {
 			button.addStyle({

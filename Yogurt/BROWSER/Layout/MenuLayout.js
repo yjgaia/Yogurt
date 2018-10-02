@@ -246,14 +246,14 @@ Yogurt.MenuLayout = CLASS({
 
 					toolbarTapEvent = EVENT({
 						node : toolbar,
-						name : 'touchstart'
+						name : 'touchend'
 					}, (e) => {
 						toggleLeftMenu();
 					});
 
 					contentTapEvent = EVENT({
 						node : content,
-						name : 'touchstart'
+						name : 'touchend'
 					}, (e) => {
 						toggleLeftMenu();
 					});
@@ -262,7 +262,7 @@ Yogurt.MenuLayout = CLASS({
 
 						bottomBarTapEvent = EVENT({
 							node : bottomBar,
-							name : 'touchstart'
+							name : 'touchend'
 						}, (e) => {
 							toggleLeftMenu();
 						});
@@ -457,14 +457,14 @@ Yogurt.MenuLayout = CLASS({
 
 					toolbarTapEvent = EVENT({
 						node : toolbar,
-						name : 'touchstart'
+						name : 'touchend'
 					}, (e) => {
 						toggleRightMenu();
 					});
 
 					contentTapEvent = EVENT({
 						node : content,
-						name : 'touchstart'
+						name : 'touchend'
 					}, (e) => {
 						toggleRightMenu();
 					});
@@ -473,7 +473,7 @@ Yogurt.MenuLayout = CLASS({
 
 						bottomBarTapEvent = EVENT({
 							node : bottomBar,
-							name : 'touchstart'
+							name : 'touchend'
 						}, (e) => {
 							toggleRightMenu();
 						});

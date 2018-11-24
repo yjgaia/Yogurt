@@ -12,7 +12,8 @@ Yogurt.Button = CLASS({
 				color : Yogurt.Theme.buttonTitleColor,
 				fontSize : 20,
 				borderRadius : 5,
-				backgroundColor : Yogurt.Theme.buttonColor
+				backgroundColor : Yogurt.Theme.buttonColor,
+				border : Yogurt.Theme.buttonBorder
 			},
 			spacing : 5,
 			on : {

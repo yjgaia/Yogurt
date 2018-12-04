@@ -51,7 +51,7 @@ Yogurt.MenuLayout = CLASS({
 					zIndex : 999999,
 					onDisplayResize : (width, height) => {
 
-						if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+						if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 							return {
 								left : 0
 							};
@@ -74,7 +74,7 @@ Yogurt.MenuLayout = CLASS({
 					zIndex : 999999,
 					onDisplayResize : (width, height) => {
 
-						if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+						if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 							return {
 								right : 0
 							};
@@ -90,7 +90,7 @@ Yogurt.MenuLayout = CLASS({
 				style : {
 					onDisplayResize : (width, height) => {
 
-						if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+						if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 							return {
 								marginLeft : leftMenu === undefined ? 0 : Yogurt.Theme.menuLayoutMenuWidth,
 								width : BODY.getWidth() - Yogurt.Theme.menuLayoutMenuWidth * menuCount
@@ -109,7 +109,7 @@ Yogurt.MenuLayout = CLASS({
 		toolbar.addContentStyle({
 			onDisplayResize : (width, height) => {
 
-				if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+				if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 					return {
 						left : leftMenu === undefined ? 0 : Yogurt.Theme.menuLayoutMenuWidth,
 						width : BODY.getWidth() - (leftMenu === undefined ? 0 : Yogurt.Theme.menuLayoutMenuWidth) - (rightMenu === undefined ? 0 : Yogurt.Theme.menuLayoutMenuWidth)
@@ -133,7 +133,7 @@ Yogurt.MenuLayout = CLASS({
 			bottomBar.addContentStyle({
 				onDisplayResize : (width, height) => {
 
-					if (width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+					if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && width > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 						return {
 							left : Yogurt.Theme.menuLayoutMenuWidth,
 							width : BODY.getWidth() - Yogurt.Theme.menuLayoutMenuWidth * 2
@@ -161,7 +161,7 @@ Yogurt.MenuLayout = CLASS({
 
 		let showLeftMenu = self.showLeftMenu = () => {
 			
-			if (WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+			if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 				// ignore.
 			} else {
 
@@ -273,7 +273,7 @@ Yogurt.MenuLayout = CLASS({
 
 		let hideLeftMenu = self.hideLeftMenu = () => {
 
-			if (WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+			if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 
 				if (touchPad !== undefined) {
 					touchPad.remove();
@@ -356,7 +356,7 @@ Yogurt.MenuLayout = CLASS({
 
 		let toggleLeftMenu = self.toggleLeftMenu = () => {
 
-			if (WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+			if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 				// ignore.
 			} else {
 
@@ -372,7 +372,7 @@ Yogurt.MenuLayout = CLASS({
 
 		let showRightMenu = self.showRightMenu = () => {
 
-			if (WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+			if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 				// ignore.
 			} else {
 
@@ -484,7 +484,7 @@ Yogurt.MenuLayout = CLASS({
 
 		let hideRightMenu = self.hideRightMenu = () => {
 
-			if (WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+			if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 
 				if (touchPad !== undefined) {
 					touchPad.remove();
@@ -567,7 +567,7 @@ Yogurt.MenuLayout = CLASS({
 
 		let toggleRightMenu = self.toggleRightMenu = () => {
 
-			if (WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
+			if (Yogurt.Theme.menuLayoutHideMenuWinWidth !== undefined && WIN_WIDTH() > Yogurt.Theme.menuLayoutHideMenuWinWidth) {
 				// ignore.
 			} else {
 

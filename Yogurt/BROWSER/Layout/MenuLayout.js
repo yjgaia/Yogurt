@@ -122,6 +122,17 @@ Yogurt.MenuLayout = CLASS({
 				}
 			}
 		});
+		
+		self.on('show', () => {
+			
+			if (leftMenu !== undefined) {
+				leftMenu.fireEvent('show');
+			}
+			
+			if (rightMenu !== undefined) {
+				rightMenu.fireEvent('show');
+			}
+		});
 
 		inner.setWrapperDom(wrapper);
 		inner.setContentDom(content);

@@ -82,18 +82,18 @@ YogurtShowcase.MenuLayout = CLASS({
 			}),
 
 			leftMenu : DIV({
-				c : [UUI.BUTTON_H({
+				c : [A({
 					style : {
-						width : '100%',
+						display : 'block',
+						padding : 15,
 						borderBottom : '1px solid #666',
 						fontSize : 15
 					},
-					contentStyle : {
-						padding : 15
-					},
-					icon : FontAwesome.GetIcon('chevron-left'),
-					spacing : 10,
-					title : 'Go Home',
+					c : UUI.BUTTON_H({
+						icon : FontAwesome.GetIcon('chevron-left'),
+						spacing : 10,
+						title : 'Go Home'
+					}),
 					on : {
 						tap : () => {
 							YogurtShowcase.GO('');
@@ -103,18 +103,18 @@ YogurtShowcase.MenuLayout = CLASS({
 			}),
 
 			rightMenu : DIV({
-				c : [UUI.BUTTON_H({
+				c : [A({
 					style : {
-						width : '100%',
+						display : 'block',
+						padding : 15,
 						borderBottom : '1px solid #666',
 						fontSize : 15
 					},
-					contentStyle : {
-						padding : 15
-					},
-					icon : FontAwesome.GetIcon('chevron-left'),
-					spacing : 10,
-					title : 'Go Home',
+					c : UUI.BUTTON_H({
+						icon : FontAwesome.GetIcon('chevron-left'),
+						spacing : 10,
+						title : 'Go Home'
+					}),
 					on : {
 						tap : () => {
 							YogurtShowcase.GO('');
